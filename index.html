@@ -2250,6 +2250,7 @@
     ttEl.hidden = false;
     wiseState.usd = lastOrder.total;
     wiseState.manual = false;
+    wiseState.ctx = "calc";
     syncWise();
     setPayMethod(payMethod);
     setOrderLink();
@@ -2292,7 +2293,7 @@
     email: "stocklotkorea@gmail.com",
     url: "https://wise.com/send-money/"
   };
-  var wiseState = { usd: 0, label: "", manual: false };
+  var wiseState = { usd: 0, label: "", manual: false, ctx: "" };
   var wiseEl = document.getElementById("wisepay");
   var wiseBody = document.getElementById("wise-body");
   var wisePane = document.getElementById("pay-wise");
@@ -2428,6 +2429,12 @@
     wiseScroll = document.body.style.overflow;
     var label = "";
     if(modal.getAttribute("aria-hidden") === "false" && current) label = decode(current.title);
+    /* a different product or the page starts empty; the same context keeps what the buyer typed */
+    if(wiseState.ctx !== (label || "")){
+      wiseState.usd = 0;
+      wiseState.manual = false;
+      wiseState.ctx = label || "";
+    }
     wiseState.label = label;
     syncWise();
     wiseEl.setAttribute("aria-hidden", "false");
