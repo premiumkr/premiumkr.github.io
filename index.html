@@ -10,7 +10,8 @@
 <meta property="og:title" content="Premium Korea Export — Stocklot &amp; Wholesale Catalog">
 <meta property="og:description" content="Brand-new Korea stocklot for wholesale buyers. Photo-verified lots, CIF any seaport or DHL Express. Order on WhatsApp.">
 <meta property="og:image" content="assets/poster-mega-apparel.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1826'/%3E%3Cpath d='M18 44V20h9.6c5.4 0 9 3 9 7.7 0 4.8-3.6 7.8-9 7.8H24V44h-6zm10-13.6c2 0 3.2-1.1 3.2-2.7 0-1.7-1.2-2.7-3.2-2.7H24v5.4h4z' fill='%23e9b04a'/%3E%3Ccircle cx='43' cy='40' r='5' fill='%23e9b04a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/brand-logo-thumb.png">
+<link rel="apple-touch-icon" href="assets/brand-logo-thumb.png">
 <style>
   :root{
     --ink:#0a1826;
@@ -75,12 +76,13 @@
   .head-in{display:flex;align-items:center;gap:18px;height:66px}
   .brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
   .brand-mark{
-    width:36px;height:36px;flex:0 0 36px;border-radius:11px;
-    background:linear-gradient(145deg,#f3c470,#d99a25);
-    color:#231603;display:grid;place-items:center;
-    font-size:12px;font-weight:900;letter-spacing:.02em;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+    width:38px;height:38px;flex:0 0 38px;border-radius:11px;
+    background:linear-gradient(150deg,#12304c,#081623 70%);
+    display:grid;place-items:center;padding:4px;overflow:hidden;
+    border:1px solid rgba(233,176,74,.34);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 4px 12px rgba(0,0,0,.3);
   }
+  .brand-mark img{width:100%;height:100%;object-fit:contain}
   .brand-txt{display:grid;line-height:1.1;min-width:0}
   .brand-txt strong{color:#fff;font-size:14.5px;font-weight:800;letter-spacing:.045em;text-transform:uppercase;white-space:nowrap}
   .brand-txt small{color:#8ea3b8;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;margin-top:3px;white-space:nowrap}
@@ -140,18 +142,28 @@
   }
   .chips li::before{content:"✓";color:var(--gold);font-weight:900;font-size:11px}
   .hero-visual{display:grid;justify-items:center;gap:14px}
-  .badge-card{
-    width:min(100%,330px);padding:14px;border-radius:24px;background:#fff;
-    box-shadow:0 26px 60px rgba(0,0,0,.38),0 0 0 1px rgba(255,255,255,.14);
-    transform:rotate(-1.6deg);
+  .hero-logo{display:flex;align-items:center;height:clamp(120px,12.2vw,150px);margin:0 0 clamp(12px,1.6vw,18px)}
+  .hero-logo img{height:100%;width:auto;max-width:100%;filter:drop-shadow(0 16px 34px rgba(0,0,0,.5))}
+  .proof-card{
+    display:grid;gap:14px;width:min(100%,382px);padding:16px 16px 18px;border-radius:22px;
+    background:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.035));
+    border:1px solid rgba(255,255,255,.16);text-decoration:none;color:#fff;
+    box-shadow:0 26px 60px rgba(0,0,0,.32);
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
   }
-  .badge-card img{border-radius:14px;width:100%;height:auto}
-  .badge-cap{margin:0;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#8ea3b8;text-align:center}
+  .proof-card:hover{transform:translateY(-3px);box-shadow:0 34px 72px rgba(0,0,0,.42);border-color:rgba(233,176,74,.4)}
+  .proof-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .proof-shots img{width:100%;aspect-ratio:2 / 3;object-fit:cover;object-position:top center;border-radius:9px;background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.35)}
+  .proof-body{display:grid;gap:5px}
+  .proof-kicker{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .proof-body b{font-size:15px;line-height:1.32;letter-spacing:-.015em}
+  .proof-body span{font-size:12px;line-height:1.5;color:#a9bccd}
+  .proof-body .proof-link{color:var(--gold-soft);font-weight:750;margin-top:2px}
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr;gap:26px}
-    .hero-visual{order:-1;justify-items:start}
-    .badge-card{width:132px;padding:8px;border-radius:16px;transform:rotate(-3deg)}
-    .badge-cap{display:none}
+    .hero-visual{order:2;justify-items:stretch}
+    .hero-logo{height:clamp(96px,26vw,116px)}
+    .proof-card{width:100%}
     .hero-actions .btn{flex:1 1 190px}
   }
 
@@ -377,6 +389,48 @@
     .wh-cta .btns .btn{flex:1 1 140px}
   }
 
+  /* ---------- verified shipments ---------- */
+  .ship-sec{background:linear-gradient(180deg,#fbfcfe,#edf2f8 58%,var(--paper));border-bottom:1px solid var(--line)}
+  .ship-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(16px,3vw,44px);align-items:start;margin-bottom:clamp(16px,2.4vw,22px)}
+  .ship-head .sec-head{margin-bottom:0}
+  .ship-chips{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;justify-content:flex-end}
+  .ship-chips li{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#25405a;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;box-shadow:0 4px 12px rgba(10,24,38,.05);white-space:nowrap}
+  .ship-chips li span{font-size:13px;line-height:1}
+  .ship-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border-radius:16px;overflow:hidden;margin-bottom:clamp(18px,2.6vw,26px);box-shadow:0 14px 32px rgba(10,24,38,.14)}
+  .ship-stats div{background:linear-gradient(160deg,#0b1c2c,#123049);color:#fff;padding:14px 16px;display:grid;gap:3px}
+  .ship-stats b{font-size:16px;font-weight:820;letter-spacing:-.01em;color:var(--gold-soft)}
+  .ship-stats span{font-size:11.5px;line-height:1.35;color:#a9bccd}
+  .ship-sub{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin:26px 0 12px;font-size:15.5px;font-weight:800;letter-spacing:-.015em}
+  .ship-sub span{font-size:10.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#8b98a8}
+  .ship-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+  .ship-tile{display:grid;grid-template-rows:auto 1fr;padding:0;border:1px solid var(--line);background:#fff;border-radius:15px;overflow:hidden;text-align:left;cursor:zoom-in;box-shadow:0 10px 24px rgba(10,24,38,.07);transition:transform .18s ease,box-shadow .18s ease}
+  .ship-tile:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(10,24,38,.15)}
+  .ship-shot{position:relative;display:block;aspect-ratio:2 / 3;background:linear-gradient(160deg,#e8eef6,#d7e0ec);padding:9px}
+  .ship-shot img{width:100%;height:100%;object-fit:contain;border-radius:7px;background:#fff;box-shadow:0 2px 8px rgba(10,24,38,.12)}
+  .ship-tag{position:absolute;top:15px;left:15px;display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;border-radius:999px;padding:4px 9px;box-shadow:0 3px 10px rgba(6,14,24,.28)}
+  .ship-tag::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.95}
+  .tag-delivered{background:rgba(15,138,76,.96)}
+  .tag-arrived{background:rgba(28,101,182,.96)}
+  .tag-departed{background:rgba(201,140,20,.96)}
+  .tag-waybill{background:rgba(38,54,72,.9)}
+  .ship-body{display:grid;gap:4px;padding:11px 13px 13px;align-content:start}
+  .ship-body b{font-size:13px;font-weight:760;letter-spacing:-.01em;line-height:1.3}
+  .ship-line{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .ship-note{margin:18px 0 0;font-size:12.5px;line-height:1.6;color:var(--muted);max-width:70ch}
+  @media (max-width:820px){
+    .ship-head{grid-template-columns:1fr}
+    .ship-chips{justify-content:flex-start}
+    .ship-stats{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){
+    .ship-grid{grid-template-columns:1fr 1fr;gap:9px}
+    .ship-shot{padding:7px}
+    .ship-body{padding:9px 10px 11px}
+    .ship-body b{font-size:12px}
+    .ship-line{font-size:11px}
+    .ship-tag{top:12px;left:12px;font-size:9px;padding:3px 7px}
+  }
+
   /* ---------- photo lightbox ---------- */
   .lb{position:fixed;inset:0;z-index:88;display:none;align-items:center;justify-content:center;padding:18px}
   .lb[aria-hidden="false"]{display:flex}
@@ -591,7 +645,7 @@
 <header class="head">
   <div class="wrap head-in">
     <a class="brand" href="#top" aria-label="Premium Korea Export, home">
-      <span class="brand-mark" aria-hidden="true">PK</span>
+      <span class="brand-mark"><img src="assets/brand-logo-thumb.png" alt="" width="38" height="38"></span>
       <span class="brand-txt">
         <strong>Premium Korea Export</strong>
         <small>Stocklot &amp; Wholesale · Korea</small>
@@ -600,6 +654,7 @@
     <nav class="head-nav" aria-label="Sections">
       <a href="#catalog">Catalog</a>
       <a href="#warehouse">Warehouse &amp; Shipping</a>
+      <a href="#shipments">Verified shipments</a>
       <a href="#how">How to order</a>
       <a href="#why">Why us</a>
     </nav>
@@ -615,6 +670,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
+        <div class="hero-logo">
+          <img src="assets/brand-logo.png" alt="Premium Korea Export — stocklot and wholesale, Seoul" width="1600" height="418" fetchpriority="high">
+        </div>
         <span class="eyebrow">Korea direct · Brand new stock</span>
         <h1>Premium Korea<br>Export <em>stocklot.</em></h1>
         <p class="lede">Container-ready apparel, branded footwear and sealed smartphones straight out of Korea. Every offer is photographed from the actual stock — tap one and order it on WhatsApp.</p>
@@ -636,10 +694,19 @@
         </ul>
       </div>
       <div class="hero-visual">
-        <div class="badge-card">
-          <img src="assets/hero-badge.jpg" width="900" height="900" alt="Premium Brand New Korea Product — official emblem of the Korea stocklot offer" fetchpriority="high">
-        </div>
-        <p class="badge-cap">Premium brand new Korea product</p>
+        <a class="proof-card" href="#shipments" aria-label="See the verified DHL and UPS shipments">
+          <span class="proof-shots">
+            <img src="assets/shipments/label-ups-saver-dubai-uae.jpg" alt="UPS Saver waybill to Dubai, receiver details blurred" loading="lazy" width="474" height="628">
+            <img src="assets/shipments/dhl-track-kumasi-ghana.jpg" alt="DHL tracking screen — delivered in Kumasi, Ghana" loading="lazy" width="663" height="1400">
+            <img src="assets/shipments/dhl-track-mumbai-india.jpg" alt="DHL tracking screen — delivered in Mumbai, India" loading="lazy" width="660" height="1400">
+          </span>
+          <span class="proof-body">
+            <span class="proof-kicker">Verified shipments</span>
+            <b>15 DHL &amp; UPS shipments, tracked to the door</b>
+            <span>UAE · Canada · Spain · Cameroon · Ghana · India · Pakistan · Togo — real waybills, receiver details blurred.</span>
+            <span class="proof-link">See the labels &amp; tracking →</span>
+          </span>
+        </a>
       </div>
     </div>
   </section>
@@ -792,6 +859,197 @@
     </div>
   </section>
 
+
+  <!-- verified global shipments (DHL & UPS) -->
+  <section class="section ship-sec" id="shipments">
+    <div class="wrap">
+      <div class="ship-head">
+        <div class="sec-head">
+          <span class="eyebrow">Verified global shipments</span>
+          <h2>Real DHL &amp; UPS shipments — delivered and tracked</h2>
+          <p>Every order leaves with a waybill and a tracking number. These are our actual labels and the courier screens behind them — DHL Express Worldwide and UPS Saver, from Korea and Hong Kong to buyers in eight countries.</p>
+        </div>
+        <ul class="ship-chips" aria-label="Countries delivered to">
+          <li><span aria-hidden="true">🇦🇪</span> UAE</li>
+          <li><span aria-hidden="true">🇨🇦</span> Canada</li>
+          <li><span aria-hidden="true">🇪🇸</span> Spain</li>
+          <li><span aria-hidden="true">🇨🇲</span> Cameroon</li>
+          <li><span aria-hidden="true">🇬🇭</span> Ghana</li>
+          <li><span aria-hidden="true">🇮🇳</span> India</li>
+          <li><span aria-hidden="true">🇵🇰</span> Pakistan</li>
+          <li><span aria-hidden="true">🇹🇬</span> Togo</li>
+        </ul>
+      </div>
+
+      <div class="ship-stats">
+        <div><b>15</b><span>shipments shown</span></div>
+        <div><b>8</b><span>destination countries</span></div>
+        <div><b>DHL · UPS</b><span>Express Worldwide / Saver</span></div>
+        <div><b>Blurred</b><span>every receiver name &amp; phone</span></div>
+      </div>
+
+      <h3 class="ship-sub">Delivery confirmed <span>courier tracking screens</span></h3>
+      <div class="ship-grid">
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-kumasi-ghana.jpg" data-title="Kumasi, Ghana — delivered" data-sub="DHL Express Worldwide · last update Wed 11 Mar 2026, 2:21 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel delivered in Kumasi, Ghana">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-kumasi-ghana.jpg" alt="DHL tracking screenshot — parcel delivered in Kumasi, Ghana" loading="lazy" decoding="async">
+            <span class="ship-tag tag-delivered">Delivered</span>
+          </span>
+          <span class="ship-body">
+            <b>🇬🇭 Kumasi, Ghana</b>
+            <span class="ship-line">DHL Express Worldwide · Wed 11 Mar 2026</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-accra-ghana.jpg" data-title="Accra, Ghana — delivered" data-sub="DHL Express Worldwide · last update Tue 24 Mar 2026, 4:21 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel delivered in Accra, Ghana">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-accra-ghana.jpg" alt="DHL tracking screenshot — parcel delivered in Accra, Ghana" loading="lazy" decoding="async">
+            <span class="ship-tag tag-delivered">Delivered</span>
+          </span>
+          <span class="ship-body">
+            <b>🇬🇭 Accra, Ghana</b>
+            <span class="ship-line">DHL Express Worldwide · Tue 24 Mar 2026</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-mumbai-india.jpg" data-title="Mumbai, India — delivered" data-sub="DHL Express Worldwide · last update Tue 13 Jan 2026, 1:05 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel delivered in Mumbai, India">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-mumbai-india.jpg" alt="DHL tracking screenshot — parcel delivered in Mumbai, India" loading="lazy" decoding="async">
+            <span class="ship-tag tag-delivered">Delivered</span>
+          </span>
+          <span class="ship-body">
+            <b>🇮🇳 Mumbai, India</b>
+            <span class="ship-line">DHL Express Worldwide · Tue 13 Jan 2026</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-quetta-pakistan.jpg" data-title="Quetta, Pakistan — delivered" data-sub="DHL Express Worldwide · last update Fri 20 Mar 2026, 3:32 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel delivered in Quetta, Pakistan">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-quetta-pakistan.jpg" alt="DHL tracking screenshot — parcel delivered in Quetta, Pakistan" loading="lazy" decoding="async">
+            <span class="ship-tag tag-delivered">Delivered</span>
+          </span>
+          <span class="ship-body">
+            <b>🇵🇰 Quetta, Pakistan</b>
+            <span class="ship-line">DHL Express Worldwide · Fri 20 Mar 2026</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-lome-togo.jpg" data-title="Lomé, Togo — delivered" data-sub="DHL Express Worldwide · last update Tue 13 Jan 2026, 1:05 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel delivered in Lomé, Togo">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-lome-togo.jpg" alt="DHL tracking screenshot — parcel delivered in Lomé, Togo" loading="lazy" decoding="async">
+            <span class="ship-tag tag-delivered">Delivered</span>
+          </span>
+          <span class="ship-body">
+            <b>🇹🇬 Lomé, Togo</b>
+            <span class="ship-line">DHL Express Worldwide · Tue 13 Jan 2026</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-madrid-spain.jpg" data-title="Madrid, Spain — arrived" data-sub="DHL Express Worldwide · arrived Tue 12 Mar 2024, 2:05 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel arrived in Madrid, Spain">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-madrid-spain.jpg" alt="DHL tracking screenshot — parcel arrived in Madrid, Spain" loading="lazy" decoding="async">
+            <span class="ship-tag tag-arrived">Arrived</span>
+          </span>
+          <span class="ship-body">
+            <b>🇪🇸 Madrid, Spain</b>
+            <span class="ship-line">DHL Express Worldwide · Tue 12 Mar 2024</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-yaounde-cameroon.jpg" data-title="Yaoundé, Cameroon — arrived" data-sub="DHL Express Worldwide · arrived Fri 20 Mar 2026, 1:15 PM (UTC) · origin Hong Kong" aria-label="View larger — DHL tracking screenshot — parcel arrived in Yaoundé, Cameroon">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-yaounde-cameroon.jpg" alt="DHL tracking screenshot — parcel arrived in Yaoundé, Cameroon" loading="lazy" decoding="async">
+            <span class="ship-tag tag-arrived">Arrived</span>
+          </span>
+          <span class="ship-body">
+            <b>🇨🇲 Yaoundé, Cameroon</b>
+            <span class="ship-line">DHL Express Worldwide · Fri 20 Mar 2026</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-track-ontario-canada.jpg" data-title="Ontario, Canada — departed DHL facility" data-sub="DHL Express Worldwide · departed the Ontario service area, Canada, Fri 17 Apr 2026, 8:23 AM (UTC)" aria-label="View larger — DHL tracking screenshot — parcel departed the DHL facility in Ontario, Canada">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-track-ontario-canada.jpg" alt="DHL tracking screenshot — parcel departed the DHL facility in Ontario, Canada" loading="lazy" decoding="async">
+            <span class="ship-tag tag-departed">Departed</span>
+          </span>
+          <span class="ship-body">
+            <b>🇨🇦 Ontario, Canada</b>
+            <span class="ship-line">DHL Express Worldwide · Fri 17 Apr 2026</span>
+          </span>
+        </button>
+      </div>
+
+      <h3 class="ship-sub">Waybills <span>real labels — receiver details blurred</span></h3>
+      <div class="ship-grid">
+        <button class="ship-tile" type="button" data-full="assets/shipments/label-ups-saver-dubai-uae.jpg" data-title="UPS Saver — Dubai, United Arab Emirates" data-sub="UPS Saver world-wide express · mobile phone (PI967 Sec II) · shipped 26 Mar 2026 · tracking 1Z A6D 977 04 0988" aria-label="View larger — UPS Saver waybill for a mobile phone shipment to Dubai, United Arab Emirates, receiver details blurred">
+          <span class="ship-shot">
+            <img src="assets/shipments/label-ups-saver-dubai-uae.jpg" alt="UPS Saver waybill for a mobile phone shipment to Dubai, United Arab Emirates, receiver details blurred" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>🇦🇪 Dubai, UAE</b>
+            <span class="ship-line">UPS Saver · 26 Mar 2026 · 1Z A6D 977 04 0988</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/label-dhl-dubai-uae.jpg" data-title="DHL Express — Dubai, United Arab Emirates" data-sub="DHL Express Worldwide · mobile phone · 0.50 kg · shipped 5 Jun 2026 · waybill 75 9347 0802" aria-label="View larger — DHL waybill for a mobile phone shipment to Dubai, United Arab Emirates, receiver details blurred">
+          <span class="ship-shot">
+            <img src="assets/shipments/label-dhl-dubai-uae.jpg" alt="DHL waybill for a mobile phone shipment to Dubai, United Arab Emirates, receiver details blurred" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>🇦🇪 Dubai, UAE</b>
+            <span class="ship-line">DHL Express · 5 Jun 2026 · 75 9347 0802</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/label-dhl-canada-ontario.jpg" data-title="DHL Express — Ontario, Canada" data-sub="DHL Express Worldwide · mobile phone · 0.50 kg · shipped 16 Jun 2026 · waybill 63 6086 8780" aria-label="View larger — DHL waybill for a mobile phone shipment to Ontario, Canada, receiver details blurred">
+          <span class="ship-shot">
+            <img src="assets/shipments/label-dhl-canada-ontario.jpg" alt="DHL waybill for a mobile phone shipment to Ontario, Canada, receiver details blurred" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>🇨🇦 Ontario, Canada</b>
+            <span class="ship-line">DHL Express · 16 Jun 2026 · 63 6086 8780</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-waybill-1176140442.jpg" data-title="DHL waybill — 11 7614 0442" data-sub="DHL Express Worldwide · mobile phone · waybill 11 7614 0442" aria-label="View larger — DHL waybill barcode and tracking number 11 7614 0442 for a mobile phone shipment">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-waybill-1176140442.jpg" alt="DHL waybill barcode and tracking number 11 7614 0442 for a mobile phone shipment" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>DHL waybill</b>
+            <span class="ship-line">Mobile phone · tracking 11 7614 0442</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-waybill-1467839575.jpg" data-title="DHL waybill — 14 6783 9575" data-sub="DHL Express Worldwide · mobile phone · waybill 14 6783 9575" aria-label="View larger — DHL waybill barcode and tracking number 14 6783 9575 for a mobile phone shipment">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-waybill-1467839575.jpg" alt="DHL waybill barcode and tracking number 14 6783 9575 for a mobile phone shipment" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>DHL waybill</b>
+            <span class="ship-line">Mobile phone · tracking 14 6783 9575</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-waybill-8319896012.jpg" data-title="DHL waybill — 83 1989 6012" data-sub="DHL Express Worldwide · mobile phone · waybill 83 1989 6012" aria-label="View larger — DHL waybill barcode and tracking number 83 1989 6012 for a mobile phone shipment">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-waybill-8319896012.jpg" alt="DHL waybill barcode and tracking number 83 1989 6012 for a mobile phone shipment" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>DHL waybill</b>
+            <span class="ship-line">Mobile phone · tracking 83 1989 6012</span>
+          </span>
+        </button>
+        <button class="ship-tile" type="button" data-full="assets/shipments/dhl-waybill-3804833981.jpg" data-title="DHL waybill — 38 0483 3981" data-sub="DHL Express Worldwide · mobile phone · waybill 38 0483 3981" aria-label="View larger — DHL waybill barcode and tracking number 38 0483 3981 for a mobile phone shipment">
+          <span class="ship-shot">
+            <img src="assets/shipments/dhl-waybill-3804833981.jpg" alt="DHL waybill barcode and tracking number 38 0483 3981 for a mobile phone shipment" loading="lazy" decoding="async">
+            <span class="ship-tag tag-waybill">Waybill</span>
+          </span>
+          <span class="ship-body">
+            <b>DHL waybill</b>
+            <span class="ship-line">Mobile phone · tracking 38 0483 3981</span>
+          </span>
+        </button>
+      </div>
+
+      <p class="ship-note">Receiver names, addresses and phone numbers are blurred on every label, and tracking numbers are shared with the buyer on WhatsApp the moment the parcel is handed to the courier. Tap any card to see it full size.</p>
+    </div>
+  </section>
+
   <section class="section" id="how">
     <div class="wrap">
       <div class="sec-head">
@@ -871,7 +1129,7 @@
   <div class="wrap">
     <div class="foot-top">
       <a class="brand" href="#top">
-        <span class="brand-mark" aria-hidden="true">PK</span>
+        <span class="brand-mark"><img src="assets/brand-logo-thumb.png" alt="" width="38" height="38"></span>
         <span class="brand-txt">
           <strong>Premium Korea Export</strong>
           <small>Stocklot &amp; Wholesale · Korea</small>
@@ -880,6 +1138,7 @@
       <nav class="foot-nav" aria-label="Footer">
         <a href="#catalog">Catalog</a>
         <a href="#warehouse">Warehouse &amp; Shipping</a>
+        <a href="#shipments">Verified shipments</a>
         <a href="#how">How to order</a>
         <a href="https://wa.me/821094697255" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">WhatsApp Channel</a>
@@ -1480,12 +1739,13 @@
     modal.setAttribute("aria-hidden","false");
     document.body.classList.add("no-scroll");
     document.body.style.overflow = "hidden";
+    ovOpen("item");
     if(mPanel){ mPanel.classList.toggle("has-vids", !!(it.videos && it.videos.length)); }
     var x = modal.querySelector(".panel-x");
     if(x) x.focus({preventScroll:true});
   }
 
-  function closeModal(){
+  function closeModal(silent){
     modal.setAttribute("aria-hidden","true");
     document.body.style.overflow = "";
     mImg.removeAttribute("src");
@@ -1494,6 +1754,7 @@
       for(var v=0; v<vs.length; v++){ vs[v].pause(); }
     }
     if(lastFocus && lastFocus.focus) lastFocus.focus({preventScroll:true});
+    if(!silent) ovShut();
   }
 
   grid.addEventListener("click", function(e){
@@ -1572,40 +1833,87 @@
   var lbSub = document.getElementById("lb-sub");
   var lbCount = document.getElementById("lb-count");
   var lbWa = document.getElementById("lb-wa");
-  var lbIdx = 0, lbLast = null;
+  var lbIdx = 0, lbLast = null, LB = WH;
 
   function lbShow(k){
-    if(!WH.length) return;
-    lbIdx = (k + WH.length) % WH.length;
-    var w = WH[lbIdx];
+    if(!LB.length) return;
+    lbIdx = (k + LB.length) % LB.length;
+    var w = LB[lbIdx];
     lbImg.src = w.full;
     lbImg.alt = w.alt;
     lbTitle.textContent = w.title;
     lbSub.textContent = w.sub;
-    lbCount.textContent = (lbIdx + 1) + " / " + WH.length;
+    lbCount.textContent = (lbIdx + 1) + " / " + LB.length;
     lbWa.href = wa("Hello, I saw your photo \"" + w.title + "\" in the Premium Korea Export catalog. Please send me the loading photos of the next container, the CIF / DHL shipping cost and your current stock list.");
     [lbIdx + 1, lbIdx - 1].forEach(function(j){
-      var n = WH[(j + WH.length) % WH.length];
+      var n = LB[(j + LB.length) % LB.length];
       if(n && n.full){ var pre = new Image(); pre.src = n.full; }
     });
   }
-  function lbOpen(i){
+  function lbOpen(i, list){
+    if(list) LB = list;
     lbLast = document.activeElement;
     lbShow(i);
     lb.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    ovOpen("lightbox");
     var x = lb.querySelector(".lb-x");
     if(x) x.focus({preventScroll:true});
   }
-  function lbClose(){
+  function lbClose(silent){
     lb.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     if(lbLast && lbLast.focus) lbLast.focus({preventScroll:true});
+    if(!silent) ovShut();
   }
-  whTiles.forEach(function(t, i){ t.addEventListener("click", function(){ lbOpen(i); }); });
+  whTiles.forEach(function(t, i){ t.addEventListener("click", function(){ lbOpen(i, WH); }); });
   lb.addEventListener("click", function(e){ if(e.target.closest("[data-lb-close]")) lbClose(); });
   document.getElementById("lb-prev").addEventListener("click", function(){ lbShow(lbIdx - 1); });
   document.getElementById("lb-next").addEventListener("click", function(){ lbShow(lbIdx + 1); });
+
+  /* ---------- verified shipments gallery ---------- */
+  var shipTiles = [].slice.call(document.querySelectorAll(".ship-tile"));
+  var SH = shipTiles.map(function(t){
+    var img = t.querySelector("img");
+    return {
+      full: t.getAttribute("data-full"),
+      title: t.getAttribute("data-title") || "",
+      sub: t.getAttribute("data-sub") || "",
+      alt: img ? img.alt : ""
+    };
+  });
+  shipTiles.forEach(function(t, i){ t.addEventListener("click", function(){ lbOpen(i, SH); }); });
+
+  /* ---------- overlay history: phone / browser Back closes the overlay ---------- */
+  var ovName = null, ovDepth = 0, ovSelfClose = false;
+  function ovOpen(name){
+    ovName = name;
+    try {
+      if(ovDepth === 0){ history.pushState({ pkOverlay: name }, ""); ovDepth = 1; }
+      else { history.replaceState({ pkOverlay: name }, ""); }
+    } catch(err){}
+  }
+  function ovShut(){
+    ovName = null;
+    if(ovDepth === 1){
+      ovDepth = 0; ovSelfClose = true;
+      try { history.back(); } catch(err){ ovSelfClose = false; }
+    }
+  }
+  window.addEventListener("popstate", function(){
+    if(ovSelfClose){
+      ovSelfClose = false;
+      ovDepth = 0;
+      if(ovName){ ovOpen(ovName); }
+      return;
+    }
+    ovDepth = 0;
+    var n = ovName;
+    ovName = null;
+    if(n === "item") closeModal(true);
+    else if(n === "calc") closeCalc(true);
+    else if(n === "lightbox") lbClose(true);
+  });
   document.addEventListener("keydown", function(e){
     if(lb.getAttribute("aria-hidden") !== "false") return;
     if(e.key === "Escape"){ lbClose(); }
@@ -1767,17 +2075,19 @@
   });
 
   function openCalc(modelIdx){
-    if(modal.getAttribute("aria-hidden") === "false"){ closeModal(); }
+    if(modal.getAttribute("aria-hidden") === "false"){ closeModal(true); }
     if(typeof modelIdx === "number" && modelIdx >= 0 && !QTY[modelIdx]){ QTY[modelIdx] = 1; }
     calcUpdate();
     calcEl.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    ovOpen("calc");
     var x = calcEl.querySelector(".calc-x");
     if(x) x.focus({preventScroll:true});
   }
-  function closeCalc(){
+  function closeCalc(silent){
     calcEl.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if(!silent) ovShut();
   }
   var calcOpenBtn = document.getElementById("calc-open");
   if(calcOpenBtn) calcOpenBtn.addEventListener("click", function(){ openCalc(-1); });
