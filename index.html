@@ -569,6 +569,7 @@
   .calc-send a:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 4px 11px rgba(10,24,38,.22)}
   .calc-send a:active{transform:none;box-shadow:0 1px 4px rgba(10,24,38,.18)}
   .calc-send a:focus-visible{outline:3px solid #17334d;outline-offset:2px}
+  .calc-send a .arw{margin-left:5px;font-size:11px;line-height:1;transform:translateY(-.5px);opacity:.95}
   .calc-send a.send-wise{background:#9FE870;border-color:#163300;color:#163300}
   .calc-send a.send-revolut{background:#191C1F;border-color:#191C1F;color:#fff}
   .calc-send a.send-airwallex{background:#612FFF;border-color:#612FFF;color:#fff}
@@ -1321,10 +1322,10 @@
           </p>
           <p class="calc-send">
             <b>Send the USD from</b>
-            <a class="send-wise" href="https://wise.com/send-money/" target="_blank" rel="noopener">Wise ↗</a>
-            <a class="send-revolut" href="https://www.revolut.com/" target="_blank" rel="noopener">Revolut ↗</a>
-            <a class="send-airwallex" href="https://www.airwallex.com/" target="_blank" rel="noopener">Airwallex ↗</a>
-            <a class="send-payoneer" href="https://www.payoneer.com/" target="_blank" rel="noopener">Payoneer ↗</a>
+            <a class="send-wise" href="https://wise.com/send-money/" target="_blank" rel="noopener">Wise<span class="arw" aria-hidden="true">↗</span></a>
+            <a class="send-revolut" href="https://www.revolut.com/" target="_blank" rel="noopener">Revolut<span class="arw" aria-hidden="true">↗</span></a>
+            <a class="send-airwallex" href="https://www.airwallex.com/" target="_blank" rel="noopener">Airwallex<span class="arw" aria-hidden="true">↗</span></a>
+            <a class="send-payoneer" href="https://www.payoneer.com/" target="_blank" rel="noopener">Payoneer<span class="arw" aria-hidden="true">↗</span></a>
           </p>
           <div class="calc-tt-actions">
             <button class="btn btn-copy" id="calc-copy" type="button">📋 Copy Bank Details</button>
