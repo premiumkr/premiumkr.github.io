@@ -62,6 +62,8 @@
   .btn-ghost{border-color:rgba(255,255,255,.22);color:#e6eef7;background:transparent}
   .btn-ghost:hover{background:rgba(255,255,255,.08)}
   .btn-gold{background:linear-gradient(180deg,#f0bd60,#dc9d2c);color:#2a1b02;box-shadow:0 8px 20px rgba(220,157,44,.25)}
+  .btn-tg{background:linear-gradient(180deg,#3db4e8,#1d8fce);color:#fff;box-shadow:0 8px 20px rgba(29,143,206,.26)}
+  .btn-tg:hover{box-shadow:0 12px 26px rgba(29,143,206,.34)}
   .btn-lg{height:52px;padding:0 26px;font-size:15px}
   .btn-block{width:100%}
 
@@ -315,6 +317,7 @@
     background:radial-gradient(circle,rgba(233,176,74,.22),transparent 70%);
   }
   .band-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:clamp(26px,4vw,38px) 0;flex-wrap:wrap}
+  .band-btns{display:flex;gap:10px;flex-wrap:wrap}
   .band h3{margin:8px 0 0;font-size:clamp(19px,2.4vw,25px);letter-spacing:-.02em;font-weight:800}
   .band p{margin:7px 0 0;color:#a9bccd;font-size:13.5px;line-height:1.55}
 
@@ -363,13 +366,13 @@
   @media (max-width:820px){
     .mbar{
       position:fixed;left:0;right:0;bottom:0;z-index:45;
-      display:grid;grid-template-columns:1fr 1fr;gap:10px;
-      padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+      display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
       background:rgba(255,255,255,.94);
       -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
       border-top:1px solid var(--line);
     }
-    .mbar .btn{height:44px;padding:0 12px;font-size:12.5px}
+    .mbar .btn{height:44px;padding:0 8px;font-size:12px}
     body{padding-bottom:0}
     .foot{padding-bottom:86px}
   }
@@ -654,6 +657,8 @@
   .panel-actions .btn-ch{background:#0a1826;color:#fff;border-color:#0a1826}
   .panel-actions .btn-ch:hover{background:#12293c}
   .panel-actions .btn-ch svg{color:var(--gold)}
+  .panel-actions .btn-tg{grid-column:1 / -1;order:3;background:linear-gradient(180deg,#3db4e8,#1d8fce);color:#fff;border-color:#1d8fce}
+  .panel-actions .btn-tg:hover{background:linear-gradient(180deg,#4dbdea,#1985c0)}
   @media (min-width:900px){.filters{flex-wrap:wrap;overflow:visible}}
   @media (max-width:820px){
     .modal{padding:0}
@@ -692,6 +697,7 @@
     </nav>
     <div class="head-cta">
       <a class="btn btn-ghost" id="head-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Channel</a>
+      <a class="btn btn-tg" id="head-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">Telegram</a>
       <a class="btn btn-wa" id="head-wa" href="https://wa.me/821094697255" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
@@ -720,6 +726,10 @@
           <a class="btn btn-outline btn-lg" id="hero-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/></svg>
             Follow WhatsApp Channel
+          </a>
+          <a class="btn btn-tg btn-lg" id="hero-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.51l-.38 5.36c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.86c.97.54 1.66.26 1.9-.89L22.7 6.35c.3-1.4-.51-1.95-1.44-1.61L3.5 11.65c-1.37.53-1.35 1.28-.23 1.62l4.54 1.42L18.3 7.5c.5-.32.95-.14.58.18l-8.84 7.83z"/></svg>
+            Join Telegram Channel
           </a>
         </div>
         <ul class="chips">
@@ -783,14 +793,17 @@
     </div>
   </section>
 
-  <section class="band" aria-label="WhatsApp channel">
+  <section class="band" aria-label="Our channels">
     <div class="wrap band-in">
       <div>
         <span class="eyebrow">Live stock &amp; videos</span>
-        <h3>New lots land on our WhatsApp Channel first</h3>
+        <h3>New lots land on our WhatsApp Channel and Telegram first</h3>
         <p>Loading videos, fresh stock photos and price drops — before they reach this page.</p>
       </div>
-      <a class="btn btn-gold btn-lg" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Follow the channel</a>
+      <div class="band-btns">
+        <a class="btn btn-gold btn-lg" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Follow the WhatsApp channel</a>
+        <a class="btn btn-tg btn-lg" id="band-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">Join on Telegram</a>
+      </div>
     </div>
   </section>
 
@@ -892,6 +905,7 @@
         <div class="btns">
           <a class="btn btn-wa" id="wh-cta-wa" href="https://wa.me/821094697255" target="_blank" rel="noopener">Chat on WhatsApp</a>
           <a class="btn btn-ghost" id="wh-cta-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Follow the channel</a>
+          <a class="btn btn-tg" id="wh-cta-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">Telegram</a>
         </div>
       </div>
     </div>
@@ -1156,6 +1170,7 @@
         <div class="contact-actions">
           <a class="btn btn-wa btn-lg btn-block" id="contact-wa" href="https://wa.me/821094697255" target="_blank" rel="noopener">Chat on WhatsApp</a>
           <a class="btn btn-outline btn-lg btn-block" id="contact-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Follow WhatsApp Channel</a>
+          <a class="btn btn-outline btn-lg btn-block" id="contact-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">Join Telegram Channel</a>
           <p class="contact-line">WhatsApp: +82 10-9469-7255 · Seoul, Korea (KST)</p>
         </div>
       </div>
@@ -1180,6 +1195,7 @@
         <a href="#how">How to order</a>
         <a href="https://wa.me/821094697255" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">WhatsApp Channel</a>
+        <a href="https://t.me/kyent21korea" target="_blank" rel="noopener">Telegram Channel</a>
       </nav>
     </div>
     <div class="foot-rule"></div>
@@ -1189,8 +1205,9 @@
 </footer>
 
 <div class="mbar" aria-label="Quick contact">
-  <a class="btn btn-wa" id="bar-wa" href="https://wa.me/821094697255" target="_blank" rel="noopener">Chat on WhatsApp</a>
+  <a class="btn btn-wa" id="bar-wa" href="https://wa.me/821094697255" target="_blank" rel="noopener">WhatsApp</a>
   <a class="btn btn-outline" style="border-color:#cdd7e3;color:#0a1826;background:#fff" id="bar-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Channel</a>
+  <a class="btn btn-tg" id="bar-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">Telegram</a>
 </div>
 
 <div class="modal" id="modal" aria-hidden="true">
@@ -1221,6 +1238,7 @@
     <div class="panel-actions">
       <a class="btn btn-wa" id="m-wa" href="#" target="_blank" rel="noopener">💬 Inquire / Order on WhatsApp</a>
       <a class="btn btn-ch" id="m-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">📢 View More on WhatsApp Channel</a>
+      <a class="btn btn-tg" id="m-tg" href="https://t.me/kyent21korea" target="_blank" rel="noopener">✈️ Join us on Telegram</a>
       <button class="btn btn-calc" id="m-calc" type="button" hidden>🧮 Order &amp; Pay Calculator</button>
     </div>
   </div>
