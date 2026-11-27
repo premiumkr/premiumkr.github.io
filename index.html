@@ -222,10 +222,13 @@
   .hot-strip p{margin:0;font-size:13.5px;line-height:1.55;color:#5a3b2c}
   .hot-strip b{color:#1c2b3a}
   .card.sourcing .card-media{background:linear-gradient(155deg,#0c1f31,#173a56 70%,#0e2637);border-bottom:0}
-  .src-art{display:grid;justify-items:center;gap:8px;text-align:center;padding:18px;color:#e8f0f8}
-  .src-art svg{width:54px;height:54px;color:var(--gold);opacity:.95}
-  .src-art strong{font-size:15px;letter-spacing:-.01em}
-  .src-art span{font-size:11.5px;color:#9fb3c6;line-height:1.5;max-width:15ch}
+  .src-art{display:grid;justify-items:center;gap:9px;text-align:center;padding:18px;color:#e8f0f8}
+  .src-art svg{width:52px;height:52px;color:var(--gold);opacity:.95}
+  .src-art strong{font-size:17px;line-height:1.2;letter-spacing:-.015em;max-width:16ch}
+  .src-art span{font-size:11.5px;color:#9fb3c6;line-height:1.55;max-width:30ch}
+  .card.sourcing .card-foot{justify-content:stretch}
+  .wa-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;height:38px;border-radius:999px;font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(180deg,var(--wa-2),#0c7a43);box-shadow:0 8px 18px rgba(12,122,67,.26);white-space:nowrap}
+  .card.sourcing:hover .wa-cta{box-shadow:0 10px 24px rgba(12,122,67,.36)}
   .card{
     position:relative;display:flex;flex-direction:column;text-align:left;
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
@@ -1548,16 +1551,16 @@
       id:"sourcing",
       custom:true,
       cat:"Others · Custom sourcing", cats:[],
-      title:"Custom Korean Stocklot Sourcing",
+      title:"Sourcing from China &amp; Korea",
       badge:"On request",
-      price:"On request", unit:"",
-      meta:"Tell us the product, brand and quantity",
+      price:"", unit:"",
+      meta:"Need product sourcing from China or South Korea? Contact us anytime for anything you are looking for.",
       art:{
         icon:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/>',
-        title:"Your own lot",
-        sub:"Any product · any brand · any quantity"
+        title:"What Are You Looking For?",
+        sub:"Automobiles · Used Home Appliances · Solar Panels · Factory Overstock · Daily Goods &amp; General Merchandise"
       },
-      msg:"Hello, I am looking for a custom Korean stocklot lot: product = , brand = , quantity = , target price = . Can you source it and quote me CIF or DHL?"
+      msg:"Hi! I am looking for product sourcing from China / Korea (Automobiles / Used Appliances / Solar Panels / Factory Overstock / General Goods)."
     }
   ];
 
@@ -1584,8 +1587,7 @@
         +   '<h3 class="card-title">'+it.title+'</h3>'
         +   '<span class="card-meta">'+it.meta+'</span>'
         +   '<div class="card-foot">'
-        +     '<span class="price" style="font-size:14px">'+it.price+'<small> '+it.unit+'</small></span>'
-        +     '<span class="hint">Chat →</span>'
+        +     '<span class="wa-cta">Inquire on WhatsApp <span aria-hidden="true">→</span></span>'
         +   '</div>'
         + '</div>'
         + '</article>';
