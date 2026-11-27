@@ -244,6 +244,7 @@
   .hot-strip p{margin:0;font-size:13.5px;line-height:1.55;color:#5a3b2c}
   .hot-strip b{color:#1c2b3a}
   .card.sourcing .card-media{background:linear-gradient(155deg,#0c1f31,#173a56 70%,#0e2637);border-bottom:0}
+  a.card.sourcing{text-decoration:none;color:inherit}
   .src-art{display:grid;justify-items:center;gap:9px;text-align:center;padding:18px;color:#e8f0f8}
   .src-art svg{width:52px;height:52px;color:var(--gold);opacity:.95}
   .src-art strong{font-size:17px;line-height:1.2;letter-spacing:-.015em;max-width:16ch}
@@ -1601,8 +1602,8 @@
     var open = 'role="button" tabindex="0" data-i="'+i+'" data-cat="'+cats+'" aria-label="'+it.title.replace(/&amp;/g,"and")+(it.custom ? ' — ask on WhatsApp' : ' — view photos and order')+'"';
     if(it.custom){
       var art = it.art || {};
-      return '<article class="card sourcing" '+open+'>'
-        + '<div class="card-media">'
+      return '<a class="card sourcing" href="'+wa(it.msg)+'" target="_blank" rel="noopener" data-i="'+i+'" data-cat="'+cats+'" aria-label="'+it.title.replace(/&amp;/g,"and")+' — inquire on WhatsApp">'
+        + '<div class="card-media">''
         +   '<span class="card-badge">'+it.badge+'</span>'
         +   '<div class="src-art">'
         +     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(art.icon||'')+'</svg>'
@@ -1618,7 +1619,7 @@
         +     '<span class="wa-cta">Inquire on WhatsApp <span aria-hidden="true">→</span></span>'
         +   '</div>'
         + '</div>'
-        + '</article>';
+        + '</a>';
     }
     return '<article class="card" '+open+'>'
       + '<div class="card-media">'
@@ -1791,7 +1792,7 @@
     var card = e.target.closest(".card");
     if(!card) return;
     var idx = Number(card.dataset.i);
-    if(ITEMS[idx].custom){ window.open(wa(ITEMS[idx].msg), "_blank", "noopener"); return; }
+    if(ITEMS[idx].custom){ return; }
     openItem(idx);
   });
   grid.addEventListener("keydown", function(e){
