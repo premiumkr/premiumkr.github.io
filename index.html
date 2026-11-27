@@ -525,6 +525,26 @@
   .thumb:hover{border-color:#96a9bd}
   .gal-cap{margin:4px 0 0;font-size:11.5px;color:var(--muted-2);display:flex;justify-content:space-between;gap:10px}
   .gal-cap b{color:var(--muted);font-weight:700}
+
+  /* ---------- product video ---------- */
+  .vids{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+  .vids[hidden]{display:none}
+  .vids-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 9px;flex-wrap:wrap}
+  .vids-head b{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#0a1826;display:inline-flex;align-items:center;gap:6px}
+  .vids-head b::before{content:"▶";color:var(--wa);font-size:9px;line-height:1}
+  .vids-head span{font-size:11.5px;color:var(--muted-2)}
+  .vids-grid{display:grid;gap:10px}
+  @media (min-width:620px){.vids-grid.two{grid-template-columns:1fr 1fr}}
+  .vid{margin:0;background:#0b1a2a;border:1px solid #16293c;border-radius:12px;overflow:hidden}
+  .vid video{display:block;width:100%;max-height:430px;object-fit:contain;background:#000}
+  .vid figcaption{padding:7px 10px;font-size:11.5px;line-height:1.4;color:#c6d6e5;background:#0b1a2a}
+  .card-vid{
+    position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:5px;
+    background:rgba(15,138,76,.95);color:#fff;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;
+    padding:5px 9px;border-radius:7px;box-shadow:0 6px 16px rgba(15,138,76,.32);
+  }
+  .card-vid svg{width:9px;height:9px;fill:#fff}
+  .wh-vids{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px;box-shadow:0 12px 28px rgba(10,24,38,.08)}
   .m-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
   .m-price strong{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.03em;line-height:1}
   .m-price span{font-size:13px;color:var(--muted);font-weight:700}
@@ -718,6 +738,26 @@
         </button>
       </div>
 
+      <div class="wh-vids">
+        <div class="vids-head"><b>Warehouse &amp; loading video</b><span>Filmed at our Korea warehouse</span></div>
+        <div class="vids-grid two">
+          <figure class="vid">
+            <video controls playsinline preload="metadata" poster="assets/videos/vid-warehouse-loading-poster.jpg" aria-label="40FT container loading at our Korea warehouse">
+              <source src="assets/videos/vid-warehouse-loading.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>40FT container loading — cartons handed in and stacked at the warehouse</figcaption>
+          </figure>
+          <figure class="vid">
+            <video controls playsinline preload="metadata" poster="assets/videos/vid-warehouse-stock-poster.jpg" aria-label="Apparel stock racks inside our Korea warehouse">
+              <source src="assets/videos/vid-warehouse-stock.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Apparel stock racks — colour-sorted stock on the warehouse floor</figcaption>
+          </figure>
+        </div>
+      </div>
+
       <div class="wh-facts">
         <div class="wh-fact">
           <span class="n">01 · Loading</span>
@@ -868,6 +908,7 @@
         <div class="stage"><img id="m-img" src="" alt=""></div>
         <div class="thumbs" id="m-thumbs" role="tablist" aria-label="Photos"></div>
         <p class="gal-cap"><b id="m-count"></b><span>Tap a thumbnail to view it</span></p>
+        <div class="vids" id="m-vids" hidden></div>
       </div>
       <div>
         <div class="m-price"><strong id="m-price"></strong><span id="m-unit"></span></div>
@@ -965,6 +1006,7 @@
       meta:"18 / 17 / 16 Pro Max · tier 1–20+ pcs · DHL included",
       poster:A+"poster-iphone.jpg",
       photos:["d-phone-01","d-phone-02","d-phone-03","d-phone-04","d-phone-05","d-phone-06","d-phone-07","d-phone-08","d-phone-09","d-phone-10","d-phone-11","d-phone-12"],
+      videos:[{src:A+"videos/vid-smartphone.mp4", poster:A+"videos/vid-smartphone-poster.jpg", cap:"iPhone 18 Pro &amp; 17 Pro — brand-new sealed boxes, shot in our stock room"}],
       specs:[
         ["iPhone 18 Pro Max","1 pc USD 1,600 · 5 pcs USD 1,400/pc · 10 pcs USD 1,200/pc · 20 pcs USD 1,050/pc"],
         ["iPhone 17 Pro Max","1 pc USD 1,300 · 5 pcs USD 1,100/pc · 10 pcs USD 950/pc · 20 pcs USD 850/pc"],
@@ -986,6 +1028,7 @@
       meta:"S26 / S25 Ultra · tier 1–20+ pcs · DHL included",
       poster:A+"poster-samsung.jpg",
       photos:["d-phone-02","d-phone-04","d-phone-05","d-phone-08"],
+      videos:[{src:A+"videos/vid-smartphone.mp4", poster:A+"videos/vid-smartphone-poster.jpg", cap:"Galaxy S26 Ultra 512GB / 1TB boxes, filmed next to the iPhones in the same stock room"}],
       specs:[
         ["Galaxy S26 Ultra","1 pc USD 1,100 · 5 pcs USD 1,000/pc · 10 pcs USD 900/pc · 20 pcs USD 800/pc"],
         ["Galaxy S25 Ultra","1 pc USD 1,000 · 5 pcs USD 900/pc · 10 pcs USD 800/pc · 20 pcs USD 700/pc"],
@@ -1006,6 +1049,10 @@
       meta:"MOQ 500 pairs · CIF any seaport",
       poster:A+"poster-sneakers.jpg",
       photos:["d-shoe-01","d-shoe-02","d-shoe-03","d-shoe-04","d-shoe-05","d-shoe-06","d-shoe-17","d-shoe-18","d-shoe-19","d-shoe-21","d-shoe-22","d-shoe-26","d-shoe-23","d-shoe-20","d-shoe-07","d-shoe-08","d-shoe-09","d-shoe-10","d-shoe-11","d-shoe-12","d-shoe-13","d-shoe-24","d-shoe-14","d-shoe-15","d-shoe-16","d-shoe-25"],
+      videos:[
+        {src:A+"videos/vid-sneakers.mp4", poster:A+"videos/vid-sneakers-poster.jpg", cap:"Nike sneakers — new pairs taken straight out of the cartons"},
+        {src:A+"videos/vid-sneakers-stock.mp4", poster:A+"videos/vid-sneakers-stock-poster.jpg", cap:"Nike boxes stacked on the warehouse floor, ready to load"}
+      ],
       specs:[
         ["Small order","500 pairs at USD 15 / pair"],
         ["Full lot","5,000 pairs at USD 9 / pair"],
@@ -1026,6 +1073,7 @@
       meta:"5,000 pairs per week supply",
       poster:A+"poster-slippers.jpg",
       photos:["d-slipper-09","d-slipper-10","d-slipper-11","d-slipper-08","d-slipper-07","d-slipper-20","d-slipper-21","d-slipper-22","d-slipper-23","d-slipper-24","d-slipper-25","d-slipper-13","d-slipper-14","d-slipper-15","d-slipper-16","d-slipper-01","d-slipper-02","d-slipper-03","d-slipper-04","d-slipper-05","d-slipper-06","d-slipper-12","d-slipper-17","d-slipper-18","d-slipper-19"],
+      videos:[{src:A+"videos/vid-slippers.mp4", poster:A+"videos/vid-slippers-poster.jpg", cap:"Nike Calm slipper worn sole and top — teal pair from the current stock"}],
       specs:[
         ["Initial order","500 pairs"],
         ["Supply capacity","5,000 pairs per week"],
@@ -1045,6 +1093,10 @@
       meta:"10 pcs lot · door-to-door included",
       poster:A+"poster-airpods.jpg",
       photos:["d-airpods-01","d-airpods-02","d-airpods-03","d-airpods-04"],
+      videos:[
+        {src:A+"videos/vid-airpods.mp4", poster:A+"videos/vid-airpods-poster.jpg", cap:"AirPods Pro 3 — sealed retail boxes from the 300 pcs lot"},
+        {src:A+"videos/vid-airpods-pair.mp4", poster:A+"videos/vid-airpods-pair-poster.jpg", cap:"AirPods Pro 3 pairing and battery check on an iPhone"}
+      ],
       specs:[
         ["Available stock","300 pcs"],
         ["Lot size","10 pcs"],
@@ -1065,6 +1117,11 @@
       meta:"10 pcs USD 480 / pc · 1 pc USD 600 · DHL included",
       poster:A+"poster-watch-ultra3.jpg",
       photos:["d-watch-ultra3-01","d-watch-ultra3-02","d-watch-ultra3-03","d-watch-ultra3-04"],
+      videos:[
+        {src:A+"videos/vid-watch-unboxing.mp4", poster:A+"videos/vid-watch-unboxing-poster.jpg", cap:"Apple Watch Ultra 3 — sealed box opened on camera"},
+        {src:A+"videos/vid-watch-wrist.mp4", poster:A+"videos/vid-watch-wrist-poster.jpg", cap:"Apple Watch Ultra 3 — on the wrist, screen on"},
+        {src:A+"videos/vid-watch-stock.mp4", poster:A+"videos/vid-watch-stock-poster.jpg", cap:"Apple Watch Ultra 3 — cartons from the ready stock"}
+      ],
       specs:[
         ["Take all · 50 pcs","USD 320 / pc — USD 16,000 total"],
         ["10 pcs","USD 480 / pc — USD 4,800 total"],
@@ -1086,6 +1143,10 @@
       meta:"5,000 pcs available · CIF any seaport",
       poster:A+"poster-jerseys.jpg",
       photos:["d-jersey-01","d-jersey-02","d-jersey-03","d-jersey-04","d-jersey-05","d-jersey-06","d-jersey-07","d-jersey-08","d-jersey-09","d-jersey-10","d-jersey-grid"],
+      videos:[
+        {src:A+"videos/vid-jerseys.mp4", poster:A+"videos/vid-jerseys-poster.jpg", cap:"Club jerseys on the rack — Barcelona and the current design mix"},
+        {src:A+"videos/vid-jersey-argentina.mp4", poster:A+"videos/vid-jersey-argentina-poster.jpg", cap:"Argentina #10 jersey — fabric weave and adidas tag close-up"}
+      ],
       specs:[
         ["Available","5,000 pcs"],
         ["Minimum order","500 pcs"],
@@ -1106,6 +1167,7 @@
       meta:"Wholesale stock available on request",
       poster:A+"poster-luxury-bags.jpg",
       photos:["d-bag-01","d-bag-02","d-bag-03","d-bag-04","d-bag-05","d-bag-06","d-bag-07","d-bag-08","d-bag-09","d-bag-10","d-bag-11","d-bag-12","d-bag-13","d-bag-14","d-bag-15","d-bag-16","d-bag-17","d-bag-18","d-bag-19","d-bag-20","d-bag-21","d-bag-22","d-bag-23","d-bag-24","d-bag-25","d-bag-26","d-bag-27","d-bag-28","d-bag-29","d-bag-30","d-bag-31","d-bag-32","d-bag-33","d-bag-34","d-bag-35","d-bag-36","d-bag-37","d-bag-38","d-bag-39","d-bag-40","d-bag-41","d-bag-42","d-bag-43","d-bag-44","d-bag-45","d-bag-46","d-bag-47","d-bag-48","d-bag-49","d-bag-50","d-bag-51","d-bag-52","d-bag-53"],
+      videos:[{src:A+"videos/vid-luxury-bags.mp4", poster:A+"videos/vid-luxury-bags-poster.jpg", cap:"Louis Vuitton bag from the current stock — monogram canvas and leather trim"}],
       specs:[
         ["Brands","Gucci · Prada · Chanel · LV · Dior"],
         ["Stock","Wholesale stock available on request"],
@@ -1126,6 +1188,7 @@
       meta:"Gucci · Prada · LV · Dior · Moncler · more",
       poster:A+"poster-polo.jpg",
       photos:["d-polo-01","d-polo-02","d-polo-03","d-polo-04","d-polo-05","d-polo-06","d-polo-07","d-polo-08","d-polo-09","d-polo-10","d-polo-11"],
+      videos:[{src:A+"videos/vid-luxury-tees.mp4", poster:A+"videos/vid-luxury-tees-poster.jpg", cap:"Gucci · Chanel · Balenciaga · Burberry tees and polos laid out on the stock table"}],
       specs:[
         ["Quantity","1,000 pcs"],
         ["Unit price","USD 9 / pc"],
@@ -1270,6 +1333,7 @@
       +   '<span class="card-badge">'+it.badge+'</span>'
       +   (it.hot ? '<span class="hot-flag">Hot deal</span>' : '')
       +   (n ? '<span class="card-count">📷 '+n+'</span>' : '')
+      +   (it.videos ? '<span class="card-vid"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 10 6 0 12Z"/></svg>Video</span>' : '')
       +   '<img class="bgimg" src="'+it.poster.replace('.jpg','-card.jpg')+'" alt="" aria-hidden="true" loading="lazy">'
       +   '<img class="fgimg" src="'+it.poster.replace('.jpg','-card.jpg')+'" alt="'+it.title.replace(/&amp;/g,"and")+' — offer poster" loading="lazy" width="520" height="780">'
       + '</div>'
@@ -1337,6 +1401,7 @@
   var mCount = document.getElementById("m-count");
   var mWa = document.getElementById("m-wa");
   var mCalc = document.getElementById("m-calc");
+  var mVids = document.getElementById("m-vids");
   var lastFocus = null;
   var current = null;
   var gallery = [];
@@ -1384,6 +1449,26 @@
       ? (gallery.length - 1) + " detail photos + poster"
       : "Offer poster";
 
+    // product videos
+    if(it.videos && it.videos.length){
+      mVids.hidden = false;
+      mVids.innerHTML = '<div class="vids-head"><b>Product video'+(it.videos.length>1?'s':'')+'</b><span>Filmed on our actual stock in Korea</span></div>'
+        + '<div class="vids-grid'+(it.videos.length>1?' two':'')+'">'
+        + it.videos.map(function(v,k){
+            return '<figure class="vid">'
+              + '<video controls playsinline preload="metadata" poster="'+v.poster+'" aria-label="'+decode(it.title)+' — product video '+(k+1)+'">'
+              +   '<source src="'+v.src+'" type="video/mp4">'
+              +   'Your browser does not support the video tag.'
+              + '</video>'
+              + '<figcaption>'+v.cap+'</figcaption>'
+              + '</figure>';
+          }).join("")
+        + '</div>';
+    } else {
+      mVids.hidden = true;
+      mVids.innerHTML = "";
+    }
+
     setSlide(0);
     mWa.href = wa(it.msg);
     if(mCalc){ mCalc.hidden = !it.calc; }
@@ -1399,6 +1484,10 @@
     modal.setAttribute("aria-hidden","true");
     document.body.style.overflow = "";
     mImg.removeAttribute("src");
+    if(mVids){
+      var vs = mVids.querySelectorAll("video");
+      for(var v=0; v<vs.length; v++){ vs[v].pause(); }
+    }
     if(lastFocus && lastFocus.focus) lastFocus.focus({preventScroll:true});
   }
 
