@@ -563,6 +563,10 @@
   .calc-tt .tt-lines span{display:grid;grid-template-columns:106px 1fr;gap:8px}
   .calc-tt .tt-lines i{font-style:normal;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#7a8b9d;font-weight:700;padding-top:2px}
   .calc-tt-actions{display:grid;gap:8px}
+  .calc-send{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0}
+  .calc-send>b{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7a8b9d;font-weight:800;margin-right:2px}
+  .calc-send a{display:inline-flex;align-items:center;height:32px;padding:0 11px;border-radius:999px;border:1px solid #c9d8e8;background:#fff;font-size:12px;font-weight:800;color:#17334d;text-decoration:none;white-space:nowrap}
+  .calc-send a:hover{background:#eef5fc;border-color:#a9c1d9}
   .btn-copy{height:44px;font-size:13px;background:#fff;border:1px solid #c9d8e8;color:#17334d}
   .btn-copy:hover{background:#eef5fc;border-color:#a9c1d9}
   .btn-copy.is-copied{background:#e9f7ef;border-color:#a6d7bc;color:#0d6b3f}
@@ -1304,11 +1308,18 @@
             <span><i>Bank address</i>381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea</span>
             <span><i>Bank tel</i>+82 2 2648 0235</span>
           </p>
+          <p class="calc-send">
+            <b>Send the USD from</b>
+            <a href="https://wise.com/send-money/" target="_blank" rel="noopener">Wise ↗</a>
+            <a href="https://www.revolut.com/" target="_blank" rel="noopener">Revolut ↗</a>
+            <a href="https://www.airwallex.com/" target="_blank" rel="noopener">Airwallex ↗</a>
+            <a href="https://www.payoneer.com/" target="_blank" rel="noopener">Payoneer ↗</a>
+          </p>
           <div class="calc-tt-actions">
             <button class="btn btn-copy" id="calc-copy" type="button">📋 Copy Bank Details</button>
             <a class="btn btn-wa" id="calc-wa" href="#" target="_blank" rel="noopener">💬 Send Order &amp; Payment Slip on WhatsApp</a>
           </div>
-          <p class="calc-note">Payment is 100% in advance in USD, by bank T/T (SWIFT). If it is cheaper for you, send the same USD amount through Wise (SWIFT USD), Revolut or Airwallex. Send the transfer slip on WhatsApp and we issue the invoice and load your order.</p>
+          <p class="calc-note">Payment is 100% in advance in USD. The apps above send USD to this same account — copy the bank details into the app. Send the transfer slip on WhatsApp and we issue the invoice and load your order.</p>
         </div>
       </div>
     </div>
