@@ -535,6 +535,8 @@
   .vids-head span{font-size:11.5px;color:var(--muted-2)}
   .vids-grid{display:grid;gap:10px}
   @media (min-width:620px){.vids-grid.two{grid-template-columns:1fr 1fr}}
+  .panel.has-vids .stage{height:clamp(240px,40vh,420px)}
+  .panel.has-vids .thumbs{max-height:120px}
   .vid{margin:0;background:#0b1a2a;border:1px solid #16293c;border-radius:12px;overflow:hidden}
   .vid video{display:block;width:100%;max-height:430px;object-fit:contain;background:#000}
   .vid figcaption{padding:7px 10px;font-size:11.5px;line-height:1.4;color:#c6d6e5;background:#0b1a2a}
@@ -545,6 +547,7 @@
   }
   .card-vid svg{width:9px;height:9px;fill:#fff}
   .wh-vids{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px;box-shadow:0 12px 28px rgba(10,24,38,.08)}
+  @media (max-width:760px){.panel.has-vids .stage{height:min(32vh,280px)}.panel.has-vids .thumbs{max-height:96px}}
   .m-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
   .m-price strong{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.03em;line-height:1}
   .m-price span{font-size:13px;color:var(--muted);font-weight:700}
@@ -1402,6 +1405,7 @@
   var mWa = document.getElementById("m-wa");
   var mCalc = document.getElementById("m-calc");
   var mVids = document.getElementById("m-vids");
+  var mPanel = modal.querySelector(".panel");
   var lastFocus = null;
   var current = null;
   var gallery = [];
@@ -1476,6 +1480,7 @@
     modal.setAttribute("aria-hidden","false");
     document.body.classList.add("no-scroll");
     document.body.style.overflow = "hidden";
+    if(mPanel){ mPanel.classList.toggle("has-vids", !!(it.videos && it.videos.length)); }
     var x = modal.querySelector(".panel-x");
     if(x) x.focus({preventScroll:true});
   }
