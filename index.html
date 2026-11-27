@@ -2206,9 +2206,13 @@
   }
 
   function setOrderLink(){
+    var wiseAmt = (payMethod === "wise" && wiseState.usd > 0) ? wiseState.usd : 0;
     var msg = "Hello, I would like to order:\n" + lastOrder.lines.join("\n")
-      + "\nTotal: " + money(payMethod === "wise" && wiseState.usd > 0 ? wiseState.usd : lastOrder.total) + " (Inc. DHL door delivery)"
-      + "\nPayment method: " + (payMethod === "wise" ? "Wise (KRW)" : "USD wire (T/T)")
+      + "\nTotal: " + money(lastOrder.total) + " (Inc. DHL door delivery)";
+    if(wiseAmt && wiseAmt !== lastOrder.total){
+      msg += "\nAgreed amount to pay: " + money(wiseAmt) + " (Wise, KRW equivalent)";
+    }
+    msg += "\nPayment method: " + (payMethod === "wise" ? "Wise (KRW)" : "USD wire (T/T)")
       + "\n\n" + (payMethod === "wise"
           ? "I am sending the Wise (KRW) transfer receipt in this chat. Please confirm the order and send the invoice."
           : "I am sending the T/T payment slip in this chat. Please confirm the order and send the invoice.");
@@ -2315,7 +2319,15 @@
     return t;
   }
 
-  function wisePaneHtml(uid){
+  function wiseWaHref(){
+    var msg = "Hello, I would like to pay by Wise (KRW).";
+    if(wiseState.label) msg += "\nOrder: " + wiseState.label;
+    msg += "\nAmount: " + (wiseState.usd > 0 ? money(wiseState.usd) : "see my invoice") + " (equivalent in KRW)";
+    msg += "\n\nI am sending the Wise transfer receipt in this chat. Please confirm the order and send the invoice.";
+    return wa(msg);
+  }
+
+  function wisePaneHtml(uid, withWa){
     var val = wiseState.usd > 0 ? String(wiseState.usd) : "";
     return '<b>Wise — KRW business transfer</b>'
       + '<p class="wise-for"' + (wiseState.label ? '' : ' hidden') + '>Paying for <b>' + esc(wiseState.label) + '</b></p>'
@@ -2340,12 +2352,13 @@
       + '</div>'
       + '<p class="pay-hint">The account button copies <b>' + WISE.acct + '</b> — the digits Wise asks for.</p>'
       + '<a class="btn btn-wise" href="' + WISE.url + '" target="_blank" rel="noopener">↗ Open Wise (wise.com)</a>'
+      + (withWa ? '<a class="btn btn-wa" id="wise-wa-sheet" href="' + wiseWaHref() + '" target="_blank" rel="noopener">💬 Send Receipt on WhatsApp</a>' : '')
       + '<p class="calc-note">Select <b>Business recipient</b> in Wise, enter the KRW amount matching the USD amount above, and send your transfer receipt via WhatsApp/Telegram.</p>';
   }
 
   function renderWise(){
-    if(wisePane) wisePane.innerHTML = wisePaneHtml("calc");
-    if(wiseBody) wiseBody.innerHTML = wisePaneHtml("sheet");
+    if(wisePane) wisePane.innerHTML = wisePaneHtml("calc", false);
+    if(wiseBody) wiseBody.innerHTML = wisePaneHtml("sheet", true);
     syncWise();
   }
 
@@ -2366,6 +2379,8 @@
       if(wiseState.label){ fors[k].hidden = false; fors[k].innerHTML = 'Paying for <b>' + esc(wiseState.label) + '</b>'; }
       else { fors[k].hidden = true; fors[k].innerHTML = ""; }
     }
+    var sheetWa = document.getElementById("wise-wa-sheet");
+    if(sheetWa) sheetWa.href = wiseWaHref();
   }
 
   function copyText(text, cb){
@@ -2435,6 +2450,7 @@
     wiseState.usd = digits ? parseInt(digits, 10) : 0;
     wiseState.manual = true;
     syncWise(inp);
+    if(!ttEl.hidden) setOrderLink();
   });
 
   document.addEventListener("click", function(e){
