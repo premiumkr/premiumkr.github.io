@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Premium Korea Export — Apparel, Footwear &amp; Smartphone Stocklot</title>
-<meta name="description" content="Brand-new Korea stocklot for wholesale buyers: apparel, denim, branded polo &amp; jackets, Nike &amp; Adidas sneakers, jerseys and slippers, iPhone, Apple Watch Ultra 3 and AirPods. Tap any offer to see photos and order on WhatsApp.">
+<meta name="description" content="Brand-new Korea stocklot for wholesale buyers: apparel, denim, branded polo &amp; jackets, Nike &amp; Adidas sneakers, jerseys and slippers, iPhone 18 / 17 / 16 Pro Max, Samsung Galaxy S26 &amp; S25 Ultra, Apple Watch Ultra 3 and AirPods. Tap any offer to see photos and order on WhatsApp.">
 <meta name="theme-color" content="#0a1826">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Premium Korea Export — Stocklot &amp; Wholesale Catalog">
@@ -87,12 +87,12 @@
   .head-nav{display:flex;gap:6px;margin-left:auto}
   .head-nav a{
     color:#c3d0de;text-decoration:none;font-size:13.5px;font-weight:600;
-    padding:9px 12px;border-radius:8px;
+    padding:9px 12px;border-radius:8px;white-space:nowrap;
   }
   .head-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
   .head-cta{display:flex;gap:9px;align-items:center}
   .head-cta .btn{height:40px;padding:0 15px;font-size:13px}
-  @media (max-width:980px){.head-nav{display:none}}
+  @media (max-width:1080px){.head-nav{display:none}}
   @media (max-width:720px){
     .brand-txt small{display:none}
     .head-cta .btn-ghost{display:none}
@@ -330,6 +330,155 @@
     .foot{padding-bottom:86px}
   }
 
+  /* ---------- warehouse & shipping ---------- */
+  section[id]{scroll-margin-top:78px}
+  .wh-sec{background:linear-gradient(180deg,#e9eef5,#f6f9fc 55%,var(--paper));border-bottom:1px solid var(--line)}
+  .wh-head{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);gap:clamp(18px,3.4vw,44px);align-items:start;margin-bottom:clamp(20px,3vw,30px)}
+  .wh-head .sec-head{margin-bottom:0}
+  .wh-points{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .wh-points li{display:grid;grid-template-columns:16px 1fr;gap:9px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:12.8px;line-height:1.5;color:#33475d;font-weight:600}
+  .wh-points li::before{content:"✓";color:#a9761a;font-weight:900;font-size:12.5px;line-height:1.45}
+  .wh-top{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:12px}
+  .wh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+  .wh-tile{position:relative;display:block;width:100%;padding:0;border:0;background:#0b1a2a;border-radius:16px;overflow:hidden;cursor:zoom-in;text-align:left;box-shadow:0 12px 28px rgba(10,24,38,.13);transition:box-shadow .2s ease,transform .2s ease}
+  .wh-tile:hover{box-shadow:0 18px 40px rgba(10,24,38,.22)}
+  .wh-tile img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+  .wh-tile:hover img{transform:scale(1.035)}
+  .wh-tile .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,14,24,0) 42%,rgba(6,14,24,.78));pointer-events:none}
+  .wh-tile-lg,.wh-tile-tall{height:clamp(228px,30vw,392px)}
+  .wh-tile-sm{height:clamp(140px,15.5vw,206px)}
+  .wh-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;display:grid;gap:3px;padding:14px 16px;color:#fff}
+  .wh-cap b{font-size:13.5px;font-weight:750;letter-spacing:-.01em;line-height:1.3}
+  .wh-cap span{font-size:11.5px;line-height:1.4;color:#c3d3e2}
+  .wh-zoom{position:absolute;top:12px;right:12px;z-index:2;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92);color:#0a1826;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.22)}
+  .wh-zoom svg{width:14px;height:14px}
+  .wh-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .wh-fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px}
+  .wh-fact .n{display:block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#a9761a;margin-bottom:7px}
+  .wh-fact h4{margin:0 0 6px;font-size:15px;letter-spacing:-.01em}
+  .wh-fact p{margin:0;font-size:12.5px;line-height:1.6;color:var(--muted)}
+  .wh-cta{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(100deg,#0a1826,#123049 65%,#0a1826);color:#fff;border-radius:18px;padding:20px 22px;box-shadow:0 16px 36px rgba(10,24,38,.16)}
+  .wh-cta strong{display:block;font-size:15.5px;letter-spacing:-.01em}
+  .wh-cta span{display:block;margin-top:6px;font-size:12.5px;line-height:1.55;color:#a9bccd;max-width:58ch}
+  .wh-cta .btns{display:flex;gap:9px;flex-wrap:wrap;flex:0 0 auto}
+  @media (max-width:820px){
+    .wh-head{grid-template-columns:1fr}
+    .wh-top{grid-template-columns:1fr}
+    .wh-grid{grid-template-columns:1fr 1fr}
+    .wh-tile-lg{height:230px}
+    .wh-tile-tall{height:300px}
+    .wh-tile-sm{height:150px}
+    .wh-facts{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .wh-grid{grid-template-columns:1fr}
+    .wh-tile-sm{height:180px}
+    .wh-cta .btns{width:100%}
+    .wh-cta .btns .btn{flex:1 1 140px}
+  }
+
+  /* ---------- photo lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:88;display:none;align-items:center;justify-content:center;padding:18px}
+  .lb[aria-hidden="false"]{display:flex}
+  .lb-back{position:absolute;inset:0;background:rgba(4,11,19,.93);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .lb-panel{position:relative;display:flex;flex-direction:column;width:min(1120px,100%);max-height:calc(100dvh - 36px);border-radius:16px;overflow:hidden;background:#07121e;box-shadow:0 40px 100px rgba(0,0,0,.6);animation:pop .18s ease-out}
+  .lb-stage{position:relative;display:grid;place-items:center;flex:1 1 auto;min-height:0;background:#040c15}
+  .lb-stage img{display:block;max-width:100%;max-height:calc(100dvh - 196px);object-fit:contain}
+  .lb-bar{display:flex;align-items:center;gap:14px;padding:12px 16px;border-top:1px solid rgba(255,255,255,.1);background:#0a1826;color:#fff;flex-wrap:wrap}
+  .lb-cap{flex:1 1 200px;min-width:0}
+  .lb-cap b{display:block;font-size:13.5px;letter-spacing:-.01em}
+  .lb-cap span{display:block;margin-top:3px;font-size:11.5px;color:#9fb3c6;line-height:1.4}
+  .lb-count{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  .lb-bar .btn{height:40px;font-size:12.5px;padding:0 14px;flex:0 0 auto}
+  .lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(6,14,24,.56);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;z-index:3}
+  .lb-arrow:hover{background:rgba(255,255,255,.16)}
+  .lb-prev{left:10px}
+  .lb-next{right:10px}
+  .lb-x{position:absolute;top:10px;right:10px;z-index:4;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(6,14,24,.62);color:#fff;font-size:16px;cursor:pointer;display:grid;place-items:center}
+  .lb-x:hover{background:rgba(255,255,255,.16)}
+  @media (max-width:640px){
+    .lb{padding:0}
+    .lb-panel{width:100%;max-height:100dvh;height:100dvh;border-radius:0}
+    .lb-stage img{max-height:calc(100dvh - 206px)}
+    .lb-bar{padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:9px}
+    .lb-bar .btn{width:100%}
+    .lb-prev{left:6px}
+    .lb-next{right:6px}
+  }
+
+  /* ---------- smartphone strip ---------- */
+  .phone-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(100deg,#0a1826,#123049 70%,#0a1826);color:#fff;border-radius:16px;padding:16px 18px;margin:0 0 16px;box-shadow:0 14px 30px rgba(10,24,38,.16)}
+  .phone-strip .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#2a1b02;background:var(--gold);border-radius:6px;padding:4px 8px}
+  .phone-strip b{display:block;margin-top:9px;font-size:15.5px;letter-spacing:-.01em}
+  .phone-strip p{margin:5px 0 0;font-size:12.5px;line-height:1.5;color:#a9bccd;max-width:64ch}
+  .phone-strip .btn{flex:0 0 auto}
+  @media (max-width:640px){.phone-strip .btn{width:100%}}
+  .btn-calc{background:linear-gradient(180deg,#f0bd60,#dc9d2c);color:#2a1b02;box-shadow:0 8px 20px rgba(220,157,44,.25)}
+  .panel-actions .btn-calc{grid-column:1 / -1;height:44px;font-size:13px}
+  .panel-actions .btn-calc[hidden]{display:none}
+
+  /* ---------- calculator ---------- */
+  .calc{position:fixed;inset:0;z-index:86;display:none;align-items:center;justify-content:center;padding:20px}
+  .calc[aria-hidden="false"]{display:flex}
+  .calc-back{position:absolute;inset:0;background:rgba(6,14,24,.74);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+  .calc-panel{position:relative;display:flex;flex-direction:column;width:min(880px,100%);max-height:calc(100dvh - 40px);background:#f7f9fc;border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5);animation:pop .18s ease-out}
+  .calc-head{display:flex;align-items:flex-start;gap:14px;padding:18px 20px 15px;background:#0a1826;color:#fff}
+  .calc-head .kicker{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .calc-head h3{margin:6px 0 0;font-size:clamp(18px,2.4vw,23px);letter-spacing:-.02em}
+  .calc-head p{margin:8px 0 0;font-size:12.5px;line-height:1.55;color:#a9bccd;max-width:64ch}
+  .calc-x{margin-left:auto;flex:0 0 36px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1}
+  .calc-x:hover{background:rgba(255,255,255,.16)}
+  .calc-body{padding:14px 16px 16px;overflow:auto;overscroll-behavior:contain;display:grid;gap:12px;align-content:start}
+  .prow{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:border-color .15s ease,box-shadow .15s ease}
+  .prow.has{border-color:#e3c98f;box-shadow:0 0 0 1px rgba(233,176,74,.3)}
+  .prow-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+  .prow-top b{font-size:14.5px;letter-spacing:-.01em}
+  .prow-top .sub{display:block;font-size:11.5px;color:var(--muted-2);margin-top:3px}
+  .prow-band{font-style:normal;font-size:11px;font-weight:700;color:#8a6a1c;background:#fdf5e3;border:1px solid #f1e0b8;border-radius:7px;padding:5px 9px;white-space:nowrap;line-height:1.3}
+  .prow-controls{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin-top:11px}
+  .stepper{display:inline-flex;align-items:center;border:1px solid #d7dfe9;border-radius:10px;overflow:hidden;background:#fff}
+  .stepper button{width:34px;height:34px;border:0;background:#f3f6fa;font-size:17px;font-weight:700;color:#25405a;cursor:pointer;line-height:1}
+  .stepper button:hover{background:#e7eef6}
+  .stepper .qty{width:48px;height:34px;border:0;border-inline:1px solid #e6ecf3;text-align:center;font-size:14px;font-weight:700;color:#0a1826;-webkit-appearance:none;appearance:textfield;-moz-appearance:textfield}
+  .stepper .qty::-webkit-outer-spin-button,.stepper .qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .tiers{display:flex;gap:6px;flex-wrap:wrap}
+  .tiers button{height:32px;padding:0 13px;border-radius:999px;border:1px solid #dbe3ec;background:#fff;font-size:12px;font-weight:700;color:#3c4f63;cursor:pointer}
+  .tiers button:hover{border-color:#b9c6d6;background:#f7fafd}
+  .tiers button[aria-pressed="true"]{background:#0a1826;border-color:#0a1826;color:#fff}
+  .prow-sum{text-align:right;display:grid;gap:2px;min-width:126px}
+  .prow-sum .unit{font-size:11.5px;color:var(--muted-2);font-weight:600}
+  .prow-sum .line{font-size:15.5px;font-weight:850;letter-spacing:-.01em}
+  .calc-sum{display:grid;gap:10px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 16px}
+  .calc-total{display:grid;gap:3px}
+  .calc-total>span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:800}
+  .calc-total strong{font-size:clamp(25px,3.8vw,32px);letter-spacing:-.03em;line-height:1.05}
+  .calc-total em{font-style:normal;font-size:12px;color:var(--muted);font-weight:600}
+  .btn-pay{height:52px;font-size:16px;background:linear-gradient(180deg,#f0bd60,#dc9d2c);color:#2a1b02;box-shadow:0 10px 24px rgba(220,157,44,.3)}
+  .btn-pay:disabled{opacity:.45;box-shadow:none;cursor:not-allowed}
+  .calc-tt{border:1px dashed #c6d4e3;border-radius:12px;background:#f2f7fc;padding:13px 14px;display:grid;gap:9px}
+  .calc-tt[hidden]{display:none}
+  .calc-tt>b{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#3c5a76}
+  .calc-tt p{margin:0;font-size:12.5px;line-height:1.55;color:#33475d}
+  .calc-tt .btn{height:48px;font-size:13.5px;white-space:normal;text-align:center;line-height:1.25;padding:0 14px}
+  .calc-tt .tt-lines{display:grid;gap:5px;font-size:12.5px;color:#24384d;line-height:1.45}
+  .calc-tt .tt-lines span{display:grid;grid-template-columns:106px 1fr;gap:8px}
+  .calc-tt .tt-lines i{font-style:normal;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#7a8b9d;font-weight:700;padding-top:2px}
+  .calc-tt-actions{display:grid;gap:8px}
+  .btn-copy{height:44px;font-size:13px;background:#fff;border:1px solid #c9d8e8;color:#17334d}
+  .btn-copy:hover{background:#eef5fc;border-color:#a9c1d9}
+  .btn-copy.is-copied{background:#e9f7ef;border-color:#a6d7bc;color:#0d6b3f}
+  @media (max-width:520px){.calc-tt .tt-lines span{grid-template-columns:1fr;gap:1px}.calc-tt .tt-lines i{padding-top:4px}}
+  .calc-note{margin:0;font-size:11.5px;color:var(--muted-2);line-height:1.5}
+  @media (max-width:820px){
+    .calc{padding:0}
+    .calc-panel{width:100%;max-height:100dvh;height:100dvh;border-radius:0}
+    .calc-head{padding:14px 15px 12px}
+    .calc-body{padding:12px}
+    .prow-controls{grid-template-columns:1fr;gap:9px}
+    .prow-sum{display:flex;justify-content:space-between;align-items:baseline;text-align:left}
+    .prow-band{order:2}
+  }
+
   /* ---------- modal ---------- */
   .modal{
     position:fixed;inset:0;z-index:80;display:none;
@@ -427,6 +576,7 @@
     </a>
     <nav class="head-nav" aria-label="Sections">
       <a href="#catalog">Catalog</a>
+      <a href="#warehouse">Warehouse &amp; Shipping</a>
       <a href="#how">How to order</a>
       <a href="#why">Why us</a>
     </nav>
@@ -491,6 +641,14 @@
         <span class="tag">🔥 Today</span>
         <p><b>Today's hot promotion</b> — 100,000 pcs of brand-new apparel at USD 0.45/pc, the 600,000 pcs department store clearance with a buyer promotion, and the Apple Watch Ultra 3 at USD 320/pc for the 50 pcs lot (DHL included). Stock moves the same day, so ask for the current lot list on WhatsApp.</p>
       </div>
+      <div class="phone-strip">
+        <div>
+          <span class="tag">📱 Smartphone wholesale</span>
+          <b>iPhone 18 / 17 / 16 Pro Max &amp; Galaxy S26 / S25 Ultra — 1TB</b>
+          <p>Brand new, factory sealed, global unlocked. Tier prices from 1 to 20+ pcs with DHL door delivery included. Price your order in the calculator.</p>
+        </div>
+        <button class="btn btn-calc btn-lg" id="calc-open" type="button">🧮 Order &amp; Pay Calculator</button>
+      </div>
       <div class="filters" id="filters" role="group" aria-label="Filter catalog by category"></div>
       <div class="grid" id="grid"></div>
       <p class="fineprint">Prices in USD, per piece unless stated, CIF any seaport unless stated otherwise. Quantities are stock subject to prior sale. Photos show the actual lots.</p>
@@ -505,6 +663,89 @@
         <p>Loading videos, fresh stock photos and price drops — before they reach this page.</p>
       </div>
       <a class="btn btn-gold btn-lg" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Follow the channel</a>
+    </div>
+  </section>
+
+  <section class="section wh-sec" id="warehouse">
+    <div class="wrap">
+      <div class="wh-head">
+        <div class="sec-head">
+          <span class="eyebrow">Warehouse &amp; global shipping</span>
+          <h2>Real Korea stock, loaded and sealed in front of you</h2>
+          <p>Our stock sits in Korea first — department-store clearance floors, apparel racks and cartons already picked for loading. When an order is confirmed we load a 40FT High Cube at the warehouse and ship CIF to your seaport, or by DHL Express Worldwide for phones and smaller lots.</p>
+        </div>
+        <ul class="wh-points">
+          <li>Brand-new department-store clearance stock, photographed on the floor</li>
+          <li>40FT High Cube loading — 100,000 pcs apparel per container</li>
+          <li>Loading photos of your own container, sent on WhatsApp</li>
+          <li>CIF any seaport, or DHL Express Worldwide door delivery</li>
+        </ul>
+      </div>
+
+      <div class="wh-top">
+        <button class="wh-tile wh-tile-lg" type="button" data-full="assets/wh-01.jpg" aria-label="View larger photo — Korea showroom and warehouse stock">
+          <img src="assets/wh-01-card.jpg" alt="Korea showroom and warehouse stock — racks of brand-new apparel on a department-store floor" width="900" height="420" loading="lazy">
+          <span class="shade"></span>
+          <span class="wh-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg></span>
+          <span class="wh-cap"><b>Korea showroom &amp; warehouse stock</b><span>Department-store clearance floor · Seoul, Korea</span></span>
+        </button>
+        <button class="wh-tile wh-tile-tall" type="button" data-full="assets/wh-03.jpg" aria-label="View larger photo — 40FT container full loading">
+          <img src="assets/wh-03-card.jpg" alt="40FT high cube container fully loaded with cartons at our Korea warehouse" width="675" height="900" loading="lazy">
+          <span class="shade"></span>
+          <span class="wh-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg></span>
+          <span class="wh-cap"><b>40FT container full loading</b><span>Cartons stacked to the doors · Korea warehouse</span></span>
+        </button>
+      </div>
+
+      <div class="wh-grid">
+        <button class="wh-tile wh-tile-sm" type="button" data-full="assets/wh-02.jpg" aria-label="View larger photo — showroom apparel racks and inventory">
+          <img src="assets/wh-02-card.jpg" alt="Showroom apparel racks and inventory — colour-sorted clothing rails on the Korea stock floor" width="900" height="420" loading="lazy">
+          <span class="shade"></span>
+          <span class="wh-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg></span>
+          <span class="wh-cap"><b>Showroom apparel racks &amp; inventory</b><span>Brand-new racks, mixed sizes and colours</span></span>
+        </button>
+        <button class="wh-tile wh-tile-sm" type="button" data-full="assets/wh-04.jpg" aria-label="View larger photo — Hapag-Lloyd 40FT container dispatch">
+          <img src="assets/wh-04-card.jpg" alt="Hapag-Lloyd 40FT container on a trailer leaving the warehouse for export" width="900" height="675" loading="lazy">
+          <span class="shade"></span>
+          <span class="wh-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg></span>
+          <span class="wh-cap"><b>Hapag-Lloyd 40FT container dispatch</b><span>Sealed and moving out for export</span></span>
+        </button>
+        <button class="wh-tile wh-tile-sm" type="button" data-full="assets/wh-05.jpg" aria-label="View larger photo — OOCL 40FT container truck">
+          <img src="assets/wh-05-card.jpg" alt="OOCL 40FT container on a Korea Trailer truck heading to the port" width="900" height="675" loading="lazy">
+          <span class="shade"></span>
+          <span class="wh-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg></span>
+          <span class="wh-cap"><b>OOCL 40FT container truck</b><span>Haulage from the warehouse to the port</span></span>
+        </button>
+      </div>
+
+      <div class="wh-facts">
+        <div class="wh-fact">
+          <span class="n">01 · Loading</span>
+          <h4>40FT High Cube, loaded at our warehouse</h4>
+          <p>Apparel loads at 100,000 pcs per 40FT HC. Cartons are stacked, counted and photographed during loading, and the photos come to you on WhatsApp.</p>
+        </div>
+        <div class="wh-fact">
+          <span class="n">02 · CIF seaport</span>
+          <h4>Freight and insurance to your port</h4>
+          <p>Container freight and marine insurance to your seaport are included in the CIF price. You clear the goods on arrival with the documents we issue.</p>
+        </div>
+        <div class="wh-fact">
+          <span class="n">03 · DHL Express</span>
+          <h4>Door delivery for phones and small lots</h4>
+          <p>Smartphones, watches and smaller lots ship door-to-door by DHL Express Worldwide, with the tracking number shared on WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="wh-cta">
+        <div>
+          <strong>Want the loading photos before you pay?</strong>
+          <span>Tell us the lot and the quantity — we photograph your container while it loads and send it on WhatsApp before it leaves Korea.</span>
+        </div>
+        <div class="btns">
+          <a class="btn btn-wa" id="wh-cta-wa" href="https://wa.me/821094697255" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="btn btn-ghost" id="wh-cta-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">Follow the channel</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -595,6 +836,7 @@
       </a>
       <nav class="foot-nav" aria-label="Footer">
         <a href="#catalog">Catalog</a>
+        <a href="#warehouse">Warehouse &amp; Shipping</a>
         <a href="#how">How to order</a>
         <a href="https://wa.me/821094697255" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">WhatsApp Channel</a>
@@ -638,6 +880,68 @@
     <div class="panel-actions">
       <a class="btn btn-wa" id="m-wa" href="#" target="_blank" rel="noopener">💬 Inquire / Order on WhatsApp</a>
       <a class="btn btn-ch" id="m-ch" href="https://whatsapp.com/channel/0029Vb8ABeWI1rcpSQvzvA1E" target="_blank" rel="noopener">📢 View More on WhatsApp Channel</a>
+      <button class="btn btn-calc" id="m-calc" type="button" hidden>🧮 Order &amp; Pay Calculator</button>
+    </div>
+  </div>
+</div>
+
+<!-- warehouse / shipping photo lightbox -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-back" data-lb-close></div>
+  <div class="lb-panel">
+    <div class="lb-stage">
+      <img id="lb-img" src="" alt="">
+      <button class="lb-arrow lb-prev" id="lb-prev" type="button" aria-label="Previous photo">‹</button>
+      <button class="lb-arrow lb-next" id="lb-next" type="button" aria-label="Next photo">›</button>
+      <button class="lb-x" type="button" data-lb-close aria-label="Close photo">✕</button>
+    </div>
+    <div class="lb-bar">
+      <div class="lb-cap"><b id="lb-title"></b><span id="lb-sub"></span></div>
+      <span class="lb-count" id="lb-count"></span>
+      <a class="btn btn-wa" id="lb-wa" href="#" target="_blank" rel="noopener">💬 Ask about this shipment</a>
+    </div>
+  </div>
+</div>
+
+<!-- smartphone order & pay calculator -->
+<div class="calc" id="calc" aria-hidden="true">
+  <div class="calc-back" data-calc-close></div>
+  <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
+    <div class="calc-head">
+      <div>
+        <span class="kicker">Smartphone order</span>
+        <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB · brand new, factory sealed, global unlocked. Prices are per piece in USD and include DHL door delivery.</p>
+      </div>
+      <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
+    </div>
+    <div class="calc-body">
+      <div id="calc-rows"></div>
+      <div class="calc-sum">
+        <div class="calc-total">
+          <span>Total (USD)</span>
+          <strong id="calc-total">USD 0</strong>
+          <em id="calc-count">Choose a model and a quantity</em>
+          <em>Inc. DHL door delivery</em>
+        </div>
+        <button class="btn btn-pay btn-block" id="calc-pay" type="button" disabled>💳 Pay</button>
+        <div class="calc-tt" id="calc-tt" hidden>
+          <b>T/T bank transfer details</b>
+          <p class="tt-lines">
+            <span><i>Bank</i>HANA BANK — Mokdong Nam Branch</span>
+            <span><i>Account name</i>KY INTERNATIONAL</span>
+            <span><i>Account no.</i>245-910002-44138</span>
+            <span><i>SWIFT code</i>KOEXKRSE</span>
+            <span><i>Bank address</i>381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea</span>
+            <span><i>Bank tel</i>+82 2 2648 0235</span>
+          </p>
+          <div class="calc-tt-actions">
+            <button class="btn btn-copy" id="calc-copy" type="button">📋 Copy Bank Details</button>
+            <a class="btn btn-wa" id="calc-wa" href="#" target="_blank" rel="noopener">💬 Send Order &amp; Payment Slip on WhatsApp</a>
+          </div>
+          <p class="calc-note">Payment is 100% in advance by T/T. Send the transfer slip on WhatsApp and we issue the invoice and load your order.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -652,6 +956,207 @@
 
   var A = "assets/";
   var ITEMS = [
+    {
+      id:"iphone",
+      cat:"Smartphone · Apple", cats:["smartphone"],
+      title:"iPhone 18 / 17 / 16 Pro Max 1TB — Global Unlocked",
+      badge:"3 models",
+      price:"From USD 700", unit:"/ pc",
+      meta:"18 / 17 / 16 Pro Max · tier 1–20+ pcs · DHL included",
+      poster:A+"poster-iphone.jpg",
+      photos:["d-phone-01","d-phone-02","d-phone-03","d-phone-04","d-phone-05","d-phone-06","d-phone-07","d-phone-08","d-phone-09","d-phone-10","d-phone-11","d-phone-12"],
+      specs:[
+        ["iPhone 18 Pro Max","1 pc USD 1,600 · 5 pcs USD 1,400/pc · 10 pcs USD 1,200/pc · 20 pcs USD 1,050/pc"],
+        ["iPhone 17 Pro Max","1 pc USD 1,300 · 5 pcs USD 1,100/pc · 10 pcs USD 950/pc · 20 pcs USD 850/pc"],
+        ["iPhone 16 Pro Max","1 pc USD 1,050 · 5 pcs USD 900/pc · 10 pcs USD 800/pc · 20 pcs USD 700/pc"],
+        ["Storage","1TB · brand new, factory sealed, global unlocked"],
+        ["Shipping","DHL Express Worldwide · door delivery included"],
+        ["Bulk","Better prices above 20 pcs — ask on WhatsApp"]
+      ],
+      msg:"Hello, I am interested in your iPhone 1TB lineup (18 / 17 / 16 Pro Max, brand new, factory sealed, global unlocked). My quantity is: . Please confirm the unit price for that quantity and the DHL door delivery cost to my country.",
+      note:"Prices are per piece in USD and include DHL door delivery. Use the 🧮 Order &amp; Pay Calculator for a live total.",
+      calc:true, calcModel:0
+    },
+    {
+      id:"galaxy",
+      cat:"Smartphone · Samsung", cats:["smartphone"],
+      title:"Samsung Galaxy S26 &amp; S25 Ultra 1TB — Global Unlocked",
+      badge:"2 models",
+      price:"From USD 700", unit:"/ pc",
+      meta:"S26 / S25 Ultra · tier 1–20+ pcs · DHL included",
+      poster:A+"poster-samsung.jpg",
+      photos:["d-phone-02","d-phone-04","d-phone-05","d-phone-08"],
+      specs:[
+        ["Galaxy S26 Ultra","1 pc USD 1,100 · 5 pcs USD 1,000/pc · 10 pcs USD 900/pc · 20 pcs USD 800/pc"],
+        ["Galaxy S25 Ultra","1 pc USD 1,000 · 5 pcs USD 900/pc · 10 pcs USD 800/pc · 20 pcs USD 700/pc"],
+        ["Storage","1TB · brand new, factory sealed, global unlocked"],
+        ["Shipping","DHL Express Worldwide · door delivery included"],
+        ["Bulk","Better prices above 20 pcs — ask on WhatsApp"]
+      ],
+      msg:"Hello, I am interested in your Samsung Galaxy S26 / S25 Ultra 1TB (brand new, factory sealed, global unlocked). My quantity is: . Please confirm the unit price for that quantity and the DHL door delivery cost to my country.",
+      note:"Prices are per piece in USD and include DHL door delivery. Use the 🧮 Order &amp; Pay Calculator for a live total.",
+      calc:true, calcModel:3
+    },
+    {
+      id:"sneakers",
+      cat:"Nike &amp; Adidas Shoes", cats:["shoes"],
+      title:"Nike &amp; Adidas Shoes — Brand New",
+      badge:"5,000 pairs",
+      price:"USD 15", unit:"/ pair",
+      meta:"MOQ 500 pairs · CIF any seaport",
+      poster:A+"poster-sneakers.jpg",
+      photos:["d-shoe-01","d-shoe-02","d-shoe-03","d-shoe-04","d-shoe-05","d-shoe-06","d-shoe-17","d-shoe-18","d-shoe-19","d-shoe-21","d-shoe-22","d-shoe-26","d-shoe-23","d-shoe-20","d-shoe-07","d-shoe-08","d-shoe-09","d-shoe-10","d-shoe-11","d-shoe-12","d-shoe-13","d-shoe-24","d-shoe-14","d-shoe-15","d-shoe-16","d-shoe-25"],
+      specs:[
+        ["Small order","500 pairs at USD 15 / pair"],
+        ["Full lot","5,000 pairs at USD 9 / pair"],
+        ["Sizes","EU 37 – 45, all sizes"],
+        ["Shipping","CIF any seaport"],
+        ["Condition","Brand new"],
+        ["Availability","Ready for immediate shipment"]
+      ],
+      msg:"Hello, I am interested in the Nike & Adidas shoe stock: 500 pairs at USD 15/pair, or the full 5,000 pairs at USD 9/pair CIF. Please send the model list and size breakdown.",
+      note:"Model mix varies with current stock — the latest box photos are shared on request."
+    },
+    {
+      id:"slippers",
+      cat:"Nike &amp; Adidas Slippers", cats:["slippers"],
+      title:"Nike &amp; Adidas Slippers — Brand New",
+      badge:"MOQ 500 pairs",
+      price:"Bulk quotes", unit:"on request",
+      meta:"5,000 pairs per week supply",
+      poster:A+"poster-slippers.jpg",
+      photos:["d-slipper-09","d-slipper-10","d-slipper-11","d-slipper-08","d-slipper-07","d-slipper-20","d-slipper-21","d-slipper-22","d-slipper-23","d-slipper-24","d-slipper-25","d-slipper-13","d-slipper-14","d-slipper-15","d-slipper-16","d-slipper-01","d-slipper-02","d-slipper-03","d-slipper-04","d-slipper-05","d-slipper-06","d-slipper-12","d-slipper-17","d-slipper-18","d-slipper-19"],
+      specs:[
+        ["Initial order","500 pairs"],
+        ["Supply capacity","5,000 pairs per week"],
+        ["Styles","Nike Victori One · Nike Calm · Nike React · adidas Adilette &amp; Adilette Aqua"],
+        ["Shipping","CIF any seaport"],
+        ["Pricing","Special prices for bulk orders"]
+      ],
+      msg:"Hello, I am interested in the Nike & Adidas slipper stock (500 pairs initial order). Please send the current styles, colours and your bulk prices.",
+      note:"Colours and sizes are confirmed from the current stock photos on WhatsApp."
+    },
+    {
+      id:"airpods",
+      cat:"Others · Apple audio", cats:["others"],
+      title:"Apple AirPods Pro 3 — Final Clearance",
+      badge:"300 pcs",
+      price:"USD 100", unit:"/ pc",
+      meta:"10 pcs lot · door-to-door included",
+      poster:A+"poster-airpods.jpg",
+      photos:["d-airpods-01","d-airpods-02","d-airpods-03","d-airpods-04"],
+      specs:[
+        ["Available stock","300 pcs"],
+        ["Lot size","10 pcs"],
+        ["Unit price","USD 100 / pc (10 pcs = USD 1,000)"],
+        ["Retail reference","USD 250 / pc"],
+        ["Condition","Brand new, original Apple product"],
+        ["Delivery","Door-to-door delivery included"]
+      ],
+      msg:"Hello, I am interested in the AirPods Pro 3 clearance stock (300 pcs available, USD 100/pc for a 10 pcs lot). Please confirm availability and door-to-door delivery to my country.",
+      note:"Final clearance — first come, first served, while stock lasts."
+    },
+    {
+      id:"watch-ultra3",
+      cat:"Smartphone · Apple Watch", cats:["hot","others"], hot:true,
+      title:"Apple Watch Ultra 3 — Brand New Sealed",
+      badge:"50 pcs lot",
+      price:"USD 320", unit:"/ pc · take all 50",
+      meta:"10 pcs USD 480 / pc · 1 pc USD 600 · DHL included",
+      poster:A+"poster-watch-ultra3.jpg",
+      photos:["d-watch-ultra3-01","d-watch-ultra3-02","d-watch-ultra3-03","d-watch-ultra3-04"],
+      specs:[
+        ["Take all · 50 pcs","USD 320 / pc — USD 16,000 total"],
+        ["10 pcs","USD 480 / pc — USD 4,800 total"],
+        ["1 pc (MOQ 1)","USD 600 / pc"],
+        ["Condition","Brand new, factory seal, unlocked · all carriers"],
+        ["Shipping","DHL 3 days delivery included"],
+        ["Stock","Ready stock — first come, first served"]
+      ],
+      msg:"Hello, I am interested in the Apple Watch Ultra 3 (brand new, factory sealed, unlocked, all carriers). Prices: 50 pcs at USD 320/pc, 10 pcs at USD 480/pc, 1 pc at USD 600 — DHL 3 days delivery included. Please confirm the current stock and the delivery time to my country.",
+      ask:"photos of the actual units · colours and band sizes · DHL lead time to your country",
+      note:"MOQ is 1 pc. DHL 3-day door-to-door delivery is included in the prices above; quantities above 50 pcs are quoted on request."
+    },
+    {
+      id:"jerseys",
+      cat:"Nike &amp; Adidas Soccer Jersey", cats:["jersey"],
+      title:"Nike &amp; Adidas Soccer Jerseys",
+      badge:"MOQ 500 pcs",
+      price:"USD 7", unit:"/ pc",
+      meta:"5,000 pcs available · CIF any seaport",
+      poster:A+"poster-jerseys.jpg",
+      photos:["d-jersey-01","d-jersey-02","d-jersey-03","d-jersey-04","d-jersey-05","d-jersey-06","d-jersey-07","d-jersey-08","d-jersey-09","d-jersey-10","d-jersey-grid"],
+      specs:[
+        ["Available","5,000 pcs"],
+        ["Minimum order","500 pcs"],
+        ["Unit price","USD 7 / pc"],
+        ["MOQ total","USD 3,500 including shipping"],
+        ["Sizes","All sizes available"],
+        ["Styles","Current club &amp; national designs"]
+      ],
+      msg:"Hello, I am interested in the Nike & Adidas soccer jerseys: MOQ 500 pcs at USD 7/pc CIF. Please send the club list, the sizes and the available quantity.",
+      note:"Bulk orders above 5,000 pcs are quoted with a discount on WhatsApp."
+    },
+    {
+      id:"luxury-bags",
+      cat:"Luxury Brand · Bags", cats:["luxury","bags"],
+      title:"Luxury Brand Bags &amp; Wallets — Gucci, Prada, Chanel, LV, Dior",
+      badge:"53 photos",
+      price:"On request", unit:"price list via WhatsApp",
+      meta:"Wholesale stock available on request",
+      poster:A+"poster-luxury-bags.jpg",
+      photos:["d-bag-01","d-bag-02","d-bag-03","d-bag-04","d-bag-05","d-bag-06","d-bag-07","d-bag-08","d-bag-09","d-bag-10","d-bag-11","d-bag-12","d-bag-13","d-bag-14","d-bag-15","d-bag-16","d-bag-17","d-bag-18","d-bag-19","d-bag-20","d-bag-21","d-bag-22","d-bag-23","d-bag-24","d-bag-25","d-bag-26","d-bag-27","d-bag-28","d-bag-29","d-bag-30","d-bag-31","d-bag-32","d-bag-33","d-bag-34","d-bag-35","d-bag-36","d-bag-37","d-bag-38","d-bag-39","d-bag-40","d-bag-41","d-bag-42","d-bag-43","d-bag-44","d-bag-45","d-bag-46","d-bag-47","d-bag-48","d-bag-49","d-bag-50","d-bag-51","d-bag-52","d-bag-53"],
+      specs:[
+        ["Brands","Gucci · Prada · Chanel · LV · Dior"],
+        ["Stock","Wholesale stock available on request"],
+        ["Photos","53 studio photos of the current bag stock"],
+        ["Price list","Sent on WhatsApp with the model list"],
+        ["Minimum","Quoted per model — ask for the MOQ"],
+        ["Shipping","CIF any seaport or DHL Express"]
+      ],
+      msg:"Hello, I am interested in your luxury brand bag and wallet wholesale stock (Gucci, Prada, Chanel, LV, Dior). Please send the current model list, photos and the wholesale price list.",
+      note:"Photos and the price list are shared on WhatsApp — the gallery shows the bags currently in stock."
+    },
+    {
+      id:"polo",
+      cat:"Luxury Brand · Polo &amp; Tee", cats:["luxury"],
+      title:"Luxury Brand Polo &amp; T-Shirts — 1,000 pcs",
+      badge:"1,000 pcs",
+      price:"USD 9", unit:"/ pc",
+      meta:"Gucci · Prada · LV · Dior · Moncler · more",
+      poster:A+"poster-polo.jpg",
+      photos:["d-polo-01","d-polo-02","d-polo-03","d-polo-04","d-polo-05","d-polo-06","d-polo-07","d-polo-08","d-polo-09","d-polo-10","d-polo-11"],
+      specs:[
+        ["Quantity","1,000 pcs"],
+        ["Unit price","USD 9 / pc"],
+        ["Total CIF","USD 9,000"],
+        ["Shipping","CIF any seaport"],
+        ["Range","Men's &amp; women's, all sizes"],
+        ["Brands","Gucci · Prada · Chanel · LV · Dior · Moncler · Burberry"]
+      ],
+      msg:"Hello, I am interested in the Luxury Brand Polo & T-Shirts offer: 1,000 pcs at USD 9/pc CIF, total USD 9,000. Please send the size breakdown and the available designs.",
+      note:"Design mix and size curve are confirmed from current stock on WhatsApp."
+    },
+    {
+      id:"jackets",
+      cat:"Winter Jumper · Puffer", cats:["winter"],
+      title:"Winter Jumpers &amp; Puffers — The North Face",
+      badge:"500 pcs",
+      price:"USD 30", unit:"/ pc",
+      meta:"500 pcs · CIF any seaport",
+      poster:A+"poster-tnf.jpg",
+      photos:["d-jacket-01","d-jacket-02","d-jacket-03","d-jacket-04"],
+      specs:[
+        ["Quantity","500 pcs"],
+        ["Unit price","USD 30 / pc"],
+        ["Retail reference","Up to USD 500 / pc"],
+        ["Shipping","CIF any seaport"],
+        ["Sizes","All sizes available"],
+        ["Also in stock","Designer puffer styles — ask for the current list"]
+      ],
+      msg:"Hello, I am interested in your winter jumper / puffer stock (500 pcs, USD 30/pc CIF). Please send the model list, the size curve and photos of the current stock.",
+      note:"Puffer styles beyond The North Face are available in the same lot — ask for the model list."
+    },
     {
       id:"mega-apparel",
       cat:"Nonbrand Apparel · Hot deal", cats:["hot","nonbrand"], hot:true,
@@ -695,27 +1200,6 @@
       note:"Buyer promotion terms apply to 6-container orders and are confirmed in writing before the order."
     },
     {
-      id:"watch-ultra3",
-      cat:"Smartphone · Apple Watch", cats:["hot","others"], hot:true,
-      title:"Apple Watch Ultra 3 — Brand New Sealed",
-      badge:"50 pcs lot",
-      price:"USD 320", unit:"/ pc · take all 50",
-      meta:"10 pcs USD 480 / pc · 1 pc USD 600 · DHL included",
-      poster:A+"poster-watch-ultra3.jpg",
-      photos:["d-watch-ultra3-01","d-watch-ultra3-02","d-watch-ultra3-03","d-watch-ultra3-04"],
-      specs:[
-        ["Take all · 50 pcs","USD 320 / pc — USD 16,000 total"],
-        ["10 pcs","USD 480 / pc — USD 4,800 total"],
-        ["1 pc (MOQ 1)","USD 600 / pc"],
-        ["Condition","Brand new, factory seal, unlocked · all carriers"],
-        ["Shipping","DHL 3 days delivery included"],
-        ["Stock","Ready stock — first come, first served"]
-      ],
-      msg:"Hello, I am interested in the Apple Watch Ultra 3 (brand new, factory sealed, unlocked, all carriers). Prices: 50 pcs at USD 320/pc, 10 pcs at USD 480/pc, 1 pc at USD 600 — DHL 3 days delivery included. Please confirm the current stock and the delivery time to my country.",
-      ask:"photos of the actual units · colours and band sizes · DHL lead time to your country",
-      note:"MOQ is 1 pc. DHL 3-day door-to-door delivery is included in the prices above; quantities above 50 pcs are quoted on request."
-    },
-    {
       id:"denim",
       cat:"Jean · Stocklot", cats:["jean"],
       title:"Denim Jeans Stocklot — Brand New",
@@ -736,169 +1220,9 @@
       note:"Current price: USD 1.50 / pc. The printed poster still shows an older USD 1 / pc — the USD 1.50 price above is the one that applies."
     },
     {
-      id:"polo",
-      cat:"Luxury Brand · Polo &amp; Tee", cats:["luxury"],
-      title:"Luxury Brand Polo &amp; T-Shirts — 1,000 pcs",
-      badge:"1,000 pcs",
-      price:"USD 9", unit:"/ pc",
-      meta:"Gucci · Prada · LV · Dior · Moncler · more",
-      poster:A+"poster-polo.jpg",
-      photos:["d-polo-01","d-polo-02","d-polo-03","d-polo-04","d-polo-05","d-polo-06","d-polo-07","d-polo-08","d-polo-09","d-polo-10","d-polo-11"],
-      specs:[
-        ["Quantity","1,000 pcs"],
-        ["Unit price","USD 9 / pc"],
-        ["Total CIF","USD 9,000"],
-        ["Shipping","CIF any seaport"],
-        ["Range","Men's &amp; women's, all sizes"],
-        ["Brands","Gucci · Prada · Chanel · LV · Dior · Moncler · Burberry"]
-      ],
-      msg:"Hello, I am interested in the Luxury Brand Polo & T-Shirts offer: 1,000 pcs at USD 9/pc CIF, total USD 9,000. Please send the size breakdown and the available designs.",
-      note:"Design mix and size curve are confirmed from current stock on WhatsApp."
-    },
-    {
-      id:"jackets",
-      cat:"Winter Jumper · Puffer", cats:["winter"],
-      title:"Winter Jumpers &amp; Puffers — The North Face",
-      badge:"500 pcs",
-      price:"USD 30", unit:"/ pc",
-      meta:"500 pcs · CIF any seaport",
-      poster:A+"poster-tnf.jpg",
-      photos:["d-jacket-01","d-jacket-02","d-jacket-03","d-jacket-04"],
-      specs:[
-        ["Quantity","500 pcs"],
-        ["Unit price","USD 30 / pc"],
-        ["Retail reference","Up to USD 500 / pc"],
-        ["Shipping","CIF any seaport"],
-        ["Sizes","All sizes available"],
-        ["Also in stock","Designer puffer styles — ask for the current list"]
-      ],
-      msg:"Hello, I am interested in your winter jumper / puffer stock (500 pcs, USD 30/pc CIF). Please send the model list, the size curve and photos of the current stock.",
-      note:"Puffer styles beyond The North Face are available in the same lot — ask for the model list."
-    },
-    {
-      id:"sneakers",
-      cat:"Nike &amp; Adidas Shoes", cats:["shoes"],
-      title:"Nike &amp; Adidas Shoes — Brand New",
-      badge:"5,000 pairs",
-      price:"USD 15", unit:"/ pair",
-      meta:"MOQ 500 pairs · CIF any seaport",
-      poster:A+"poster-sneakers.jpg",
-      photos:["d-shoe-01","d-shoe-02","d-shoe-03","d-shoe-04","d-shoe-05","d-shoe-06","d-shoe-17","d-shoe-18","d-shoe-19","d-shoe-21","d-shoe-22","d-shoe-26","d-shoe-23","d-shoe-20","d-shoe-07","d-shoe-08","d-shoe-09","d-shoe-10","d-shoe-11","d-shoe-12","d-shoe-13","d-shoe-24","d-shoe-14","d-shoe-15","d-shoe-16","d-shoe-25"],
-      specs:[
-        ["Small order","500 pairs at USD 15 / pair"],
-        ["Full lot","5,000 pairs at USD 9 / pair"],
-        ["Sizes","EU 37 – 45, all sizes"],
-        ["Shipping","CIF any seaport"],
-        ["Condition","Brand new"],
-        ["Availability","Ready for immediate shipment"]
-      ],
-      msg:"Hello, I am interested in the Nike & Adidas shoe stock: 500 pairs at USD 15/pair, or the full 5,000 pairs at USD 9/pair CIF. Please send the model list and size breakdown.",
-      note:"Model mix varies with current stock — the latest box photos are shared on request."
-    },
-    {
-      id:"jerseys",
-      cat:"Nike &amp; Adidas Soccer Jersey", cats:["jersey"],
-      title:"Nike &amp; Adidas Soccer Jerseys",
-      badge:"MOQ 500 pcs",
-      price:"USD 7", unit:"/ pc",
-      meta:"5,000 pcs available · CIF any seaport",
-      poster:A+"poster-jerseys.jpg",
-      photos:["d-jersey-01","d-jersey-02","d-jersey-03","d-jersey-04","d-jersey-05","d-jersey-06","d-jersey-07","d-jersey-08","d-jersey-09","d-jersey-10","d-jersey-grid"],
-      specs:[
-        ["Available","5,000 pcs"],
-        ["Minimum order","500 pcs"],
-        ["Unit price","USD 7 / pc"],
-        ["MOQ total","USD 3,500 including shipping"],
-        ["Sizes","All sizes available"],
-        ["Styles","Current club &amp; national designs"]
-      ],
-      msg:"Hello, I am interested in the Nike & Adidas soccer jerseys: MOQ 500 pcs at USD 7/pc CIF. Please send the club list, the sizes and the available quantity.",
-      note:"Bulk orders above 5,000 pcs are quoted with a discount on WhatsApp."
-    },
-    {
-      id:"slippers",
-      cat:"Nike &amp; Adidas Slippers", cats:["slippers"],
-      title:"Nike &amp; Adidas Slippers — Brand New",
-      badge:"MOQ 500 pairs",
-      price:"Bulk quotes", unit:"on request",
-      meta:"5,000 pairs per week supply",
-      poster:A+"poster-slippers.jpg",
-      photos:["d-slipper-09","d-slipper-10","d-slipper-11","d-slipper-08","d-slipper-07","d-slipper-20","d-slipper-21","d-slipper-22","d-slipper-23","d-slipper-24","d-slipper-25","d-slipper-13","d-slipper-14","d-slipper-15","d-slipper-16","d-slipper-01","d-slipper-02","d-slipper-03","d-slipper-04","d-slipper-05","d-slipper-06","d-slipper-12","d-slipper-17","d-slipper-18","d-slipper-19"],
-      specs:[
-        ["Initial order","500 pairs"],
-        ["Supply capacity","5,000 pairs per week"],
-        ["Styles","Nike Victori One · Nike Calm · Nike React · adidas Adilette &amp; Adilette Aqua"],
-        ["Shipping","CIF any seaport"],
-        ["Pricing","Special prices for bulk orders"]
-      ],
-      msg:"Hello, I am interested in the Nike & Adidas slipper stock (500 pairs initial order). Please send the current styles, colours and your bulk prices.",
-      note:"Colours and sizes are confirmed from the current stock photos on WhatsApp."
-    },
-    {
-      id:"iphone",
-      cat:"Smartphone · Apple", cats:["smartphone"],
-      title:"iPhone 18 Pro Max 1TB — Global Unlocked",
-      badge:"Factory sealed",
-      price:"From USD 1,050", unit:"/ pc",
-      meta:"Tiered wholesale · DHL Express worldwide",
-      poster:A+"poster-iphone.jpg",
-      photos:["d-phone-01","d-phone-02","d-phone-03","d-phone-04","d-phone-05","d-phone-06","d-phone-07","d-phone-08","d-phone-09","d-phone-10","d-phone-11","d-phone-12"],
-      specs:[
-        ["1 pc","USD 1,600"],
-        ["5 pcs","USD 1,400 / pc"],
-        ["10 pcs","USD 1,200 / pc"],
-        ["20 pcs","USD 1,050 / pc"],
-        ["Condition","Brand new, factory sealed, global unlocked · 1TB"],
-        ["Shipping","DHL Express worldwide"],
-        ["Also on inquiry","Galaxy S26 / S25 Ultra 1TB · iPhone 17 / 16 Pro Max 1TB"]
-      ],
-      msg:"Hello, I am interested in the iPhone 18 Pro Max 1TB (brand new, factory sealed, global unlocked). Please confirm the 20 pcs price and the DHL shipping cost to my country.",
-      note:"DHL shipping is quoted per destination. Bulk prices above 20 pcs are quoted on request."
-    },
-    {
-      id:"airpods",
-      cat:"Others · Apple audio", cats:["others"],
-      title:"Apple AirPods Pro 3 — Final Clearance",
-      badge:"300 pcs",
-      price:"USD 100", unit:"/ pc",
-      meta:"10 pcs lot · door-to-door included",
-      poster:A+"poster-airpods.jpg",
-      photos:["d-airpods-01","d-airpods-02","d-airpods-03","d-airpods-04"],
-      specs:[
-        ["Available stock","300 pcs"],
-        ["Lot size","10 pcs"],
-        ["Unit price","USD 100 / pc (10 pcs = USD 1,000)"],
-        ["Retail reference","USD 250 / pc"],
-        ["Condition","Brand new, original Apple product"],
-        ["Delivery","Door-to-door delivery included"]
-      ],
-      msg:"Hello, I am interested in the AirPods Pro 3 clearance stock (300 pcs available, USD 100/pc for a 10 pcs lot). Please confirm availability and door-to-door delivery to my country.",
-      note:"Final clearance — first come, first served, while stock lasts."
-    },
-    {
-      id:"luxury-bags",
-      cat:"Luxury Brand · Bags", cats:["luxury","bags"],
-      title:"Luxury Brand Bags &amp; Wallets — Gucci, Prada, Chanel, LV, Dior",
-      badge:"53 photos",
-      price:"On request", unit:"price list via WhatsApp",
-      meta:"Wholesale stock available on request",
-      poster:A+"poster-luxury-bags.jpg",
-      photos:["d-bag-01","d-bag-02","d-bag-03","d-bag-04","d-bag-05","d-bag-06","d-bag-07","d-bag-08","d-bag-09","d-bag-10","d-bag-11","d-bag-12","d-bag-13","d-bag-14","d-bag-15","d-bag-16","d-bag-17","d-bag-18","d-bag-19","d-bag-20","d-bag-21","d-bag-22","d-bag-23","d-bag-24","d-bag-25","d-bag-26","d-bag-27","d-bag-28","d-bag-29","d-bag-30","d-bag-31","d-bag-32","d-bag-33","d-bag-34","d-bag-35","d-bag-36","d-bag-37","d-bag-38","d-bag-39","d-bag-40","d-bag-41","d-bag-42","d-bag-43","d-bag-44","d-bag-45","d-bag-46","d-bag-47","d-bag-48","d-bag-49","d-bag-50","d-bag-51","d-bag-52","d-bag-53"],
-      specs:[
-        ["Brands","Gucci · Prada · Chanel · LV · Dior"],
-        ["Stock","Wholesale stock available on request"],
-        ["Photos","53 studio photos of the current bag stock"],
-        ["Price list","Sent on WhatsApp with the model list"],
-        ["Minimum","Quoted per model — ask for the MOQ"],
-        ["Shipping","CIF any seaport or DHL Express"]
-      ],
-      msg:"Hello, I am interested in your luxury brand bag and wallet wholesale stock (Gucci, Prada, Chanel, LV, Dior). Please send the current model list, photos and the wholesale price list.",
-      note:"Photos and the price list are shared on WhatsApp — the gallery shows the bags currently in stock."
-    },
-    {
       id:"sourcing",
       custom:true,
-      cat:"Others · Custom sourcing", cats:["others"],
+      cat:"Others · Custom sourcing", cats:[],
       title:"Custom Korean Stocklot Sourcing",
       badge:"On request",
       price:"On request", unit:"",
@@ -967,16 +1291,16 @@
   var CATS = [
     {key:"all", label:"All"},
     {key:"hot", label:"🔥 Today Hot Promotion", hot:true},
-    {key:"nonbrand", label:"Nonbrand Apparel"},
-    {key:"jean", label:"Jean"},
-    {key:"luxury", label:"Luxury Brand"},
-    {key:"bags", label:"Luxury Bags"},
+    {key:"smartphone", label:"Smartphone"},
     {key:"shoes", label:"Nike &amp; Adidas Shoes"},
     {key:"slippers", label:"Nike &amp; Adidas Slippers"},
+    {key:"others", label:"Apple Watch & Audio"},
     {key:"jersey", label:"Soccer Jersey"},
+    {key:"luxury", label:"Luxury Brand"},
+    {key:"bags", label:"Luxury Bags"},
     {key:"winter", label:"Winter Jumper"},
-    {key:"smartphone", label:"Smartphone"},
-    {key:"others", label:"Others"}
+    {key:"nonbrand", label:"Nonbrand Apparel"},
+    {key:"jean", label:"Jean"}
   ];
   filters.innerHTML = CATS.map(function(c){
     var n = c.key === "all" ? ITEMS.length : ITEMS.filter(function(it){ return it.cats.indexOf(c.key) > -1; }).length;
@@ -1012,6 +1336,7 @@
   var mAsk = document.getElementById("m-ask");
   var mCount = document.getElementById("m-count");
   var mWa = document.getElementById("m-wa");
+  var mCalc = document.getElementById("m-calc");
   var lastFocus = null;
   var current = null;
   var gallery = [];
@@ -1061,6 +1386,7 @@
 
     setSlide(0);
     mWa.href = wa(it.msg);
+    if(mCalc){ mCalc.hidden = !it.calc; }
 
     modal.setAttribute("aria-hidden","false");
     document.body.classList.add("no-scroll");
@@ -1131,6 +1457,253 @@
     if(el) el.href = wa(generic);
   });
   document.getElementById("m-ch").href = CHANNEL;
+
+  /* ---------- warehouse & shipping photo lightbox ---------- */
+  var whTiles = [].slice.call(document.querySelectorAll(".wh-tile"));
+  var WH = whTiles.map(function(t){
+    var img = t.querySelector("img");
+    var cap = t.querySelector(".wh-cap b");
+    var sub = t.querySelector(".wh-cap span");
+    return {
+      full: t.getAttribute("data-full"),
+      title: cap ? cap.textContent : "",
+      sub: sub ? sub.textContent : "",
+      alt: img ? img.alt : ""
+    };
+  });
+
+  var lb = document.getElementById("lb");
+  var lbImg = document.getElementById("lb-img");
+  var lbTitle = document.getElementById("lb-title");
+  var lbSub = document.getElementById("lb-sub");
+  var lbCount = document.getElementById("lb-count");
+  var lbWa = document.getElementById("lb-wa");
+  var lbIdx = 0, lbLast = null;
+
+  function lbShow(k){
+    if(!WH.length) return;
+    lbIdx = (k + WH.length) % WH.length;
+    var w = WH[lbIdx];
+    lbImg.src = w.full;
+    lbImg.alt = w.alt;
+    lbTitle.textContent = w.title;
+    lbSub.textContent = w.sub;
+    lbCount.textContent = (lbIdx + 1) + " / " + WH.length;
+    lbWa.href = wa("Hello, I saw your photo \"" + w.title + "\" in the Premium Korea Export catalog. Please send me the loading photos of the next container, the CIF / DHL shipping cost and your current stock list.");
+    [lbIdx + 1, lbIdx - 1].forEach(function(j){
+      var n = WH[(j + WH.length) % WH.length];
+      if(n && n.full){ var pre = new Image(); pre.src = n.full; }
+    });
+  }
+  function lbOpen(i){
+    lbLast = document.activeElement;
+    lbShow(i);
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    var x = lb.querySelector(".lb-x");
+    if(x) x.focus({preventScroll:true});
+  }
+  function lbClose(){
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if(lbLast && lbLast.focus) lbLast.focus({preventScroll:true});
+  }
+  whTiles.forEach(function(t, i){ t.addEventListener("click", function(){ lbOpen(i); }); });
+  lb.addEventListener("click", function(e){ if(e.target.closest("[data-lb-close]")) lbClose(); });
+  document.getElementById("lb-prev").addEventListener("click", function(){ lbShow(lbIdx - 1); });
+  document.getElementById("lb-next").addEventListener("click", function(){ lbShow(lbIdx + 1); });
+  document.addEventListener("keydown", function(e){
+    if(lb.getAttribute("aria-hidden") !== "false") return;
+    if(e.key === "Escape"){ lbClose(); }
+    else if(e.key === "ArrowRight"){ lbShow(lbIdx + 1); }
+    else if(e.key === "ArrowLeft"){ lbShow(lbIdx - 1); }
+    else if(e.key === "Tab"){
+      var f = lb.querySelectorAll('a[href],button:not([disabled])');
+      if(!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* ---------- smartphone order & pay calculator ---------- */
+  var PHONES = [
+    {name:"iPhone 18 Pro Max", brand:"Apple", t:[1600,1400,1200,1050]},
+    {name:"iPhone 17 Pro Max", brand:"Apple", t:[1300,1100,950,850]},
+    {name:"iPhone 16 Pro Max", brand:"Apple", t:[1050,900,800,700]},
+    {name:"Galaxy S26 Ultra", brand:"Samsung", t:[1100,1000,900,800]},
+    {name:"Galaxy S25 Ultra", brand:"Samsung", t:[1000,900,800,700]}
+  ];
+  var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
+  var QTY = {};
+  var lastOrder = {total:0, lines:[], count:0};
+
+  function money(n){ return "USD " + Number(n).toLocaleString("en-US"); }
+  function unitFor(p, q){ return q >= 20 ? p.t[3] : q >= 10 ? p.t[2] : q >= 5 ? p.t[1] : p.t[0]; }
+
+  var calcEl = document.getElementById("calc");
+  var rowsEl = document.getElementById("calc-rows");
+  var totalEl = document.getElementById("calc-total");
+  var countEl = document.getElementById("calc-count");
+  var payBtn = document.getElementById("calc-pay");
+  var ttEl = document.getElementById("calc-tt");
+  var waBtn = document.getElementById("calc-wa");
+  var copyBtn = document.getElementById("calc-copy");
+
+  rowsEl.innerHTML = PHONES.map(function(p, i){
+    var ladder = "1–4 " + money(p.t[0]) + " · 5–9 " + money(p.t[1]) + " · 10–19 " + money(p.t[2]) + " · 20+ " + money(p.t[3]);
+    return '<div class="prow" data-i="' + i + '">'
+      + '<div class="prow-top">'
+      +   '<div><b>' + p.name + ' 1TB</b><span class="sub">' + p.brand + ' · factory sealed · global unlocked</span></div>'
+      +   '<em class="prow-band">' + ladder + ' /pc</em>'
+      + '</div>'
+      + '<div class="prow-controls">'
+      +   '<div class="stepper">'
+      +     '<button type="button" data-act="dec" aria-label="Decrease ' + p.name + ' quantity">−</button>'
+      +     '<input class="qty" type="number" min="0" max="999" step="1" value="0" inputmode="numeric" aria-label="' + p.name + ' quantity in pieces">'
+      +     '<button type="button" data-act="inc" aria-label="Increase ' + p.name + ' quantity">+</button>'
+      +   '</div>'
+      +   '<div class="tiers" role="group" aria-label="Quick quantity for ' + p.name + '">'
+      +     [1,5,10,20].map(function(q){ return '<button type="button" data-q="' + q + '">' + q + '</button>'; }).join("")
+      +   '</div>'
+      +   '<div class="prow-sum"><span class="unit" data-unit>From ' + money(p.t[0]) + ' / pc</span><strong class="line" data-line>USD 0</strong></div>'
+      + '</div>'
+      + '</div>';
+  }).join("");
+
+  var rowEls = [].slice.call(rowsEl.querySelectorAll(".prow"));
+
+  function calcUpdate(){
+    var total = 0, count = 0, lines = [];
+    rowEls.forEach(function(row, i){
+      var p = PHONES[i];
+      var q = Math.max(0, Math.min(999, parseInt(QTY[i] || 0, 10) || 0));
+      QTY[i] = q;
+      row.querySelector(".qty").value = q;
+      var u = unitFor(p, q);
+      var line = q * u;
+      row.querySelector("[data-unit]").textContent = q > 0 ? money(u) + " / pc" : "From " + money(p.t[0]) + " / pc";
+      row.querySelector("[data-line]").textContent = money(line);
+      row.classList.toggle("has", q > 0);
+      var activeQ = q >= 20 ? 20 : q >= 10 ? 10 : q >= 5 ? 5 : q >= 1 ? 1 : 0;
+      [].forEach.call(row.querySelectorAll(".tiers button"), function(b){
+        b.setAttribute("aria-pressed", Number(b.getAttribute("data-q")) === activeQ ? "true" : "false");
+      });
+      if(q > 0){
+        total += line;
+        count += q;
+        lines.push("• " + p.name + " 1TB — " + q + " pcs × " + money(u) + " = " + money(line));
+      }
+    });
+    totalEl.textContent = money(total);
+    countEl.textContent = count
+      ? count + " pcs · " + lines.length + " model" + (lines.length > 1 ? "s" : "")
+      : "Choose a model and a quantity";
+    payBtn.disabled = total <= 0;
+    lastOrder = {total: total, lines: lines, count: count};
+    if(total <= 0){ ttEl.hidden = true; }
+    if(!ttEl.hidden){ setOrderLink(); }
+  }
+
+  function setOrderLink(){
+    var msg = "Hello, I would like to order:\n" + lastOrder.lines.join("\n")
+      + "\nTotal: " + money(lastOrder.total) + " (Inc. DHL door delivery)"
+      + "\n\nI am sending the T/T payment slip in this chat. Please confirm the order and send the invoice.";
+    waBtn.href = wa(msg);
+  }
+
+  rowsEl.addEventListener("click", function(e){
+    var b = e.target.closest("button");
+    if(!b) return;
+    var row = b.closest(".prow");
+    if(!row) return;
+    var i = Number(row.getAttribute("data-i"));
+    var q = parseInt(row.querySelector(".qty").value, 10) || 0;
+    if(b.getAttribute("data-act") === "inc"){ q += 1; }
+    else if(b.getAttribute("data-act") === "dec"){ q -= 1; }
+    else if(b.getAttribute("data-q")){
+      var target = Number(b.getAttribute("data-q"));
+      q = (q === target) ? 0 : target;
+    }
+    QTY[i] = Math.max(0, Math.min(999, q));
+    calcUpdate();
+  });
+  rowsEl.addEventListener("input", function(e){
+    if(!e.target.classList.contains("qty")) return;
+    var row = e.target.closest(".prow");
+    if(!row) return;
+    var i = Number(row.getAttribute("data-i"));
+    var v = String(e.target.value).replace(/[^0-9]/g, "").slice(0, 3);
+    QTY[i] = v === "" ? 0 : Math.min(999, parseInt(v, 10));
+    calcUpdate();
+  });
+
+  payBtn.addEventListener("click", function(){
+    if(lastOrder.total <= 0) return;
+    ttEl.hidden = false;
+    setOrderLink();
+    if(ttEl.scrollIntoView) ttEl.scrollIntoView({block:"nearest", behavior:"smooth"});
+    setTimeout(function(){ if(copyBtn) copyBtn.focus({preventScroll:true}); }, 260);
+  });
+
+  if(copyBtn) copyBtn.addEventListener("click", function(){
+    var btn = copyBtn;
+    function done(ok){
+      btn.textContent = ok ? "✓ Bank details copied" : "Copy failed — select the text above";
+      btn.classList.toggle("is-copied", ok);
+      setTimeout(function(){ btn.textContent = "📋 Copy Bank Details"; btn.classList.remove("is-copied"); }, 2400);
+    }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = BANK_TEXT;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch(err){ ok = false; }
+      document.body.removeChild(ta);
+      done(ok);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(BANK_TEXT).then(function(){ done(true); }, fallback);
+    } else { fallback(); }
+  });
+
+  function openCalc(modelIdx){
+    if(modal.getAttribute("aria-hidden") === "false"){ closeModal(); }
+    if(typeof modelIdx === "number" && modelIdx >= 0 && !QTY[modelIdx]){ QTY[modelIdx] = 1; }
+    calcUpdate();
+    calcEl.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    var x = calcEl.querySelector(".calc-x");
+    if(x) x.focus({preventScroll:true});
+  }
+  function closeCalc(){
+    calcEl.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+  var calcOpenBtn = document.getElementById("calc-open");
+  if(calcOpenBtn) calcOpenBtn.addEventListener("click", function(){ openCalc(-1); });
+  if(mCalc) mCalc.addEventListener("click", function(){
+    var it = current;
+    openCalc(it && typeof it.calcModel === "number" ? it.calcModel : -1);
+  });
+  calcEl.addEventListener("click", function(e){ if(e.target.closest("[data-calc-close]")) closeCalc(); });
+  document.addEventListener("keydown", function(e){
+    if(calcEl.getAttribute("aria-hidden") !== "false") return;
+    if(e.key === "Escape"){ closeCalc(); }
+    else if(e.key === "Tab"){
+      var f = calcEl.querySelectorAll('a[href],button:not([disabled]),input:not([disabled])');
+      if(!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  calcUpdate();
 })();
 </script>
 </body>
