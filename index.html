@@ -563,10 +563,21 @@
   .calc-tt .tt-lines span{display:grid;grid-template-columns:106px 1fr;gap:8px}
   .calc-tt .tt-lines i{font-style:normal;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#7a8b9d;font-weight:700;padding-top:2px}
   .calc-tt-actions{display:grid;gap:8px}
-  .calc-send{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0}
+  .calc-send{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0}
   .calc-send>b{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7a8b9d;font-weight:800;margin-right:2px}
-  .calc-send a{display:inline-flex;align-items:center;height:32px;padding:0 11px;border-radius:999px;border:1px solid #c9d8e8;background:#fff;font-size:12px;font-weight:800;color:#17334d;text-decoration:none;white-space:nowrap}
-  .calc-send a:hover{background:#eef5fc;border-color:#a9c1d9}
+  .calc-send a{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;border-radius:999px;border:1px solid transparent;font-size:12px;font-weight:800;letter-spacing:.01em;line-height:1;white-space:nowrap;text-decoration:none;box-shadow:0 2px 6px rgba(10,24,38,.16);transition:filter .15s ease,box-shadow .15s ease,transform .15s ease}
+  .calc-send a:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 4px 11px rgba(10,24,38,.22)}
+  .calc-send a:active{transform:none;box-shadow:0 1px 4px rgba(10,24,38,.18)}
+  .calc-send a:focus-visible{outline:3px solid #17334d;outline-offset:2px}
+  .calc-send a.send-wise{background:#9FE870;border-color:#163300;color:#163300}
+  .calc-send a.send-revolut{background:#191C1F;border-color:#191C1F;color:#fff}
+  .calc-send a.send-airwallex{background:#612FFF;border-color:#612FFF;color:#fff}
+  .calc-send a.send-payoneer{background:#FF4800;border-color:#FF4800;color:#fff}
+  @media (max-width:560px){
+    .calc-send{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .calc-send>b{grid-column:1 / -1;margin:0 0 1px}
+    .calc-send a{height:38px;padding:0 10px;font-size:12.5px}
+  }
   .btn-copy{height:44px;font-size:13px;background:#fff;border:1px solid #c9d8e8;color:#17334d}
   .btn-copy:hover{background:#eef5fc;border-color:#a9c1d9}
   .btn-copy.is-copied{background:#e9f7ef;border-color:#a6d7bc;color:#0d6b3f}
@@ -1310,10 +1321,10 @@
           </p>
           <p class="calc-send">
             <b>Send the USD from</b>
-            <a href="https://wise.com/send-money/" target="_blank" rel="noopener">Wise ↗</a>
-            <a href="https://www.revolut.com/" target="_blank" rel="noopener">Revolut ↗</a>
-            <a href="https://www.airwallex.com/" target="_blank" rel="noopener">Airwallex ↗</a>
-            <a href="https://www.payoneer.com/" target="_blank" rel="noopener">Payoneer ↗</a>
+            <a class="send-wise" href="https://wise.com/send-money/" target="_blank" rel="noopener">Wise ↗</a>
+            <a class="send-revolut" href="https://www.revolut.com/" target="_blank" rel="noopener">Revolut ↗</a>
+            <a class="send-airwallex" href="https://www.airwallex.com/" target="_blank" rel="noopener">Airwallex ↗</a>
+            <a class="send-payoneer" href="https://www.payoneer.com/" target="_blank" rel="noopener">Payoneer ↗</a>
           </p>
           <div class="calc-tt-actions">
             <button class="btn btn-copy" id="calc-copy" type="button">📋 Copy Bank Details</button>
