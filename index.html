@@ -2151,6 +2151,7 @@
   var addrNote = document.getElementById("calc-addr-note");
   var shipEl = document.getElementById("calc-ship");
   var waNudged = false;
+  var ttWanted = false;
 
   function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
   function rowHtml(p, i){
@@ -2233,6 +2234,7 @@
     payBtn.disabled = total <= 0;
     lastOrder = {total: total, lines: lines, count: phones, pairs: shoes};
     if(total <= 0){ ttEl.hidden = true; }
+    else if(ttWanted){ ttEl.hidden = false; }
     if(!ttEl.hidden){ setOrderLink(); }
   }
 
@@ -2339,6 +2341,7 @@
 
   payBtn.addEventListener("click", function(){
     if(lastOrder.total <= 0) return;
+    ttWanted = true;
     ttEl.hidden = false;
     setOrderLink();
     var missing = markMissing(true);
@@ -2447,6 +2450,7 @@
   }
   function showPayPanel(keepView){
     if(lastOrder.total <= 0) return;
+    ttWanted = true;
     ttEl.hidden = false;
     setOrderLink();
     if(keepView) return;
