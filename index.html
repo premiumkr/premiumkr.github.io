@@ -553,6 +553,19 @@
   .calc-total>span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:800}
   .calc-total strong{font-size:clamp(25px,3.8vw,32px);letter-spacing:-.03em;line-height:1.05}
   .calc-total em{font-style:normal;font-size:12px;color:var(--muted);font-weight:600}
+  .calc-dhl{border:1px solid #dbe6f1;border-radius:14px;background:#fbfdff;padding:13px 14px;display:grid;gap:9px}
+  .calc-dhl>b{font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#17334d}
+  .calc-dhl .dhl-note{margin:0;font-size:11.5px;line-height:1.45;color:var(--muted-2)}
+  .dhl-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px}
+  .dhl-grid label{display:grid;gap:4px;min-width:0}
+  .dhl-grid span{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7a8b9d}
+  .dhl-grid input{width:100%;height:38px;border:1px solid #d7dfe9;border-radius:9px;background:#fff;padding:0 11px;font-family:inherit;font-size:13.5px;color:#0a1826;transition:border-color .15s ease,box-shadow .15s ease,background .15s ease}
+  .dhl-grid input::placeholder{color:#a8b6c5}
+  .dhl-grid input:focus{outline:none;border-color:#dc9d2c;box-shadow:0 0 0 3px rgba(233,176,74,.22)}
+  .dhl-grid input.is-missing{border-color:#e2a94f;background:#fffaf1}
+  .dhl-hint{margin:0;font-size:11.5px;line-height:1.45;color:#8a5a10;background:#fdf5e3;border:1px solid #f1e0b8;border-radius:8px;padding:7px 9px}
+  .dhl-hint[hidden]{display:none}
+  @media (max-width:560px){.dhl-grid{grid-template-columns:1fr}}
   .btn-pay{height:52px;font-size:16px;background:linear-gradient(180deg,#f0bd60,#dc9d2c);color:#2a1b02;box-shadow:0 10px 24px rgba(220,157,44,.3)}
   .btn-pay:disabled{opacity:.45;box-shadow:none;cursor:not-allowed}
   .calc-tt{border:1px dashed #c6d4e3;border-radius:12px;background:#f2f7fc;padding:13px 14px;display:grid;gap:9px}
@@ -1310,6 +1323,21 @@
           <em id="calc-count">Choose a model and a quantity</em>
           <em>Inc. DHL door delivery</em>
         </div>
+        <div class="calc-dhl" id="calc-addr" role="group" aria-labelledby="calc-addr-title">
+          <b id="calc-addr-title">📦 DHL Delivery Address</b>
+          <p class="dhl-note">Enter your DHL delivery address for Proforma Invoice &amp; shipment.</p>
+          <div class="dhl-grid">
+            <label><span>Country</span><input type="text" data-label="Country" data-req="1" placeholder="United States" autocomplete="country-name" maxlength="60"></label>
+            <label><span>State</span><input type="text" data-label="State" data-req="0" placeholder="California" autocomplete="address-level1" maxlength="60"></label>
+            <label><span>City</span><input type="text" data-label="City" data-req="1" placeholder="Los Angeles" autocomplete="address-level2" maxlength="60"></label>
+            <label><span>Street</span><input type="text" data-label="Street" data-req="1" placeholder="1234 W Olympic Blvd, Apt 5" autocomplete="street-address" maxlength="120"></label>
+            <label><span>Zip code</span><input type="text" data-label="Zip code" data-req="0" placeholder="90015" autocomplete="postal-code" maxlength="20"></label>
+            <label><span>Tel no</span><input type="tel" data-label="Tel no" data-req="1" placeholder="+1 213 555 0123" autocomplete="tel" maxlength="30"></label>
+            <label><span>Name</span><input type="text" data-label="Name" data-req="1" placeholder="Your full name" autocomplete="name" maxlength="60"></label>
+            <label><span>Email</span><input type="email" data-label="Email" data-req="1" placeholder="buyer@company.com" autocomplete="email" maxlength="80"></label>
+          </div>
+          <p class="dhl-hint" id="calc-addr-hint" hidden></p>
+        </div>
         <button class="btn btn-pay btn-block" id="calc-pay" type="button" disabled>💳 Pay</button>
         <div class="calc-tt" id="calc-tt" hidden>
           <b>T/T bank transfer details</b>
@@ -2065,6 +2093,9 @@
   var ttEl = document.getElementById("calc-tt");
   var waBtn = document.getElementById("calc-wa");
   var copyBtn = document.getElementById("calc-copy");
+  var addrEls = [].slice.call(document.querySelectorAll("#calc-addr input"));
+  var addrHint = document.getElementById("calc-addr-hint");
+  var waNudged = false;
 
   rowsEl.innerHTML = PHONES.map(function(p, i){
     var ladder = "1–4 " + money(p.t[0]) + " · 5–9 " + money(p.t[1]) + " · 10–19 " + money(p.t[2]) + " · 20+ " + money(p.t[3]);
@@ -2121,12 +2152,34 @@
     if(!ttEl.hidden){ setOrderLink(); }
   }
 
+  function addrValue(el){ return String(el.value || "").replace(/\s+/g, " ").trim(); }
+  function addrFilled(el){ return addrValue(el) !== ""; }
+  function addrBlock(){
+    var any = addrEls.some(addrFilled);
+    if(!any) return "";
+    return "DHL Delivery Address:\n" + addrEls.map(function(el){
+      return el.getAttribute("data-label") + ": " + (addrValue(el) || "-");
+    }).join("\n");
+  }
+  function markMissing(force){
+    var missing = 0;
+    addrEls.forEach(function(el){
+      var req = el.getAttribute("data-req") === "1";
+      var empty = !addrFilled(el);
+      if(req && empty) missing++;
+      el.classList.toggle("is-missing", !!(force && req && empty));
+    });
+    return missing;
+  }
   function setOrderLink(){
+    var block = addrBlock();
     var msg = "Hello, I would like to order:\n" + lastOrder.lines.join("\n")
       + "\nTotal: " + money(lastOrder.total) + " (Inc. DHL door delivery)"
+      + (block ? "\n\n" + block : "")
       + "\n\nI am sending the T/T payment slip in this chat. Please confirm the order and send the invoice.";
     waBtn.href = wa(msg);
   }
+  function addrIsBlank(){ return !addrEls.some(addrFilled); }
 
   rowsEl.addEventListener("click", function(e){
     var b = e.target.closest("button");
@@ -2154,10 +2207,42 @@
     calcUpdate();
   });
 
+  addrEls.forEach(function(el){
+    el.addEventListener("input", function(){
+      el.classList.remove("is-missing");
+      waNudged = false;
+      if(addrHint && !addrIsBlank()) addrHint.hidden = true;
+      if(!ttEl.hidden) setOrderLink();
+    });
+  });
+
+  if(waBtn) waBtn.addEventListener("click", function(e){
+    var missing = markMissing(true);
+    setOrderLink();
+    if(!addrHint) return;
+    if(missing > 0 && addrIsBlank() && !waNudged){
+      /* nothing filled at all: point at the address form once, then let the next click go */
+      e.preventDefault();
+      waNudged = true;
+      addrHint.textContent = "Add your DHL delivery address above (Country, City, Street, Tel no, Name, Email) for the Proforma Invoice and shipment — or press the WhatsApp button again to send without it.";
+      addrHint.hidden = false;
+      var firstEl = addrEls[0];
+      if(firstEl && firstEl.scrollIntoView){ try { firstEl.scrollIntoView({block:"center", behavior:"smooth"}); } catch(err){ firstEl.scrollIntoView(); } }
+      if(firstEl) setTimeout(function(){ firstEl.focus({preventScroll:true}); }, 220);
+      return;
+    }
+    addrHint.hidden = true;
+  });
+
   payBtn.addEventListener("click", function(){
     if(lastOrder.total <= 0) return;
     ttEl.hidden = false;
     setOrderLink();
+    var missing = markMissing(true);
+    if(addrHint){
+      if(missing > 0){ addrHint.textContent = "Bank details are below. Add your DHL delivery address above (Country, City, Street, Tel no, Name, Email) and it goes into the WhatsApp order and payment slip."; addrHint.hidden = false; }
+      else { addrHint.hidden = true; }
+    }
     if(ttEl.scrollIntoView) ttEl.scrollIntoView({block:"nearest", behavior:"smooth"});
     setTimeout(function(){ if(copyBtn) copyBtn.focus({preventScroll:true}); }, 260);
   });
