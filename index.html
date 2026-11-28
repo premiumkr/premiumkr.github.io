@@ -2500,13 +2500,19 @@
     String(spec || "").split(/[,;|]+|\s+/).forEach(function(part){
       part = part.trim();
       if(!part) return;
-      var bits = part.split(/[:=x*]/i);
-      if(bits.length < 2) return;
-      var idx = LINK_KEYS[keyOf(bits[0])];
-      if(typeof idx !== "number") return;
+      /* "polo:100" / "ip18x5" — but a key may itself contain x (luxurypolo), so retry
+         with only the real separators when the first split lands on an unknown key */
+      var idx = -1, q = 0;
+      [part.split(/[:=x*]/i), part.split(/[:=]/), part.split(/x(?=\s*\d)/i)].some(function(bits){
+        if(bits.length < 2) return false;
+        var cand = LINK_KEYS[keyOf(bits[0])];
+        if(typeof cand !== "number") return false;
+        var n = parseInt(String(bits[1]).replace(/[^0-9]/g, ""), 10);
+        if(!(n > 0)) return false;
+        idx = cand; q = n; return true;
+      });
+      if(idx < 0) return;
       var p = PRODS[idx];
-      var q = parseInt(String(bits[1]).replace(/[^0-9]/g, ""), 10);
-      if(!(q > 0)) return;
       if(p.moq > 0 && q < p.moq) q = p.moq;
       QTY[idx] = Math.min(p.max, q);
       lastHitIdx = idx;
