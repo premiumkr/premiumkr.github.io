@@ -1318,9 +1318,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone · Apple Watch · AirPods · shoes order</span>
+        <span class="kicker">Smartphone · Apple Watch · AirPods · shoes · football jerseys order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3 and Nike &amp; Adidas shoes · brand new, factory sealed. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes CIF any seaport.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes and Nike &amp; Adidas football jerseys · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes and jerseys CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -1565,27 +1565,35 @@
     },
     {
       id:"jerseys",
-      cat:"Nike &amp; Adidas Soccer Jersey", cats:["jersey"],
-      title:"Nike &amp; Adidas Soccer Jerseys",
-      badge:"MOQ 500 pcs",
-      price:"USD 7", unit:"/ pc",
-      meta:"5,000 pcs available · CIF any seaport",
-      poster:A+"poster-jerseys.jpg",
+      cat:"Nike &amp; Adidas Football Jersey", cats:["jersey"],
+      title:"Nike &amp; Adidas Football Jerseys",
+      badge:"MOQ 100 pcs",
+      price:"USD 12", unit:"/ pc · 100 pcs = USD 1,200",
+      meta:"MOQ 100 pcs · 100+ USD 12 · 200+ USD 10 · 300+ USD 9 · 400+ USD 8 · 500+ USD 7 · 1,000+ USD 6 · 5,000+ USD 5 /pc · CIF any seaport",
+      calc:true, calcModel:8, calcLabel:"🧮 Order &amp; Pay · Jerseys",
+      buyLink:"?buy=jersey:100",
+      poster:A+"poster-jersey2.jpg",
       photos:["d-jersey-01","d-jersey-02","d-jersey-03","d-jersey-04","d-jersey-05","d-jersey-06","d-jersey-07","d-jersey-08","d-jersey-09","d-jersey-10","d-jersey-grid"],
       videos:[
         {src:A+"videos/vid-jerseys.mp4", poster:A+"videos/vid-jerseys-poster.jpg", cap:"Club jerseys on the rack — Barcelona and the current design mix"},
         {src:A+"videos/vid-jersey-argentina.mp4", poster:A+"videos/vid-jersey-argentina-poster.jpg", cap:"Argentina #10 jersey — fabric weave and adidas tag close-up"}
       ],
       specs:[
-        ["Available","5,000 pcs"],
-        ["Minimum order","500 pcs"],
-        ["Unit price","USD 7 / pc"],
-        ["MOQ total","USD 3,500 including shipping"],
-        ["Sizes","All sizes available"],
-        ["Styles","Current club &amp; national designs"]
+        ["MOQ · unit price","100 pcs — USD 12 / pc · 100 pcs = USD 1,200"],
+        ["200–299 pcs","USD 10 / pc — 200 pcs = USD 2,000"],
+        ["300–399 pcs","USD 9 / pc — 300 pcs = USD 2,700"],
+        ["400–499 pcs","USD 8 / pc — 400 pcs = USD 3,200"],
+        ["500–999 pcs","USD 7 / pc — 500 pcs = USD 3,500"],
+        ["1,000–4,999 pcs","USD 6 / pc — 1,000 pcs = USD 6,000"],
+        ["5,000+ pcs","USD 5 / pc — 5,000 pcs = USD 25,000"],
+        ["Price tiers","100+ USD 12 · 200+ USD 10 · 300+ USD 9 · 400+ USD 8 · 500+ USD 7 · 1,000+ USD 6 · 5,000+ USD 5 /pc"],
+        ["Available stock","5,000 pcs"],
+        ["Sizes","All sizes available — full size runs"],
+        ["Styles","Current club &amp; national designs · Nike &amp; Adidas"],
+        ["Shipping","CIF any seaport — ocean freight to your nearest port"]
       ],
-      msg:"Hello, I am interested in the Nike & Adidas soccer jerseys: MOQ 500 pcs at USD 7/pc CIF. Please send the club list, the sizes and the available quantity.",
-      note:"Bulk orders above 5,000 pcs are quoted with a discount on WhatsApp."
+      msg:"Hello, I am interested in the Nike & Adidas football jerseys (brand new, factory production, 5,000 pcs available). Your price tiers: MOQ 100 pcs at USD 12/pc (100 pcs = USD 1,200), 200+ USD 10, 300+ USD 9, 400+ USD 8, 500+ USD 7, 1,000+ USD 6, 5,000+ USD 5 /pc, CIF any seaport. My quantity is: . Please send the club list, the sizes and the available quantity.",
+      note:"MOQ 100 pcs · CIF any seaport. Use the 🧮 Order &amp; Pay calculator for a live total."
     },
     {
       id:"luxury-bags",
@@ -1788,7 +1796,7 @@
     {key:"shoes", label:"Nike &amp; Adidas Shoes"},
     {key:"slippers", label:"Nike &amp; Adidas Slippers"},
     {key:"others", label:"Apple Watch & Audio"},
-    {key:"jersey", label:"Soccer Jersey"},
+    {key:"jersey", label:"Football / Soccer Jersey"},
     {key:"luxury", label:"Luxury Brand"},
     {key:"bags", label:"Luxury Bags"},
     {key:"winter", label:"Winter Jumper"},
@@ -2097,7 +2105,7 @@
     }
   });
 
-  /* ---------- order & pay calculator: smartphones + Apple Watch + AirPods + Nike & Adidas shoes ---------- */
+  /* ---------- order & pay calculator: smartphones + Apple Watch + AirPods + Nike & Adidas shoes + football jerseys ---------- */
   var PHONES = [
     {name:"iPhone 18 Pro Max", brand:"Apple", t:[1600,1400,1200,1050]},
     {name:"iPhone 17 Pro Max", brand:"Apple", t:[1300,1100,950,850]},
@@ -2148,6 +2156,19 @@
   };
   PRODS.push(WATCH);
   var WATCH_IDX = PRODS.length - 1;
+  var JERSEY = {
+    kind:"jersey",
+    name:"Nike & Adidas Football Jerseys",
+    sub:"Brand new · factory production · all sizes · MOQ 100 pcs · CIF any seaport",
+    moq:100, max:50000, step:100,
+    unit:"pc", unitShort:"pcs",
+    quick:[100,200,300,400,500,1000,5000],
+    tiers:[{min:100,p:12},{min:200,p:10},{min:300,p:9},{min:400,p:8},{min:500,p:7},{min:1000,p:6},{min:5000,p:5}],
+    ladder:"100+ USD 12 · 200+ USD 10 · 300+ USD 9 · 400+ USD 8 · 500+ USD 7 · 1,000+ USD 6 · 5,000+ USD 5 /pc",
+    ship:"CIF any seaport", shipMode:"cif"
+  };
+  PRODS.push(JERSEY);
+  var JERSEY_IDX = PRODS.length - 1;
   var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
   var QTY = {};
   var lastOrder = {total:0, lines:[], count:0};
@@ -2165,12 +2186,12 @@
   function basePrice(p){ return isLot(p) ? p.tiers[0].p : p.t[0]; }
   function shipNote(dhl, cif){
     if(cif && !dhl) return "CIF any seaport — ocean freight to your nearest port";
-    if(cif && dhl) return "DHL door delivery included · shoes CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes & jerseys CIF any seaport";
     return "Inc. DHL door delivery";
   }
   function shipNoteText(dhl, cif){
     if(cif && !dhl) return "CIF any seaport";
-    if(cif && dhl) return "DHL door delivery included · shoes CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes & jerseys CIF any seaport";
     return "Inc. DHL door delivery";
   }
 
@@ -2219,7 +2240,7 @@
   var rowEls = [].slice.call(rowsEl.querySelectorAll(".prow"));
 
   function calcUpdate(){
-    var total = 0, dhl = 0, pairs = 0, lines = [];
+    var total = 0, dhl = 0, pairs = 0, cifPcs = 0, lines = [];
     rowEls.forEach(function(row, i){
       var p = PRODS[i];
       var q = Math.max(0, Math.min(p.max, parseInt(QTY[i] || 0, 10) || 0));
@@ -2244,26 +2265,27 @@
       if(q > 0 && !belowMoq){
         total += line;
         lines.push("• " + p.name + (isLot(p) ? "" : " 1TB") + " — " + q.toLocaleString("en-US") + " " + p.unitShort + " × " + money(u) + "/" + p.unit + " = " + money(line) + (p.ship ? " · " + p.ship : ""));
-        if(p.shipMode === "cif"){ pairs += q; } else { dhl += q; }
+        if(p.shipMode === "cif"){ if(p.unitShort === "pairs"){ pairs += q; } else { cifPcs += q; } } else { dhl += q; }
       }
     });
     totalEl.textContent = money(total);
     var bits = [];
     if(dhl) bits.push(dhl.toLocaleString("en-US") + " pcs");
     if(pairs) bits.push(pairs.toLocaleString("en-US") + " pairs");
+    if(cifPcs) bits.push(cifPcs.toLocaleString("en-US") + " jersey pcs");
     countEl.textContent = bits.length
       ? bits.join(" + ") + " · " + lines.length + " item" + (lines.length > 1 ? "s" : "")
       : "Choose a product and a quantity";
-    if(shipEl) shipEl.textContent = shipNote(dhl, pairs);
+    if(shipEl) shipEl.textContent = shipNote(dhl, pairs + cifPcs);
     if(addrNote){
-      addrNote.textContent = pairs
+      addrNote.textContent = (pairs + cifPcs)
         ? (dhl
-            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones and AirPods, shoes CIF to your nearest seaport."
-            : "Enter your delivery address for the Proforma Invoice — shoes ship CIF to your nearest seaport.")
+            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones, watches and AirPods, shoes and jerseys CIF to your nearest seaport."
+            : "Enter your delivery address for the Proforma Invoice — shoes and jerseys ship CIF to your nearest seaport.")
         : "Enter your DHL delivery address for Proforma Invoice & shipment.";
     }
     payBtn.disabled = total <= 0;
-    lastOrder = {total: total, lines: lines, count: dhl, pairs: pairs};
+    lastOrder = {total: total, lines: lines, count: dhl, pairs: pairs, cif: cifPcs};
     if(total <= 0){ ttEl.hidden = true; }
     else if(ttWanted){ ttEl.hidden = false; }
     if(!ttEl.hidden){ setOrderLink(); }
@@ -2291,7 +2313,7 @@
   function setOrderLink(){
     var block = addrBlock();
     var msg = "Hello, I would like to order:\n" + lastOrder.lines.join("\n")
-      + "\nTotal: " + money(lastOrder.total) + " (" + shipNoteText(lastOrder.count, lastOrder.pairs) + ")"
+      + "\nTotal: " + money(lastOrder.total) + " (" + shipNoteText(lastOrder.count, (lastOrder.pairs || 0) + (lastOrder.cif || 0)) + ")"
       + (block ? "\n\n" + block : "")
       + "\n\nI am sending the T/T payment slip in this chat. Please confirm the order and send the invoice.";
     waBtn.href = wa(msg);
@@ -2446,7 +2468,10 @@
     airpods:AIRPOD_IDX, airpod:AIRPOD_IDX, airpodspro:AIRPOD_IDX, airpodspro3:AIRPOD_IDX,
     airpods3:AIRPOD_IDX, appleairpods:AIRPOD_IDX, earbuds:AIRPOD_IDX,
     watch:WATCH_IDX, applewatch:WATCH_IDX, watchultra:WATCH_IDX, watchultra3:WATCH_IDX,
-    ultra3:WATCH_IDX, ultra:WATCH_IDX, aw:WATCH_IDX, watchorder:WATCH_IDX
+    ultra3:WATCH_IDX, ultra:WATCH_IDX, aw:WATCH_IDX, watchorder:WATCH_IDX,
+    jersey:JERSEY_IDX, jerseys:JERSEY_IDX, soccer:JERSEY_IDX, football:JERSEY_IDX,
+    footballjersey:JERSEY_IDX, footballjerseys:JERSEY_IDX, soccerjersey:JERSEY_IDX,
+    soccerjerseys:JERSEY_IDX, jerseyorder:JERSEY_IDX
   };
   function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
   var lastHitIdx = -1;
