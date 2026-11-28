@@ -1318,9 +1318,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone · Apple Watch · AirPods · shoes · football jerseys order</span>
+        <span class="kicker">Smartphone · Apple Watch · AirPods · shoes · football jerseys · luxury polo order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes and Nike &amp; Adidas football jerseys · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes and jerseys CIF any seaport.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes, Nike &amp; Adidas football jerseys and Luxury Brand Polo &amp; T-Shirts · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes, jerseys and polo CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -1620,22 +1620,26 @@
       id:"polo",
       cat:"Luxury Brand · Polo &amp; Tee", cats:["luxury"],
       title:"Luxury Brand Polo &amp; T-Shirts — 1,000 pcs",
-      badge:"1,000 pcs",
-      price:"USD 9", unit:"/ pc",
-      meta:"Gucci · Prada · LV · Dior · Moncler · more",
-      poster:A+"poster-polo.jpg",
+      badge:"MOQ 100 pcs",
+      price:"USD 15", unit:"/ pc · 100 pcs = USD 1,500",
+      meta:"MOQ 100 pcs · 100+ USD 15 · 500+ USD 12 · 1,000+ USD 9 /pc · CIF any seaport",
+      calc:true, calcModel:9, calcLabel:"🧮 Order &amp; Pay · Polo",
+      buyLink:"?buy=polo:100",
+      poster:A+"poster-polo2.jpg",
       photos:["d-polo-01","d-polo-02","d-polo-03","d-polo-04","d-polo-05","d-polo-06","d-polo-07","d-polo-08","d-polo-09","d-polo-10","d-polo-11"],
       videos:[{src:A+"videos/vid-luxury-tees.mp4", poster:A+"videos/vid-luxury-tees-poster.jpg", cap:"Gucci · Chanel · Balenciaga · Burberry tees and polos laid out on the stock table"}],
       specs:[
-        ["Quantity","1,000 pcs"],
-        ["Unit price","USD 9 / pc"],
-        ["Total CIF","USD 9,000"],
-        ["Shipping","CIF any seaport"],
+        ["MOQ · unit price","100 pcs — USD 15 / pc · 100 pcs = USD 1,500"],
+        ["500–999 pcs","USD 12 / pc — 500 pcs = USD 6,000"],
+        ["1,000 pcs (take all)","USD 9 / pc — 1,000 pcs = USD 9,000"],
+        ["Price tiers","100+ USD 15 · 500+ USD 12 · 1,000+ USD 9 /pc"],
+        ["Available stock","1,000 pcs"],
         ["Range","Men's &amp; women's, all sizes"],
-        ["Brands","Gucci · Prada · Chanel · LV · Dior · Moncler · Burberry"]
+        ["Brands","Gucci · Prada · Chanel · LV · Dior · Moncler · Burberry"],
+        ["Shipping","CIF any seaport"]
       ],
-      msg:"Hello, I am interested in the Luxury Brand Polo & T-Shirts offer: 1,000 pcs at USD 9/pc CIF, total USD 9,000. Please send the size breakdown and the available designs.",
-      note:"Design mix and size curve are confirmed from current stock on WhatsApp."
+      msg:"Hello, I am interested in the Luxury Brand Polo & T-Shirts (brand new, men's & women's, all sizes, 1,000 pcs available). Your price tiers: MOQ 100 pcs at USD 15/pc (100 pcs = USD 1,500), 500+ at USD 12/pc, 1,000+ at USD 9/pc (1,000 pcs = USD 9,000), CIF any seaport. My quantity is: . Please send the size breakdown and the available designs.",
+      note:"MOQ 100 pcs · CIF any seaport · 1,000 pcs available. Use the 🧮 Order &amp; Pay calculator for a live total."
     },
     {
       id:"jackets",
@@ -2169,6 +2173,19 @@
   };
   PRODS.push(JERSEY);
   var JERSEY_IDX = PRODS.length - 1;
+  var POLO = {
+    kind:"polo",
+    name:"Luxury Brand Polo & T-Shirts",
+    sub:"Brand new · men's & women's · all sizes · MOQ 100 pcs · 1,000 pcs available · CIF any seaport",
+    moq:100, max:1000, step:100,
+    unit:"pc", unitShort:"pcs",
+    quick:[100,500,1000],
+    tiers:[{min:100,p:15},{min:500,p:12},{min:1000,p:9}],
+    ladder:"100+ USD 15 · 500+ USD 12 · 1,000+ USD 9 /pc",
+    ship:"CIF any seaport", shipMode:"cif"
+  };
+  PRODS.push(POLO);
+  var POLO_IDX = PRODS.length - 1;
   var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
   var QTY = {};
   var lastOrder = {total:0, lines:[], count:0};
@@ -2186,12 +2203,12 @@
   function basePrice(p){ return isLot(p) ? p.tiers[0].p : p.t[0]; }
   function shipNote(dhl, cif){
     if(cif && !dhl) return "CIF any seaport — ocean freight to your nearest port";
-    if(cif && dhl) return "DHL door delivery included · shoes & jerseys CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes, jerseys & polo CIF any seaport";
     return "Inc. DHL door delivery";
   }
   function shipNoteText(dhl, cif){
     if(cif && !dhl) return "CIF any seaport";
-    if(cif && dhl) return "DHL door delivery included · shoes & jerseys CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes, jerseys & polo CIF any seaport";
     return "Inc. DHL door delivery";
   }
 
@@ -2240,7 +2257,7 @@
   var rowEls = [].slice.call(rowsEl.querySelectorAll(".prow"));
 
   function calcUpdate(){
-    var total = 0, dhl = 0, pairs = 0, cifPcs = 0, lines = [];
+    var total = 0, dhl = 0, pairs = 0, cifPcs = 0, lines = [], cifBits = [];
     rowEls.forEach(function(row, i){
       var p = PRODS[i];
       var q = Math.max(0, Math.min(p.max, parseInt(QTY[i] || 0, 10) || 0));
@@ -2265,14 +2282,14 @@
       if(q > 0 && !belowMoq){
         total += line;
         lines.push("• " + p.name + (isLot(p) ? "" : " 1TB") + " — " + q.toLocaleString("en-US") + " " + p.unitShort + " × " + money(u) + "/" + p.unit + " = " + money(line) + (p.ship ? " · " + p.ship : ""));
-        if(p.shipMode === "cif"){ if(p.unitShort === "pairs"){ pairs += q; } else { cifPcs += q; } } else { dhl += q; }
+        if(p.shipMode === "cif"){ if(p.unitShort === "pairs"){ pairs += q; } else { cifPcs += q; cifBits.push(q.toLocaleString("en-US") + " " + (p.kind === "polo" ? "polo" : "jersey") + " pcs"); } } else { dhl += q; }
       }
     });
     totalEl.textContent = money(total);
     var bits = [];
     if(dhl) bits.push(dhl.toLocaleString("en-US") + " pcs");
     if(pairs) bits.push(pairs.toLocaleString("en-US") + " pairs");
-    if(cifPcs) bits.push(cifPcs.toLocaleString("en-US") + " jersey pcs");
+    if(cifBits.length) bits.push(cifBits.join(" + "));
     countEl.textContent = bits.length
       ? bits.join(" + ") + " · " + lines.length + " item" + (lines.length > 1 ? "s" : "")
       : "Choose a product and a quantity";
@@ -2280,8 +2297,8 @@
     if(addrNote){
       addrNote.textContent = (pairs + cifPcs)
         ? (dhl
-            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones, watches and AirPods, shoes and jerseys CIF to your nearest seaport."
-            : "Enter your delivery address for the Proforma Invoice — shoes and jerseys ship CIF to your nearest seaport.")
+            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones, watches and AirPods, shoes, jerseys and polo CIF to your nearest seaport."
+            : "Enter your delivery address for the Proforma Invoice — shoes, jerseys and polo ship CIF to your nearest seaport.")
         : "Enter your DHL delivery address for Proforma Invoice & shipment.";
     }
     payBtn.disabled = total <= 0;
@@ -2471,7 +2488,10 @@
     ultra3:WATCH_IDX, ultra:WATCH_IDX, aw:WATCH_IDX, watchorder:WATCH_IDX,
     jersey:JERSEY_IDX, jerseys:JERSEY_IDX, soccer:JERSEY_IDX, football:JERSEY_IDX,
     footballjersey:JERSEY_IDX, footballjerseys:JERSEY_IDX, soccerjersey:JERSEY_IDX,
-    soccerjerseys:JERSEY_IDX, jerseyorder:JERSEY_IDX
+    soccerjerseys:JERSEY_IDX, jerseyorder:JERSEY_IDX,
+    polo:POLO_IDX, polos:POLO_IDX, poloshirt:POLO_IDX, poloshirts:POLO_IDX,
+    luxurypolo:POLO_IDX, luxurypolos:POLO_IDX, luxurybrandpolo:POLO_IDX,
+    poloorder:POLO_IDX, polotee:POLO_IDX, polotees:POLO_IDX
   };
   function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
   var lastHitIdx = -1;
