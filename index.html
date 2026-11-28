@@ -2210,6 +2210,75 @@
     openCalc(it && typeof it.calcModel === "number" ? it.calcModel : -1);
   });
   calcEl.addEventListener("click", function(e){ if(e.target.closest("[data-calc-close]")) closeCalc(); });
+
+  /* ---------- direct order / pay links: #order, #pay, ?order=1, ?pay=1, ?buy=ip18:1 ---------- */
+  var LINK_KEYS = {
+    ip18:0, iphone18:0, ip18promax:0, iphone18promax:0, 18:0,
+    ip17:1, iphone17:1, ip17promax:1, iphone17promax:1, 17:1,
+    ip16:2, iphone16:2, ip16promax:2, iphone16promax:2, 16:2,
+    s26:3, galaxy26:3, s26ultra:3, galaxys26:3, galaxys26ultra:3,
+    s25:4, galaxy25:4, s25ultra:4, galaxys25:4, galaxys25ultra:4
+  };
+  function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
+  function applyBuySpec(spec){
+    var hits = 0;
+    String(spec || "").split(/[,;|]+|\s+/).forEach(function(part){
+      part = part.trim();
+      if(!part) return;
+      var bits = part.split(/[:=x*]/i);
+      if(bits.length < 2) return;
+      var idx = LINK_KEYS[keyOf(bits[0])];
+      if(typeof idx !== "number") return;
+      var q = parseInt(String(bits[1]).replace(/[^0-9]/g, ""), 10);
+      if(!(q > 0)) return;
+      QTY[idx] = Math.min(999, q);
+      hits++;
+    });
+    return hits;
+  }
+  function showPayPanel(){
+    if(lastOrder.total <= 0) return;
+    ttEl.hidden = false;
+    setOrderLink();
+    setTimeout(function(){
+      if(ttEl.scrollIntoView){
+        try { ttEl.scrollIntoView({block:"nearest", behavior:"smooth"}); }
+        catch(err){ ttEl.scrollIntoView(false); }
+      }
+    }, 140);
+  }
+  function openFromLink(){
+    var qs = null;
+    try { qs = new URLSearchParams(window.location.search || ""); } catch(err){ qs = null; }
+    var hash = String(window.location.hash || "").replace(/^#\/?/, "");
+    var hashWord = keyOf(hash.split(/[=&]/)[0]);
+    var hashBuy = "";
+    if(hashWord.indexOf("buy") === 0){
+      var rest = hash.indexOf("=") > -1 ? hash.slice(hash.indexOf("=") + 1) : hash.replace(/^buy[\/:-]*/i, "");
+      try { hashBuy = decodeURIComponent(rest); } catch(err){ hashBuy = rest; }
+    }
+    function flag(v){ return v !== null && v !== undefined && !/^(0|false|no|off)$/i.test(String(v).trim()); }
+    var orderFlag = qs ? qs.get("order") : null;
+    var payFlag   = qs ? qs.get("pay") : null;
+    var buySpec   = (qs && qs.get("buy")) || "";
+    if(!buySpec && orderFlag && /[:=x]/i.test(orderFlag)) buySpec = orderFlag;
+    if(!buySpec && payFlag && /[:=x]/i.test(payFlag)) buySpec = payFlag;
+    if(!buySpec && hashBuy) buySpec = hashBuy;
+
+    var wantPay = flag(payFlag) || hashWord === "pay" || hashWord === "payment" || hashWord === "checkout" || hashWord === "wire";
+    var wantCalc = wantPay || flag(orderFlag) || !!buySpec
+      || hashWord === "order" || hashWord === "calc" || hashWord === "calculator" || hashWord === "buy";
+    if(!wantCalc) return;
+
+    var hits = buySpec ? applyBuySpec(buySpec) : 0;
+    openCalc(-1);
+    if(wantPay || hits > 0){ showPayPanel(); }
+  }
+  openFromLink();
+  window.addEventListener("hashchange", function(){
+    if(calcEl.getAttribute("aria-hidden") === "false") return;
+    openFromLink();
+  });
   document.addEventListener("keydown", function(e){
     if(calcEl.getAttribute("aria-hidden") !== "false") return;
     if(e.key === "Escape"){ closeCalc(); }
