@@ -1318,9 +1318,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone · Apple Watch · AirPods · shoes · football jerseys · luxury polo order</span>
+        <span class="kicker">Smartphone · Watch · AirPods · shoes · jerseys · polo · Moncler · TNF order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes, Nike &amp; Adidas football jerseys and Luxury Brand Polo &amp; T-Shirts · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes, jerseys and polo CIF any seaport.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes, Nike &amp; Adidas football jerseys, Luxury Brand Polo &amp; T-Shirts, Moncler and The North Face winter puffer jackets · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes, jerseys, polo and puffers CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -2338,7 +2338,7 @@
       if(q > 0 && !belowMoq){
         total += line;
         lines.push("• " + p.name + (isLot(p) ? "" : " 1TB") + " — " + q.toLocaleString("en-US") + " " + p.unitShort + " × " + money(u) + "/" + p.unit + " = " + money(line) + (p.ship ? " · " + p.ship : ""));
-        if(p.shipMode === "cif"){ if(p.unitShort === "pairs"){ pairs += q; } else { cifPcs += q; cifBits.push(q.toLocaleString("en-US") + " " + (p.cifLabel || (p.kind === "polo" ? "polo" : "jersey")) + " pcs"); } } else { dhl += q; }
+        if(p.shipMode === "cif"){ if(p.unitShort === "pairs"){ pairs += q; } else { cifPcs += q; cifBits.push((p.cifLabel || (p.kind === "polo" ? "polo" : "jersey")) + " " + q.toLocaleString("en-US") + (q === 1 ? " pc" : " pcs")); } } else { dhl += q; }
       }
     });
     totalEl.textContent = money(total);
