@@ -1319,9 +1319,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone · Watch · AirPods · shoes · jerseys · polo · Moncler · TNF order</span>
+        <span class="kicker">Smartphone · Watch · AirPods · shoes · slippers · jerseys · polo · Moncler · TNF order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes, Nike &amp; Adidas football jerseys, Luxury Brand Polo &amp; T-Shirts, Moncler and The North Face winter puffer jackets · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes, jerseys, polo and puffers CIF any seaport.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3, Nike &amp; Adidas shoes, Nike &amp; Adidas slippers, Nike &amp; Adidas football jerseys, Luxury Brand Polo &amp; T-Shirts, Moncler and The North Face winter puffer jackets · brand new. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes, slippers, jerseys, polo and puffers CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -1490,21 +1490,28 @@
       id:"slippers",
       cat:"Nike &amp; Adidas Slippers", cats:["slippers"],
       title:"Nike &amp; Adidas Slippers — Brand New",
-      badge:"MOQ 500 pairs",
-      price:"Bulk quotes", unit:"on request",
-      meta:"5,000 pairs per week supply",
-      poster:A+"poster-slippers.jpg",
+      badge:"MOQ 50 pairs",
+      price:"USD 17", unit:"/ pair · 50 pairs = USD 850",
+      meta:"MOQ 50 pairs · 50+ USD 17 · 100+ USD 15 · 200+ USD 13 · 500+ USD 10 /pair · CIF any seaport",
+      calc:true, calcModel:12, calcLabel:"🧮 Order &amp; Pay · Slippers",
+      buyLink:"?buy=slippers:50",
+      poster:A+"poster-slippers2.jpg",
       photos:["d-slipper-09","d-slipper-10","d-slipper-11","d-slipper-08","d-slipper-07","d-slipper-20","d-slipper-21","d-slipper-22","d-slipper-23","d-slipper-24","d-slipper-25","d-slipper-13","d-slipper-14","d-slipper-15","d-slipper-16","d-slipper-01","d-slipper-02","d-slipper-03","d-slipper-04","d-slipper-05","d-slipper-06","d-slipper-12","d-slipper-17","d-slipper-18","d-slipper-19"],
       videos:[{src:A+"videos/vid-slippers.mp4", poster:A+"videos/vid-slippers-poster.jpg", cap:"Nike Calm slipper worn sole and top — teal pair from the current stock"}],
       specs:[
-        ["Initial order","500 pairs"],
+        ["MOQ · unit price","50 pairs — USD 17 / pair · 50 pairs = USD 850"],
+        ["100–199 pairs","USD 15 / pair — 100 pairs = USD 1,500"],
+        ["200–499 pairs","USD 13 / pair — 200 pairs = USD 2,600"],
+        ["500+ pairs","USD 10 / pair — 500 pairs = USD 5,000"],
+        ["Price tiers","50+ USD 17 · 100+ USD 15 · 200+ USD 13 · 500+ USD 10 /pair"],
         ["Supply capacity","5,000 pairs per week"],
         ["Styles","Nike Victori One · Nike Calm · Nike React · adidas Adilette &amp; Adilette Aqua"],
+        ["Sizes","EU 36 – 45, full size runs"],
         ["Shipping","CIF any seaport"],
-        ["Pricing","Special prices for bulk orders"]
+        ["Condition","Brand new"]
       ],
-      msg:"Hello, I am interested in the Nike & Adidas slipper stock (500 pairs initial order). Please send the current styles, colours and your bulk prices.",
-      note:"Colours and sizes are confirmed from the current stock photos on WhatsApp."
+      msg:"Hello, I am interested in the Nike & Adidas slipper stock (brand new, EU 36–45, CIF any seaport). Your price tiers: MOQ 50 pairs at USD 17/pair (50 pairs = USD 850), 100–199 pairs at USD 15, 200–499 at USD 13 and 500+ at USD 10/pair. My quantity is: . Please send the current styles, colours and the size breakdown.",
+      note:"MOQ 50 pairs · CIF any seaport · 5,000 pairs per week supply. Use the 🧮 Order &amp; Pay calculator for a live total."
     },
     {
       id:"airpods",
@@ -2155,7 +2162,7 @@
     }
   });
 
-  /* ---------- order & pay calculator: smartphones + Apple Watch + AirPods + Nike & Adidas shoes + football jerseys + polo + puffers ---------- */
+  /* ---------- order & pay calculator: smartphones + Apple Watch + AirPods + Nike & Adidas shoes + slippers + football jerseys + polo + puffers ---------- */
   var PHONES = [
     {name:"iPhone 18 Pro Max", brand:"Apple", t:[1600,1400,1200,1050]},
     {name:"iPhone 17 Pro Max", brand:"Apple", t:[1300,1100,950,850]},
@@ -2258,6 +2265,19 @@
   };
   PRODS.push(TNF);
   var TNF_IDX = PRODS.length - 1;
+  var SLIPPERS = {
+    kind:"slippers",
+    name:"Nike & Adidas Slippers",
+    sub:"Brand new · EU 36–45 · all sizes · MOQ 50 pairs · 5,000 pairs per week · CIF any seaport",
+    moq:50, max:50000, step:50,
+    unit:"pair", unitShort:"pairs",
+    quick:[50,100,200,500],
+    tiers:[{min:50,p:17},{min:100,p:15},{min:200,p:13},{min:500,p:10}],
+    ladder:"50+ USD 17 · 100+ USD 15 · 200+ USD 13 · 500+ USD 10 /pair",
+    ship:"CIF any seaport", shipMode:"cif"
+  };
+  PRODS.push(SLIPPERS);
+  var SLIPPERS_IDX = PRODS.length - 1;
   var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
   var QTY = {};
   var lastOrder = {total:0, lines:[], count:0};
@@ -2275,12 +2295,12 @@
   function basePrice(p){ return isLot(p) ? p.tiers[0].p : p.t[0]; }
   function shipNote(dhl, cif){
     if(cif && !dhl) return "CIF any seaport — ocean freight to your nearest port";
-    if(cif && dhl) return "DHL door delivery included · shoes, jerseys, polo & puffers CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes, slippers, jerseys, polo & puffers CIF any seaport";
     return "Inc. DHL door delivery";
   }
   function shipNoteText(dhl, cif){
     if(cif && !dhl) return "CIF any seaport";
-    if(cif && dhl) return "DHL door delivery included · shoes, jerseys, polo & puffers CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes, slippers, jerseys, polo & puffers CIF any seaport";
     return "Inc. DHL door delivery";
   }
 
@@ -2369,8 +2389,8 @@
     if(addrNote){
       addrNote.textContent = (pairs + cifPcs)
         ? (dhl
-            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones, watches and AirPods; shoes, jerseys, polo and puffers CIF to your nearest seaport."
-            : "Enter your delivery address for the Proforma Invoice — shoes, jerseys, polo and puffers ship CIF to your nearest seaport.")
+            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones, watches and AirPods; shoes, slippers, jerseys, polo and puffers CIF to your nearest seaport."
+            : "Enter your delivery address for the Proforma Invoice — shoes, slippers, jerseys, polo and puffers ship CIF to your nearest seaport.")
         : "Enter your delivery address for Proforma Invoice & shipment.";
     }
     payBtn.disabled = total <= 0;
@@ -2571,7 +2591,10 @@
     monclerorder:MONCLER_IDX,
     tnf:TNF_IDX, tnfs:TNF_IDX, northface:TNF_IDX, thenorthface:TNF_IDX,
     tnfpuffer:TNF_IDX, tnfpuffers:TNF_IDX, northfacepuffer:TNF_IDX,
-    thenorthfacepuffer:TNF_IDX, tnforder:TNF_IDX
+    thenorthfacepuffer:TNF_IDX, tnforder:TNF_IDX,
+    slippers:SLIPPERS_IDX, slipper:SLIPPERS_IDX, slides:SLIPPERS_IDX,
+    nikeslippers:SLIPPERS_IDX, nikeslides:SLIPPERS_IDX, adidasslippers:SLIPPERS_IDX,
+    slipperorder:SLIPPERS_IDX, slidesorder:SLIPPERS_IDX
   };
   function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
   var lastHitIdx = -1;
