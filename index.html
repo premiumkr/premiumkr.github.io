@@ -1318,9 +1318,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone &amp; shoes order</span>
+        <span class="kicker">Smartphone · AirPods · shoes order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, plus Nike &amp; Adidas shoes · brand new, factory sealed. Prices are in USD — phones include DHL door delivery, shoes CIF any seaport.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple AirPods Pro 3 and Nike &amp; Adidas shoes · brand new, factory sealed. Prices are in USD — phones and AirPods include DHL door delivery, shoes CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -1509,9 +1509,9 @@
       id:"airpods",
       cat:"Others · Apple audio", cats:["others"],
       title:"Apple AirPods Pro 3 — Final Clearance",
-      badge:"300 pcs",
-      price:"USD 100", unit:"/ pc",
-      meta:"10 pcs lot · door-to-door included",
+      badge:"MOQ 10 pcs",
+      price:"From USD 100", unit:"/ pc",
+      meta:"MOQ 10 pcs · 10+ USD 200 · 100+ USD 160 · 200+ USD 140 · 300+ USD 100 /pc · retail USD 280/pc · DHL included",
       poster:A+"poster-airpods.jpg",
       photos:["d-airpods-01","d-airpods-02","d-airpods-03","d-airpods-04"],
       videos:[
@@ -1519,15 +1519,20 @@
         {src:A+"videos/vid-airpods-pair.mp4", poster:A+"videos/vid-airpods-pair-poster.jpg", cap:"AirPods Pro 3 pairing and battery check on an iPhone"}
       ],
       specs:[
+        ["MOQ · sample order","10 pcs — USD 200 / pc · 10 pcs = USD 2,000"],
+        ["100–199 pcs","USD 160 / pc — 100 pcs = USD 16,000"],
+        ["200–299 pcs","USD 140 / pc — 200 pcs = USD 28,000"],
+        ["300+ pcs","USD 100 / pc — 300 pcs = USD 30,000"],
+        ["Price tiers","10+ USD 200 · 100+ USD 160 · 200+ USD 140 · 300+ USD 100 /pc"],
+        ["Retail / release price","USD 280 / pc"],
         ["Available stock","300 pcs"],
-        ["Lot size","10 pcs"],
-        ["Unit price","USD 100 / pc (10 pcs = USD 1,000)"],
-        ["Retail reference","USD 250 / pc"],
         ["Condition","Brand new, original Apple product"],
-        ["Delivery","Door-to-door delivery included"]
+        ["Delivery","DHL door-to-door delivery included"]
       ],
-      msg:"Hello, I am interested in the AirPods Pro 3 clearance stock (300 pcs available, USD 100/pc for a 10 pcs lot). Please confirm availability and door-to-door delivery to my country.",
-      note:"Final clearance — first come, first served, while stock lasts."
+      msg:"Hello, I am interested in the Apple AirPods Pro 3 (brand new, original Apple, 300 pcs available). Your price tiers: MOQ 10 pcs at USD 200/pc (10 pcs = USD 2,000), 100+ at USD 160, 200+ at USD 140, 300+ at USD 100/pc — retail/release price USD 280/pc, DHL door delivery included. My quantity is: . Please confirm availability and the delivery time to my country.",
+      note:"MOQ 10 pcs. Sample order: 10 pcs = USD 2,000 (USD 200/pc). Retail/release price USD 280/pc. DHL door delivery is included. Use the 🧮 Order &amp; Pay calculator for a live total.",
+      calc:true, calcModel:6, calcLabel:"🧮 Order &amp; Pay · AirPods",
+      buyLink:"?buy=airpods:10"
     },
     {
       id:"watch-ultra3",
@@ -2105,7 +2110,19 @@
     unit:"pair", unitShort:"pairs",
     quick:[50,100,200,500],
     tiers:[{min:50,p:20},{min:100,p:18},{min:200,p:16},{min:500,p:15},{min:5000,p:9}],
-    ladder:"50+ USD 20 · 100+ USD 18 · 200+ USD 16 · 500+ USD 15 · 5,000+ USD 9 /pair"
+    ladder:"50+ USD 20 · 100+ USD 18 · 200+ USD 16 · 500+ USD 15 · 5,000+ USD 9 /pair",
+    ship:"CIF any seaport", shipMode:"cif"
+  };
+  var AIRPODS = {
+    kind:"airpods",
+    name:"Apple AirPods Pro 3",
+    sub:"Brand new · original Apple · sealed retail box · MOQ 10 pcs",
+    moq:10, max:300, step:10,
+    unit:"pc", unitShort:"pcs",
+    quick:[10,100,200,300],
+    tiers:[{min:10,p:200},{min:100,p:160},{min:200,p:140},{min:300,p:100}],
+    ladder:"10+ USD 200 · 100+ USD 160 · 200+ USD 140 · 300+ USD 100 /pc",
+    ship:"DHL door delivery included", shipMode:"dhl"
   };
   var PRODS = PHONES.map(function(p){
     return {kind:"phone", name:p.name, sub:p.brand + " · factory sealed · global unlocked", t:p.t,
@@ -2113,28 +2130,31 @@
   });
   PRODS.push(SHOES);
   var SHOE_IDX = PRODS.length - 1;
+  PRODS.push(AIRPODS);
+  var AIRPOD_IDX = PRODS.length - 1;
   var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
   var QTY = {};
   var lastOrder = {total:0, lines:[], count:0};
 
   function money(n){ return "USD " + Number(n).toLocaleString("en-US"); }
+  function isLot(p){ return !!p.tiers; }
   function unitFor(p, q){
-    if(p.kind === "shoes"){
+    if(isLot(p)){
       var u = p.tiers[0].p;
       for(var k = 0; k < p.tiers.length; k++){ if(q >= p.tiers[k].min){ u = p.tiers[k].p; } }
       return u;
     }
     return q >= 20 ? p.t[3] : q >= 10 ? p.t[2] : q >= 5 ? p.t[1] : p.t[0];
   }
-  function basePrice(p){ return p.kind === "shoes" ? p.tiers[0].p : p.t[0]; }
-  function shipNote(phones, shoes){
-    if(shoes && !phones) return "CIF any seaport — ocean freight to your nearest port";
-    if(shoes && phones) return "Phones incl. DHL door delivery · shoes CIF any seaport";
+  function basePrice(p){ return isLot(p) ? p.tiers[0].p : p.t[0]; }
+  function shipNote(dhl, cif){
+    if(cif && !dhl) return "CIF any seaport — ocean freight to your nearest port";
+    if(cif && dhl) return "DHL door delivery included · shoes CIF any seaport";
     return "Inc. DHL door delivery";
   }
-  function shipNoteText(phones, shoes){
-    if(shoes && !phones) return "CIF any seaport";
-    if(shoes && phones) return "DHL door delivery included for phones · shoes CIF any seaport";
+  function shipNoteText(dhl, cif){
+    if(cif && !dhl) return "CIF any seaport";
+    if(cif && dhl) return "DHL door delivery included · shoes CIF any seaport";
     return "Inc. DHL door delivery";
   }
 
@@ -2155,8 +2175,8 @@
 
   function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
   function rowHtml(p, i){
-    var isShoe = p.kind === "shoes";
-    var ladder = isShoe ? p.ladder
+    var isShoe = isLot(p);
+    var ladder = isLot(p) ? p.ladder
       : "1–4 " + money(p.t[0]) + " · 5–9 " + money(p.t[1]) + " · 10–19 " + money(p.t[2]) + " · 20+ " + money(p.t[3]) + " /pc";
     return '<div class="prow' + (isShoe ? ' prow-shoes' : '') + '" data-i="' + i + '">'
       + '<div class="prow-top">'
@@ -2183,12 +2203,12 @@
   var rowEls = [].slice.call(rowsEl.querySelectorAll(".prow"));
 
   function calcUpdate(){
-    var total = 0, phones = 0, shoes = 0, lines = [];
+    var total = 0, dhl = 0, pairs = 0, lines = [];
     rowEls.forEach(function(row, i){
       var p = PRODS[i];
       var q = Math.max(0, Math.min(p.max, parseInt(QTY[i] || 0, 10) || 0));
       QTY[i] = q;
-      var belowMoq = p.kind === "shoes" && q > 0 && q < p.moq;
+      var belowMoq = p.moq > 0 && q > 0 && q < p.moq;
       row.querySelector(".qty").value = q;
       var u = unitFor(p, q);
       var line = q * u;
@@ -2197,42 +2217,37 @@
       row.classList.toggle("has", q > 0 && !belowMoq);
       var moqEl = row.querySelector("[data-moq]");
       if(moqEl){
-        moqEl.textContent = "MOQ is " + p.moq + " pairs — " + q + " entered. Quick picks: " + p.quick.join(" / ") + " pairs.";
+        moqEl.textContent = "MOQ is " + p.moq + " " + p.unitShort + " — " + q + " entered. Quick picks: " + p.quick.join(" / ") + " " + p.unitShort + ".";
         moqEl.hidden = !belowMoq;
       }
-      var activeQ = p.kind === "shoes" ? q : (q >= 20 ? 20 : q >= 10 ? 10 : q >= 5 ? 5 : q >= 1 ? 1 : 0);
+      var activeQ = isLot(p) ? q : (q >= 20 ? 20 : q >= 10 ? 10 : q >= 5 ? 5 : q >= 1 ? 1 : 0);
       [].forEach.call(row.querySelectorAll(".tiers button"), function(b){
         var bq = Number(b.getAttribute("data-q"));
-        b.setAttribute("aria-pressed", (p.kind === "shoes" ? bq === q : bq === activeQ) ? "true" : "false");
+        b.setAttribute("aria-pressed", (isLot(p) ? bq === q : bq === activeQ) ? "true" : "false");
       });
       if(q > 0 && !belowMoq){
         total += line;
-        if(p.kind === "shoes"){
-          shoes += q;
-          lines.push("• " + p.name + " — " + q.toLocaleString("en-US") + " pairs × " + money(u) + "/pair = " + money(line) + " · CIF any seaport");
-        } else {
-          phones += q;
-          lines.push("• " + p.name + " 1TB — " + q + " pcs × " + money(u) + " = " + money(line));
-        }
+        lines.push("• " + p.name + (isLot(p) ? "" : " 1TB") + " — " + q.toLocaleString("en-US") + " " + p.unitShort + " × " + money(u) + "/" + p.unit + " = " + money(line) + (p.ship ? " · " + p.ship : ""));
+        if(p.shipMode === "cif"){ pairs += q; } else { dhl += q; }
       }
     });
     totalEl.textContent = money(total);
     var bits = [];
-    if(phones) bits.push(phones + " pcs");
-    if(shoes) bits.push(shoes.toLocaleString("en-US") + " pairs");
+    if(dhl) bits.push(dhl.toLocaleString("en-US") + " pcs");
+    if(pairs) bits.push(pairs.toLocaleString("en-US") + " pairs");
     countEl.textContent = bits.length
       ? bits.join(" + ") + " · " + lines.length + " item" + (lines.length > 1 ? "s" : "")
       : "Choose a product and a quantity";
-    if(shipEl) shipEl.textContent = shipNote(phones, shoes);
+    if(shipEl) shipEl.textContent = shipNote(dhl, pairs);
     if(addrNote){
-      addrNote.textContent = shoes
-        ? (phones
-            ? "Enter your delivery address for the Proforma Invoice — phones ship by DHL, shoes CIF to your nearest seaport."
+      addrNote.textContent = pairs
+        ? (dhl
+            ? "Enter your delivery address for the Proforma Invoice — DHL door delivery for phones and AirPods, shoes CIF to your nearest seaport."
             : "Enter your delivery address for the Proforma Invoice — shoes ship CIF to your nearest seaport.")
         : "Enter your DHL delivery address for Proforma Invoice & shipment.";
     }
     payBtn.disabled = total <= 0;
-    lastOrder = {total: total, lines: lines, count: phones, pairs: shoes};
+    lastOrder = {total: total, lines: lines, count: dhl, pairs: pairs};
     if(total <= 0){ ttEl.hidden = true; }
     else if(ttWanted){ ttEl.hidden = false; }
     if(!ttEl.hidden){ setOrderLink(); }
@@ -2276,11 +2291,11 @@
     var p = PRODS[i];
     var q = parseInt(row.querySelector(".qty").value, 10) || 0;
     if(b.getAttribute("data-act") === "inc"){
-      if(p.kind === "shoes"){ q = q < p.moq ? p.moq : q + p.step; }
+      if(p.moq > 0){ q = q < p.moq ? p.moq : q + p.step; }
       else { q += 1; }
     }
     else if(b.getAttribute("data-act") === "dec"){
-      if(p.kind === "shoes"){ q = q <= p.moq ? 0 : Math.max(p.moq, q - p.step); }
+      if(p.moq > 0){ q = q <= p.moq ? 0 : Math.max(p.moq, q - p.step); }
       else { q -= 1; }
     }
     else if(b.getAttribute("data-q")){
@@ -2296,7 +2311,7 @@
     if(!row) return;
     var i = Number(row.getAttribute("data-i"));
     var p = PRODS[i];
-    var maxDigits = p.kind === "shoes" ? 5 : 3;
+    var maxDigits = String(p.max).length;
     var v = String(e.target.value).replace(/[^0-9]/g, "").slice(0, maxDigits);
     QTY[i] = v === "" ? 0 : Math.min(p.max, parseInt(v, 10));
     calcUpdate();
@@ -2307,7 +2322,7 @@
     if(!row) return;
     var i = Number(row.getAttribute("data-i"));
     var p = PRODS[i];
-    if(p.kind !== "shoes") return;
+    if(!(p.moq > 0)) return;
     var q = parseInt(e.target.value, 10) || 0;
     if(q > 0 && q < p.moq){ QTY[i] = p.moq; calcUpdate(); }
   });
@@ -2411,7 +2426,9 @@
     s26:3, galaxy26:3, s26ultra:3, galaxys26:3, galaxys26ultra:3,
     s25:4, galaxy25:4, s25ultra:4, galaxys25:4, galaxys25ultra:4,
     shoes:SHOE_IDX, shoe:SHOE_IDX, sneakers:SHOE_IDX, sneaker:SHOE_IDX,
-    nike:SHOE_IDX, adidas:SHOE_IDX, footwear:SHOE_IDX, shoeorder:SHOE_IDX
+    nike:SHOE_IDX, adidas:SHOE_IDX, footwear:SHOE_IDX, shoeorder:SHOE_IDX,
+    airpods:AIRPOD_IDX, airpod:AIRPOD_IDX, airpodspro:AIRPOD_IDX, airpodspro3:AIRPOD_IDX,
+    airpods3:AIRPOD_IDX, appleairpods:AIRPOD_IDX, earbuds:AIRPOD_IDX
   };
   function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
   var lastHitIdx = -1;
@@ -2427,7 +2444,7 @@
       var p = PRODS[idx];
       var q = parseInt(String(bits[1]).replace(/[^0-9]/g, ""), 10);
       if(!(q > 0)) return;
-      if(p.kind === "shoes" && q < p.moq) q = p.moq;
+      if(p.moq > 0 && q < p.moq) q = p.moq;
       QTY[idx] = Math.min(p.max, q);
       lastHitIdx = idx;
       hits++;
