@@ -1318,9 +1318,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone · AirPods · shoes order</span>
+        <span class="kicker">Smartphone · Apple Watch · AirPods · shoes order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple AirPods Pro 3 and Nike &amp; Adidas shoes · brand new, factory sealed. Prices are in USD — phones and AirPods include DHL door delivery, shoes CIF any seaport.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, Apple Watch Ultra 3, Apple AirPods Pro 3 and Nike &amp; Adidas shoes · brand new, factory sealed. Prices are in USD — phones, watches and AirPods include DHL door delivery, shoes CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -1538,9 +1538,11 @@
       id:"watch-ultra3",
       cat:"Smartphone · Apple Watch", cats:["hot","others"], hot:true,
       title:"Apple Watch Ultra 3 — Brand New Sealed",
-      badge:"50 pcs lot",
-      price:"USD 320", unit:"/ pc · take all 50",
-      meta:"10 pcs USD 480 / pc · 1 pc USD 600 · DHL included",
+      badge:"MOQ 1 pc",
+      price:"USD 600", unit:"/ pc · 1 pc = USD 600",
+      meta:"MOQ 1 pc · 1+ USD 600 · 10+ USD 480 · 50+ USD 320 /pc · DHL included",
+      calc:true, calcModel:7, calcLabel:"🧮 Order &amp; Pay · Watch",
+      buyLink:"?buy=watch:1",
       poster:A+"poster-watch-ultra3.jpg",
       photos:["d-watch-ultra3-01","d-watch-ultra3-02","d-watch-ultra3-03","d-watch-ultra3-04"],
       videos:[
@@ -1549,16 +1551,17 @@
         {src:A+"videos/vid-watch-stock.mp4", poster:A+"videos/vid-watch-stock-poster.jpg", cap:"Apple Watch Ultra 3 — cartons from the ready stock"}
       ],
       specs:[
-        ["Take all · 50 pcs","USD 320 / pc — USD 16,000 total"],
-        ["10 pcs","USD 480 / pc — USD 4,800 total"],
-        ["1 pc (MOQ 1)","USD 600 / pc"],
+        ["MOQ · sample order","1 pc — USD 600 / pc"],
+        ["10–49 pcs","USD 480 / pc — 10 pcs = USD 4,800"],
+        ["50+ pcs","USD 320 / pc — 50 pcs = USD 16,000"],
+        ["Price tiers","1+ USD 600 · 10+ USD 480 · 50+ USD 320 /pc"],
         ["Condition","Brand new, factory seal, unlocked · all carriers"],
-        ["Shipping","DHL 3 days delivery included"],
+        ["Shipping","DHL 3 days door delivery included"],
         ["Stock","Ready stock — first come, first served"]
       ],
-      msg:"Hello, I am interested in the Apple Watch Ultra 3 (brand new, factory sealed, unlocked, all carriers). Prices: 50 pcs at USD 320/pc, 10 pcs at USD 480/pc, 1 pc at USD 600 — DHL 3 days delivery included. Please confirm the current stock and the delivery time to my country.",
+      msg:"Hello, I am interested in the Apple Watch Ultra 3 (brand new, factory sealed, unlocked, all carriers). Your price tiers: 1 pc at USD 600/pc, 10+ pcs at USD 480/pc (10 pcs = USD 4,800), 50+ pcs at USD 320/pc (50 pcs = USD 16,000) — DHL 3 days door delivery included. My quantity is: . Please confirm the current stock and the delivery time to my country.",
       ask:"photos of the actual units · colours and band sizes · DHL lead time to your country",
-      note:"MOQ is 1 pc. DHL 3-day door-to-door delivery is included in the prices above; quantities above 50 pcs are quoted on request."
+      note:"MOQ is 1 pc. DHL 3-day door-to-door delivery is included in the prices above. Use the 🧮 Order &amp; Pay calculator for a live total."
     },
     {
       id:"jerseys",
@@ -2094,7 +2097,7 @@
     }
   });
 
-  /* ---------- order & pay calculator: smartphones + Nike & Adidas shoes ---------- */
+  /* ---------- order & pay calculator: smartphones + Apple Watch + AirPods + Nike & Adidas shoes ---------- */
   var PHONES = [
     {name:"iPhone 18 Pro Max", brand:"Apple", t:[1600,1400,1200,1050]},
     {name:"iPhone 17 Pro Max", brand:"Apple", t:[1300,1100,950,850]},
@@ -2132,6 +2135,19 @@
   var SHOE_IDX = PRODS.length - 1;
   PRODS.push(AIRPODS);
   var AIRPOD_IDX = PRODS.length - 1;
+  var WATCH = {
+    kind:"watch",
+    name:"Apple Watch Ultra 3",
+    sub:"Brand new · factory seal · unlocked · all carriers · MOQ 1 pc",
+    moq:1, max:1000, step:1,
+    unit:"pc", unitShort:"pcs",
+    quick:[1,10,50],
+    tiers:[{min:1,p:600},{min:10,p:480},{min:50,p:320}],
+    ladder:"1+ USD 600 · 10+ USD 480 · 50+ USD 320 /pc",
+    ship:"DHL door delivery included", shipMode:"dhl"
+  };
+  PRODS.push(WATCH);
+  var WATCH_IDX = PRODS.length - 1;
   var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
   var QTY = {};
   var lastOrder = {total:0, lines:[], count:0};
@@ -2428,7 +2444,9 @@
     shoes:SHOE_IDX, shoe:SHOE_IDX, sneakers:SHOE_IDX, sneaker:SHOE_IDX,
     nike:SHOE_IDX, adidas:SHOE_IDX, footwear:SHOE_IDX, shoeorder:SHOE_IDX,
     airpods:AIRPOD_IDX, airpod:AIRPOD_IDX, airpodspro:AIRPOD_IDX, airpodspro3:AIRPOD_IDX,
-    airpods3:AIRPOD_IDX, appleairpods:AIRPOD_IDX, earbuds:AIRPOD_IDX
+    airpods3:AIRPOD_IDX, appleairpods:AIRPOD_IDX, earbuds:AIRPOD_IDX,
+    watch:WATCH_IDX, applewatch:WATCH_IDX, watchultra:WATCH_IDX, watchultra3:WATCH_IDX,
+    ultra3:WATCH_IDX, ultra:WATCH_IDX, aw:WATCH_IDX, watchorder:WATCH_IDX
   };
   function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
   var lastHitIdx = -1;
