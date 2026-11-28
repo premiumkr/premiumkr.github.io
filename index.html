@@ -315,6 +315,10 @@
   .price{font-size:19px;font-weight:850;letter-spacing:-.02em;line-height:1}
   .price small{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:0}
   .hint{font-size:12px;font-weight:800;color:#0d6b3f;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+  .card-calc{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;height:32px;padding:0 13px;margin-top:2px;border-radius:999px;background:linear-gradient(180deg,#f0bd60,#dc9d2c);color:#2a1b02;font-size:12px;font-weight:850;letter-spacing:.01em;text-decoration:none;box-shadow:0 6px 16px rgba(220,157,44,.28);transition:filter .15s ease,transform .15s ease}
+  .card-calc:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .card-calc:active{transform:none}
+  .card-calc .arw{margin-left:5px;font-size:11px;line-height:1;opacity:.95}
   .fineprint{margin:26px 0 0;font-size:12.5px;color:var(--muted-2);line-height:1.6}
 
   /* ---------- channel band ---------- */
@@ -535,10 +539,16 @@
   .prow-top b{font-size:14.5px;letter-spacing:-.01em}
   .prow-top .sub{display:block;font-size:11.5px;color:var(--muted-2);margin-top:3px}
   .prow-band{font-style:normal;font-size:11px;font-weight:700;color:#8a6a1c;background:#fdf5e3;border:1px solid #f1e0b8;border-radius:7px;padding:5px 9px;white-space:nowrap;line-height:1.3}
+  .prow-band.wrap{white-space:normal;max-width:100%;flex:1 1 100%;text-align:left}
+  .prow-moq{margin:8px 0 0;font-size:11.5px;line-height:1.45;font-weight:750;color:#8a5a10;background:#fdf5e3;border:1px solid #f1e0b8;border-radius:8px;padding:6px 9px}
+  .prow-moq[hidden]{display:none}
+  @keyframes rowGlow{0%,55%{box-shadow:0 0 0 3px rgba(233,176,74,.55)}100%{box-shadow:0 0 0 3px rgba(233,176,74,0)}}
+  .prow.is-linked{border-color:#dc9d2c;animation:rowGlow 1.7s ease-out 2}
   .prow-controls{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin-top:11px}
   .stepper{display:inline-flex;align-items:center;border:1px solid #d7dfe9;border-radius:10px;overflow:hidden;background:#fff}
   .stepper button{width:34px;height:34px;border:0;background:#f3f6fa;font-size:17px;font-weight:700;color:#25405a;cursor:pointer;line-height:1}
   .stepper button:hover{background:#e7eef6}
+  .stepper.wide .qty{width:68px;font-size:13px}
   .stepper .qty{width:48px;height:34px;border:0;border-inline:1px solid #e6ecf3;text-align:center;font-size:14px;font-weight:700;color:#0a1826;-webkit-appearance:none;appearance:textfield;-moz-appearance:textfield}
   .stepper .qty::-webkit-outer-spin-button,.stepper .qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
   .tiers{display:flex;gap:6px;flex-wrap:wrap}
@@ -1308,9 +1318,9 @@
   <div class="calc-panel" role="dialog" aria-modal="true" aria-labelledby="calc-title">
     <div class="calc-head">
       <div>
-        <span class="kicker">Smartphone order</span>
+        <span class="kicker">Smartphone &amp; shoes order</span>
         <h3 id="calc-title">🧮 Order &amp; Pay Calculator</h3>
-        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB · brand new, factory sealed, global unlocked. Prices are per piece in USD and include DHL door delivery.</p>
+        <p>iPhone 18 / 17 / 16 Pro Max and Galaxy S26 / S25 Ultra · 1TB, plus Nike &amp; Adidas shoes · brand new, factory sealed. Prices are in USD — phones include DHL door delivery, shoes CIF any seaport.</p>
       </div>
       <button class="calc-x" type="button" data-calc-close aria-label="Close calculator">✕</button>
     </div>
@@ -1320,12 +1330,12 @@
         <div class="calc-total">
           <span>Total (USD)</span>
           <strong id="calc-total">USD 0</strong>
-          <em id="calc-count">Choose a model and a quantity</em>
-          <em>Inc. DHL door delivery</em>
+          <em id="calc-count">Choose a product and a quantity</em>
+          <em id="calc-ship">Inc. DHL door delivery</em>
         </div>
         <div class="calc-dhl" id="calc-addr" role="group" aria-labelledby="calc-addr-title">
           <b id="calc-addr-title">📦 DHL Delivery Address</b>
-          <p class="dhl-note">Enter your DHL delivery address for Proforma Invoice &amp; shipment.</p>
+          <p class="dhl-note" id="calc-addr-note">Enter your DHL delivery address for Proforma Invoice &amp; shipment.</p>
           <div class="dhl-grid">
             <label><span>Country</span><input type="text" data-label="Country" data-req="1" placeholder="United States" autocomplete="country-name" maxlength="60"></label>
             <label><span>State</span><input type="text" data-label="State" data-req="0" placeholder="California" autocomplete="address-level1" maxlength="60"></label>
@@ -1449,9 +1459,9 @@
       id:"sneakers",
       cat:"Nike &amp; Adidas Shoes", cats:["shoes"],
       title:"Nike &amp; Adidas Shoes — Brand New",
-      badge:"5,000 pairs",
-      price:"USD 15", unit:"/ pair",
-      meta:"MOQ 500 pairs · CIF any seaport",
+      badge:"MOQ 50 pairs",
+      price:"From USD 9", unit:"/ pair",
+      meta:"MOQ 50 pairs · 50+ USD 20 · 100+ USD 18 · 200+ USD 16 · 500+ USD 15 · 5,000+ USD 9 /pair · CIF any seaport",
       poster:A+"poster-sneakers.jpg",
       photos:["d-shoe-01","d-shoe-02","d-shoe-03","d-shoe-04","d-shoe-05","d-shoe-06","d-shoe-17","d-shoe-18","d-shoe-19","d-shoe-21","d-shoe-22","d-shoe-26","d-shoe-23","d-shoe-20","d-shoe-07","d-shoe-08","d-shoe-09","d-shoe-10","d-shoe-11","d-shoe-12","d-shoe-13","d-shoe-24","d-shoe-14","d-shoe-15","d-shoe-16","d-shoe-25"],
       videos:[
@@ -1459,15 +1469,21 @@
         {src:A+"videos/vid-sneakers-stock.mp4", poster:A+"videos/vid-sneakers-stock-poster.jpg", cap:"Nike boxes stacked on the warehouse floor, ready to load"}
       ],
       specs:[
-        ["Small order","500 pairs at USD 15 / pair"],
-        ["Full lot","5,000 pairs at USD 9 / pair"],
+        ["50–99 pairs","USD 20 / pair"],
+        ["100–199 pairs","USD 18 / pair"],
+        ["200–499 pairs","USD 16 / pair"],
+        ["500–4,999 pairs","USD 15 / pair"],
+        ["5,000+ pairs","USD 9 / pair"],
+        ["MOQ","50 pairs"],
         ["Sizes","EU 37 – 45, all sizes"],
         ["Shipping","CIF any seaport"],
         ["Condition","Brand new"],
         ["Availability","Ready for immediate shipment"]
       ],
-      msg:"Hello, I am interested in the Nike & Adidas shoe stock: 500 pairs at USD 15/pair, or the full 5,000 pairs at USD 9/pair CIF. Please send the model list and size breakdown.",
-      note:"Model mix varies with current stock — the latest box photos are shared on request."
+      msg:"Hello, I am interested in the Nike & Adidas shoe stock (brand new, EU 37–45, CIF any seaport). Your tiers are 50–99 pairs at USD 20/pair, 100–199 at USD 18, 200–499 at USD 16, 500–4,999 at USD 15 and 5,000+ at USD 9. My quantity is: . Please send the model list and size breakdown.",
+      note:"MOQ 50 pairs. Model mix varies with current stock — the latest box photos are shared on request. Use the 🧮 Order &amp; Pay calculator for a live total.",
+      calc:true, calcModel:5, calcLabel:"🧮 Order &amp; Pay · Shoes",
+      buyLink:"?buy=shoes:50"
     },
     {
       id:"slippers",
@@ -1745,6 +1761,7 @@
       +   '<span class="card-cat">'+it.cat+'</span>'
       +   '<h3 class="card-title">'+it.title+'</h3>'
       +   '<span class="card-meta">'+it.meta+'</span>'
+      +   (it.buyLink ? '<a class="card-calc" href="'+it.buyLink+'" data-buy-link aria-label="Open the Order and Pay calculator for '+it.title.replace(/&amp;/g,"and").replace(/"/g,"")+'">🧮 Order &amp; Pay<span class="arw" aria-hidden="true">→</span></a>' : '')
       +   '<div class="card-foot">'
       +     '<span class="price">'+it.price+'<small> '+it.unit+'</small></span>'
       +     '<span class="hint">Details →</span>'
@@ -1876,7 +1893,7 @@
 
     setSlide(0);
     mWa.href = wa(it.msg);
-    if(mCalc){ mCalc.hidden = !it.calc; }
+    if(mCalc){ mCalc.hidden = !it.calc; mCalc.innerHTML = it.calcLabel || "🧮 Order &amp; Pay Calculator"; }
 
     modal.setAttribute("aria-hidden","false");
     document.body.classList.add("no-scroll");
@@ -1900,6 +1917,7 @@
   }
 
   grid.addEventListener("click", function(e){
+    if(e.target.closest("[data-buy-link]")){ return; }
     var card = e.target.closest(".card");
     if(!card) return;
     var idx = Number(card.dataset.i);
@@ -1907,6 +1925,7 @@
     openItem(idx);
   });
   grid.addEventListener("keydown", function(e){
+    if(e.target.closest && e.target.closest("[data-buy-link]")){ return; }
     if(e.key === "Enter" || e.key === " "){
       var card = e.target.closest(".card");
       if(card){
@@ -2070,7 +2089,7 @@
     }
   });
 
-  /* ---------- smartphone order & pay calculator ---------- */
+  /* ---------- order & pay calculator: smartphones + Nike & Adidas shoes ---------- */
   var PHONES = [
     {name:"iPhone 18 Pro Max", brand:"Apple", t:[1600,1400,1200,1050]},
     {name:"iPhone 17 Pro Max", brand:"Apple", t:[1300,1100,950,850]},
@@ -2078,12 +2097,46 @@
     {name:"Galaxy S26 Ultra", brand:"Samsung", t:[1100,1000,900,800]},
     {name:"Galaxy S25 Ultra", brand:"Samsung", t:[1000,900,800,700]}
   ];
+  var SHOES = {
+    kind:"shoes",
+    name:"Nike & Adidas Shoes",
+    sub:"Brand new · EU 37–45 · all sizes · CIF any seaport",
+    moq:50, max:50000, step:50,
+    unit:"pair", unitShort:"pairs",
+    quick:[50,100,200,500],
+    tiers:[{min:50,p:20},{min:100,p:18},{min:200,p:16},{min:500,p:15},{min:5000,p:9}],
+    ladder:"50+ USD 20 · 100+ USD 18 · 200+ USD 16 · 500+ USD 15 · 5,000+ USD 9 /pair"
+  };
+  var PRODS = PHONES.map(function(p){
+    return {kind:"phone", name:p.name, sub:p.brand + " · factory sealed · global unlocked", t:p.t,
+            quick:[1,5,10,20], moq:0, max:999, step:1, unit:"pc", unitShort:"pcs"};
+  });
+  PRODS.push(SHOES);
+  var SHOE_IDX = PRODS.length - 1;
   var BANK_TEXT = "HANA BANK — Mokdong Nam Branch\nAccount Name: KY INTERNATIONAL\nAccount Number: 245-910002-44138\nSWIFT Code: KOEXKRSE\nBank Address: 381 Mokdongsero, Yangcheon-gu, Seoul, Republic of Korea\nBank Tel: +82 2 2648 0235";
   var QTY = {};
   var lastOrder = {total:0, lines:[], count:0};
 
   function money(n){ return "USD " + Number(n).toLocaleString("en-US"); }
-  function unitFor(p, q){ return q >= 20 ? p.t[3] : q >= 10 ? p.t[2] : q >= 5 ? p.t[1] : p.t[0]; }
+  function unitFor(p, q){
+    if(p.kind === "shoes"){
+      var u = p.tiers[0].p;
+      for(var k = 0; k < p.tiers.length; k++){ if(q >= p.tiers[k].min){ u = p.tiers[k].p; } }
+      return u;
+    }
+    return q >= 20 ? p.t[3] : q >= 10 ? p.t[2] : q >= 5 ? p.t[1] : p.t[0];
+  }
+  function basePrice(p){ return p.kind === "shoes" ? p.tiers[0].p : p.t[0]; }
+  function shipNote(phones, shoes){
+    if(shoes && !phones) return "CIF any seaport — ocean freight to your nearest port";
+    if(shoes && phones) return "Phones incl. DHL door delivery · shoes CIF any seaport";
+    return "Inc. DHL door delivery";
+  }
+  function shipNoteText(phones, shoes){
+    if(shoes && !phones) return "CIF any seaport";
+    if(shoes && phones) return "DHL door delivery included for phones · shoes CIF any seaport";
+    return "Inc. DHL door delivery";
+  }
 
   var calcEl = document.getElementById("calc");
   var rowsEl = document.getElementById("calc-rows");
@@ -2095,59 +2148,90 @@
   var copyBtn = document.getElementById("calc-copy");
   var addrEls = [].slice.call(document.querySelectorAll("#calc-addr input"));
   var addrHint = document.getElementById("calc-addr-hint");
+  var addrNote = document.getElementById("calc-addr-note");
+  var shipEl = document.getElementById("calc-ship");
   var waNudged = false;
 
-  rowsEl.innerHTML = PHONES.map(function(p, i){
-    var ladder = "1–4 " + money(p.t[0]) + " · 5–9 " + money(p.t[1]) + " · 10–19 " + money(p.t[2]) + " · 20+ " + money(p.t[3]);
-    return '<div class="prow" data-i="' + i + '">'
+  function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function rowHtml(p, i){
+    var isShoe = p.kind === "shoes";
+    var ladder = isShoe ? p.ladder
+      : "1–4 " + money(p.t[0]) + " · 5–9 " + money(p.t[1]) + " · 10–19 " + money(p.t[2]) + " · 20+ " + money(p.t[3]) + " /pc";
+    return '<div class="prow' + (isShoe ? ' prow-shoes' : '') + '" data-i="' + i + '">'
       + '<div class="prow-top">'
-      +   '<div><b>' + p.name + ' 1TB</b><span class="sub">' + p.brand + ' · factory sealed · global unlocked</span></div>'
-      +   '<em class="prow-band">' + ladder + ' /pc</em>'
+      +   '<div><b>' + esc(p.name) + (isShoe ? '' : ' 1TB') + '</b><span class="sub">' + esc(p.sub) + '</span></div>'
+      +   '<em class="prow-band' + (isShoe ? ' wrap' : '') + '">' + ladder + '</em>'
       + '</div>'
       + '<div class="prow-controls">'
-      +   '<div class="stepper">'
-      +     '<button type="button" data-act="dec" aria-label="Decrease ' + p.name + ' quantity">−</button>'
-      +     '<input class="qty" type="number" min="0" max="999" step="1" value="0" inputmode="numeric" aria-label="' + p.name + ' quantity in pieces">'
-      +     '<button type="button" data-act="inc" aria-label="Increase ' + p.name + ' quantity">+</button>'
+      +   '<div class="stepper' + (isShoe ? ' wide' : '') + '">'
+      +     '<button type="button" data-act="dec" aria-label="Decrease ' + esc(p.name) + ' quantity">−</button>'
+      +     '<input class="qty" type="number" min="0" max="' + p.max + '" step="1" value="0" inputmode="numeric" aria-label="' + esc(p.name) + ' quantity in ' + p.unitShort + '">'
+      +     '<button type="button" data-act="inc" aria-label="Increase ' + esc(p.name) + ' quantity">+</button>'
       +   '</div>'
-      +   '<div class="tiers" role="group" aria-label="Quick quantity for ' + p.name + '">'
-      +     [1,5,10,20].map(function(q){ return '<button type="button" data-q="' + q + '">' + q + '</button>'; }).join("")
+      +   '<div class="tiers" role="group" aria-label="Quick quantity for ' + esc(p.name) + '">'
+      +     p.quick.map(function(q){ return '<button type="button" data-q="' + q + '">' + q.toLocaleString("en-US") + '</button>'; }).join("")
       +   '</div>'
-      +   '<div class="prow-sum"><span class="unit" data-unit>From ' + money(p.t[0]) + ' / pc</span><strong class="line" data-line>USD 0</strong></div>'
+      +   '<div class="prow-sum"><span class="unit" data-unit>From ' + money(basePrice(p)) + ' / ' + p.unit + '</span><strong class="line" data-line>USD 0</strong></div>'
       + '</div>'
+      + (isShoe ? '<p class="prow-moq" data-moq hidden></p>' : '')
       + '</div>';
-  }).join("");
+  }
+
+  rowsEl.innerHTML = PRODS.map(rowHtml).join("");
 
   var rowEls = [].slice.call(rowsEl.querySelectorAll(".prow"));
 
   function calcUpdate(){
-    var total = 0, count = 0, lines = [];
+    var total = 0, phones = 0, shoes = 0, lines = [];
     rowEls.forEach(function(row, i){
-      var p = PHONES[i];
-      var q = Math.max(0, Math.min(999, parseInt(QTY[i] || 0, 10) || 0));
+      var p = PRODS[i];
+      var q = Math.max(0, Math.min(p.max, parseInt(QTY[i] || 0, 10) || 0));
       QTY[i] = q;
+      var belowMoq = p.kind === "shoes" && q > 0 && q < p.moq;
       row.querySelector(".qty").value = q;
       var u = unitFor(p, q);
       var line = q * u;
-      row.querySelector("[data-unit]").textContent = q > 0 ? money(u) + " / pc" : "From " + money(p.t[0]) + " / pc";
-      row.querySelector("[data-line]").textContent = money(line);
-      row.classList.toggle("has", q > 0);
-      var activeQ = q >= 20 ? 20 : q >= 10 ? 10 : q >= 5 ? 5 : q >= 1 ? 1 : 0;
+      row.querySelector("[data-unit]").textContent = q > 0 ? money(u) + " / " + p.unit : "From " + money(basePrice(p)) + " / " + p.unit;
+      row.querySelector("[data-line]").textContent = belowMoq ? "—" : money(line);
+      row.classList.toggle("has", q > 0 && !belowMoq);
+      var moqEl = row.querySelector("[data-moq]");
+      if(moqEl){
+        moqEl.textContent = "MOQ is " + p.moq + " pairs — " + q + " entered. Quick picks: " + p.quick.join(" / ") + " pairs.";
+        moqEl.hidden = !belowMoq;
+      }
+      var activeQ = p.kind === "shoes" ? q : (q >= 20 ? 20 : q >= 10 ? 10 : q >= 5 ? 5 : q >= 1 ? 1 : 0);
       [].forEach.call(row.querySelectorAll(".tiers button"), function(b){
-        b.setAttribute("aria-pressed", Number(b.getAttribute("data-q")) === activeQ ? "true" : "false");
+        var bq = Number(b.getAttribute("data-q"));
+        b.setAttribute("aria-pressed", (p.kind === "shoes" ? bq === q : bq === activeQ) ? "true" : "false");
       });
-      if(q > 0){
+      if(q > 0 && !belowMoq){
         total += line;
-        count += q;
-        lines.push("• " + p.name + " 1TB — " + q + " pcs × " + money(u) + " = " + money(line));
+        if(p.kind === "shoes"){
+          shoes += q;
+          lines.push("• " + p.name + " — " + q.toLocaleString("en-US") + " pairs × " + money(u) + "/pair = " + money(line) + " · CIF any seaport");
+        } else {
+          phones += q;
+          lines.push("• " + p.name + " 1TB — " + q + " pcs × " + money(u) + " = " + money(line));
+        }
       }
     });
     totalEl.textContent = money(total);
-    countEl.textContent = count
-      ? count + " pcs · " + lines.length + " model" + (lines.length > 1 ? "s" : "")
-      : "Choose a model and a quantity";
+    var bits = [];
+    if(phones) bits.push(phones + " pcs");
+    if(shoes) bits.push(shoes.toLocaleString("en-US") + " pairs");
+    countEl.textContent = bits.length
+      ? bits.join(" + ") + " · " + lines.length + " item" + (lines.length > 1 ? "s" : "")
+      : "Choose a product and a quantity";
+    if(shipEl) shipEl.textContent = shipNote(phones, shoes);
+    if(addrNote){
+      addrNote.textContent = shoes
+        ? (phones
+            ? "Enter your delivery address for the Proforma Invoice — phones ship by DHL, shoes CIF to your nearest seaport."
+            : "Enter your delivery address for the Proforma Invoice — shoes ship CIF to your nearest seaport.")
+        : "Enter your DHL delivery address for Proforma Invoice & shipment.";
+    }
     payBtn.disabled = total <= 0;
-    lastOrder = {total: total, lines: lines, count: count};
+    lastOrder = {total: total, lines: lines, count: phones, pairs: shoes};
     if(total <= 0){ ttEl.hidden = true; }
     if(!ttEl.hidden){ setOrderLink(); }
   }
@@ -2174,7 +2258,7 @@
   function setOrderLink(){
     var block = addrBlock();
     var msg = "Hello, I would like to order:\n" + lastOrder.lines.join("\n")
-      + "\nTotal: " + money(lastOrder.total) + " (Inc. DHL door delivery)"
+      + "\nTotal: " + money(lastOrder.total) + " (" + shipNoteText(lastOrder.count, lastOrder.pairs) + ")"
       + (block ? "\n\n" + block : "")
       + "\n\nI am sending the T/T payment slip in this chat. Please confirm the order and send the invoice.";
     waBtn.href = wa(msg);
@@ -2187,14 +2271,21 @@
     var row = b.closest(".prow");
     if(!row) return;
     var i = Number(row.getAttribute("data-i"));
+    var p = PRODS[i];
     var q = parseInt(row.querySelector(".qty").value, 10) || 0;
-    if(b.getAttribute("data-act") === "inc"){ q += 1; }
-    else if(b.getAttribute("data-act") === "dec"){ q -= 1; }
+    if(b.getAttribute("data-act") === "inc"){
+      if(p.kind === "shoes"){ q = q < p.moq ? p.moq : q + p.step; }
+      else { q += 1; }
+    }
+    else if(b.getAttribute("data-act") === "dec"){
+      if(p.kind === "shoes"){ q = q <= p.moq ? 0 : Math.max(p.moq, q - p.step); }
+      else { q -= 1; }
+    }
     else if(b.getAttribute("data-q")){
       var target = Number(b.getAttribute("data-q"));
       q = (q === target) ? 0 : target;
     }
-    QTY[i] = Math.max(0, Math.min(999, q));
+    QTY[i] = Math.max(0, Math.min(p.max, q));
     calcUpdate();
   });
   rowsEl.addEventListener("input", function(e){
@@ -2202,9 +2293,21 @@
     var row = e.target.closest(".prow");
     if(!row) return;
     var i = Number(row.getAttribute("data-i"));
-    var v = String(e.target.value).replace(/[^0-9]/g, "").slice(0, 3);
-    QTY[i] = v === "" ? 0 : Math.min(999, parseInt(v, 10));
+    var p = PRODS[i];
+    var maxDigits = p.kind === "shoes" ? 5 : 3;
+    var v = String(e.target.value).replace(/[^0-9]/g, "").slice(0, maxDigits);
+    QTY[i] = v === "" ? 0 : Math.min(p.max, parseInt(v, 10));
     calcUpdate();
+  });
+  rowsEl.addEventListener("focusout", function(e){
+    if(!e.target.classList || !e.target.classList.contains("qty")) return;
+    var row = e.target.closest(".prow");
+    if(!row) return;
+    var i = Number(row.getAttribute("data-i"));
+    var p = PRODS[i];
+    if(p.kind !== "shoes") return;
+    var q = parseInt(e.target.value, 10) || 0;
+    if(q > 0 && q < p.moq){ QTY[i] = p.moq; calcUpdate(); }
   });
 
   addrEls.forEach(function(el){
@@ -2275,13 +2378,14 @@
 
   function openCalc(modelIdx){
     if(modal.getAttribute("aria-hidden") === "false"){ closeModal(true); }
-    if(typeof modelIdx === "number" && modelIdx >= 0 && !QTY[modelIdx]){ QTY[modelIdx] = 1; }
+    if(typeof modelIdx === "number" && modelIdx >= 0 && !QTY[modelIdx]){ QTY[modelIdx] = PRODS[modelIdx] && PRODS[modelIdx].moq ? PRODS[modelIdx].moq : 1; }
     calcUpdate();
     calcEl.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     ovOpen("calc");
     var x = calcEl.querySelector(".calc-x");
     if(x) x.focus({preventScroll:true});
+    if(typeof modelIdx === "number" && modelIdx >= 0){ focusProduct(modelIdx); }
   }
   function closeCalc(silent){
     calcEl.setAttribute("aria-hidden", "true");
@@ -2302,9 +2406,12 @@
     ip17:1, iphone17:1, ip17promax:1, iphone17promax:1, 17:1,
     ip16:2, iphone16:2, ip16promax:2, iphone16promax:2, 16:2,
     s26:3, galaxy26:3, s26ultra:3, galaxys26:3, galaxys26ultra:3,
-    s25:4, galaxy25:4, s25ultra:4, galaxys25:4, galaxys25ultra:4
+    s25:4, galaxy25:4, s25ultra:4, galaxys25:4, galaxys25ultra:4,
+    shoes:SHOE_IDX, shoe:SHOE_IDX, sneakers:SHOE_IDX, sneaker:SHOE_IDX,
+    nike:SHOE_IDX, adidas:SHOE_IDX, footwear:SHOE_IDX, shoeorder:SHOE_IDX
   };
   function keyOf(s){ return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
+  var lastHitIdx = -1;
   function applyBuySpec(spec){
     var hits = 0;
     String(spec || "").split(/[,;|]+|\s+/).forEach(function(part){
@@ -2314,17 +2421,35 @@
       if(bits.length < 2) return;
       var idx = LINK_KEYS[keyOf(bits[0])];
       if(typeof idx !== "number") return;
+      var p = PRODS[idx];
       var q = parseInt(String(bits[1]).replace(/[^0-9]/g, ""), 10);
       if(!(q > 0)) return;
-      QTY[idx] = Math.min(999, q);
+      if(p.kind === "shoes" && q < p.moq) q = p.moq;
+      QTY[idx] = Math.min(p.max, q);
+      lastHitIdx = idx;
       hits++;
     });
     return hits;
   }
-  function showPayPanel(){
+  function focusProduct(idx){
+    var row = rowsEl.querySelector('.prow[data-i="' + idx + '"]');
+    if(!row) return;
+    row.classList.remove("is-linked");
+    void row.offsetWidth;
+    row.classList.add("is-linked");
+    setTimeout(function(){ row.classList.remove("is-linked"); }, 3600);
+    setTimeout(function(){
+      if(row.scrollIntoView){
+        try { row.scrollIntoView({block:"center", behavior:"smooth"}); }
+        catch(err){ row.scrollIntoView(); }
+      }
+    }, 120);
+  }
+  function showPayPanel(keepView){
     if(lastOrder.total <= 0) return;
     ttEl.hidden = false;
     setOrderLink();
+    if(keepView) return;
     setTimeout(function(){
       if(ttEl.scrollIntoView){
         try { ttEl.scrollIntoView({block:"nearest", behavior:"smooth"}); }
@@ -2357,7 +2482,8 @@
 
     var hits = buySpec ? applyBuySpec(buySpec) : 0;
     openCalc(-1);
-    if(wantPay || hits > 0){ showPayPanel(); }
+    if(hits > 0 && lastHitIdx >= 0){ calcUpdate(); focusProduct(lastHitIdx); }
+    if(wantPay || hits > 0){ showPayPanel(!flag(payFlag) && hits > 0); }
   }
   openFromLink();
   window.addEventListener("hashchange", function(){
