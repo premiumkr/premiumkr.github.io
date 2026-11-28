@@ -781,6 +781,7 @@
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.51l-.38 5.36c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.86c.97.54 1.66.26 1.9-.89L22.7 6.35c.3-1.4-.51-1.95-1.44-1.61L3.5 11.65c-1.37.53-1.35 1.28-.23 1.62l4.54 1.42L18.3 7.5c.5-.32.95-.14.58.18l-8.84 7.83z"/></svg>
             Join Telegram Channel
           </a>
+          <button class="btn btn-calc btn-lg" id="hero-calc" type="button">🧮 Order &amp; Pay Calculator</button>
         </div>
         <ul class="chips">
           <li>MOQ from 1 pc</li>
@@ -2523,6 +2524,8 @@
   }
   var calcOpenBtn = document.getElementById("calc-open");
   if(calcOpenBtn) calcOpenBtn.addEventListener("click", function(){ openCalc(-1); });
+  var heroCalcBtn = document.getElementById("hero-calc");
+  if(heroCalcBtn) heroCalcBtn.addEventListener("click", function(){ openCalc(-1); });
   if(mCalc) mCalc.addEventListener("click", function(){
     var it = current;
     openCalc(it && typeof it.calcModel === "number" ? it.calcModel : -1);
